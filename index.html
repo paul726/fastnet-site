@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FastNet — Full Speed iPhone Hotspot on Mac</title>
+<meta name="description" content="Bypass carrier hotspot throttling. Get full cellular speed on your Mac with one USB cable and one click.">
+<style>
+:root {
+  --bg: #0a0a0a;
+  --surface: #141414;
+  --border: #222;
+  --text: #e8e8e8;
+  --text2: #888;
+  --accent: #3b82f6;
+  --green: #22c55e;
+  --red: #ef4444;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+.container { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+
+/* Nav */
+nav {
+  padding: 20px 0;
+  border-bottom: 1px solid var(--border);
+}
+nav .container { display: flex; justify-content: space-between; align-items: center; }
+.logo { font-size: 18px; font-weight: 700; letter-spacing: -0.5px; }
+.logo span { color: var(--accent); }
+nav a { color: var(--text2); text-decoration: none; font-size: 14px; }
+nav a:hover { color: var(--text); }
+
+/* Hero */
+.hero {
+  padding: 80px 0 60px;
+  text-align: center;
+}
+.badge {
+  display: inline-block;
+  padding: 6px 14px;
+  background: rgba(59,130,246,0.1);
+  border: 1px solid rgba(59,130,246,0.2);
+  border-radius: 20px;
+  font-size: 13px;
+  color: var(--accent);
+  margin-bottom: 24px;
+}
+h1 {
+  font-size: clamp(32px, 6vw, 48px);
+  font-weight: 800;
+  letter-spacing: -1.5px;
+  line-height: 1.15;
+  margin-bottom: 20px;
+}
+h1 .highlight {
+  background: linear-gradient(135deg, var(--accent), #8b5cf6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.subtitle {
+  font-size: 18px;
+  color: var(--text2);
+  max-width: 520px;
+  margin: 0 auto 40px;
+}
+
+/* Video */
+.video-wrap {
+  max-width: 640px;
+  margin: 0 auto 48px;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--surface);
+}
+.video-wrap .video-container {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+}
+.video-wrap .video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+.video-wrap .video-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 24px;
+  color: var(--text2);
+  font-size: 14px;
+  gap: 12px;
+}
+.video-wrap .video-placeholder .play-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: rgba(59,130,246,0.15);
+  border: 2px solid rgba(59,130,246,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+}
+
+/* Speed demo */
+.speed-compare {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  margin-bottom: 48px;
+  flex-wrap: wrap;
+}
+.speed-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 28px 36px;
+  text-align: center;
+  min-width: 200px;
+}
+.speed-card.before { border-color: rgba(239,68,68,0.3); }
+.speed-card.after { border-color: rgba(34,197,94,0.3); }
+.speed-label {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--text2);
+  margin-bottom: 8px;
+}
+.speed-value {
+  font-size: 42px;
+  font-weight: 800;
+  letter-spacing: -2px;
+}
+.speed-card.before .speed-value { color: var(--red); }
+.speed-card.after .speed-value { color: var(--green); }
+.speed-unit { font-size: 16px; font-weight: 400; color: var(--text2); }
+.speed-sub { font-size: 13px; color: var(--text2); margin-top: 4px; }
+
+/* CTA button */
+.cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 36px;
+  background: var(--accent);
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+.cta-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(59,130,246,0.3);
+}
+.cta-price { opacity: 0.85; font-weight: 400; }
+
+/* How it works */
+.section { padding: 60px 0; }
+.section-title {
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  margin-bottom: 40px;
+  text-align: center;
+}
+.steps {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.step {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 24px;
+}
+.step-num {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  background: rgba(59,130,246,0.1);
+  border: 1px solid rgba(59,130,246,0.2);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--accent);
+}
+.step h3 { font-size: 16px; font-weight: 600; margin-bottom: 4px; }
+.step p { font-size: 14px; color: var(--text2); }
+
+/* Why */
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+}
+.why-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 24px;
+}
+.why-card .icon { font-size: 28px; margin-bottom: 12px; }
+.why-card h3 { font-size: 15px; font-weight: 600; margin-bottom: 6px; }
+.why-card p { font-size: 13px; color: var(--text2); }
+
+/* Pricing */
+.pricing-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 40px;
+  text-align: center;
+  max-width: 400px;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+}
+.pricing-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), #8b5cf6);
+}
+.pricing-name {
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--text2);
+  margin-bottom: 12px;
+}
+.pricing-amount {
+  font-size: 56px;
+  font-weight: 800;
+  letter-spacing: -3px;
+  margin-bottom: 4px;
+}
+.pricing-amount sup { font-size: 28px; vertical-align: super; font-weight: 600; }
+.pricing-period { font-size: 14px; color: var(--text2); margin-bottom: 24px; }
+.pricing-features {
+  list-style: none;
+  text-align: left;
+  margin-bottom: 32px;
+}
+.pricing-features li {
+  padding: 8px 0;
+  font-size: 14px;
+  color: var(--text2);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.pricing-features li::before {
+  content: '\2713';
+  color: var(--green);
+  font-weight: 700;
+  font-size: 14px;
+}
+.pricing-save {
+  display: inline-block;
+  padding: 6px 14px;
+  background: rgba(34,197,94,0.1);
+  border: 1px solid rgba(34,197,94,0.2);
+  border-radius: 8px;
+  font-size: 13px;
+  color: var(--green);
+  margin-bottom: 24px;
+}
+
+/* FAQ */
+.faq-item {
+  border-bottom: 1px solid var(--border);
+  padding: 20px 0;
+}
+.faq-q {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+.faq-a { font-size: 14px; color: var(--text2); }
+
+/* Footer */
+footer {
+  border-top: 1px solid var(--border);
+  padding: 32px 0;
+  text-align: center;
+}
+footer p { font-size: 13px; color: var(--text2); }
+footer a { color: var(--text2); text-decoration: none; }
+footer a:hover { color: var(--text); }
+.footer-links { display: flex; justify-content: center; gap: 24px; margin-bottom: 12px; }
+
+/* Responsive */
+@media (max-width: 520px) {
+  .speed-compare { flex-direction: column; align-items: center; }
+  .speed-card { width: 100%; }
+  .step { flex-direction: column; gap: 12px; }
+  .pricing-card { padding: 28px 20px; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="container">
+    <div class="logo">Fast<span>Net</span></div>
+    <a href="#pricing">Get Early Access</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="container">
+    <div class="badge">For Mac + iPhone</div>
+    <h1>Your carrier throttles your hotspot.<br><span class="highlight">We fix that.</span></h1>
+    <p class="subtitle">Get full cellular speed on your Mac through iPhone hotspot. One USB cable. One click. No jailbreak needed.</p>
+
+    <!-- VIDEO: Replace YOUR_VIDEO_ID with your YouTube video ID -->
+    <!-- Example: if your URL is https://youtu.be/abc123, the ID is abc123 -->
+    <div class="video-wrap">
+      <!-- Uncomment the line below and replace YOUR_VIDEO_ID when your video is ready -->
+      <!-- <div class="video-container"><iframe src="https://www.youtube-nocookie.com/embed/YOUR_VIDEO_ID?rel=0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div> -->
+      <div class="video-placeholder">
+        <div class="play-icon">&#9654;</div>
+        <span>Demo video coming soon</span>
+      </div>
+    </div>
+
+    <div class="speed-compare">
+      <div class="speed-card before">
+        <div class="speed-label">Without FastNet</div>
+        <div class="speed-value">5 <span class="speed-unit">Mbps</span></div>
+        <div class="speed-sub">Carrier-throttled hotspot</div>
+      </div>
+      <div class="speed-card after">
+        <div class="speed-label">With FastNet</div>
+        <div class="speed-value">300+ <span class="speed-unit">Mbps</span></div>
+        <div class="speed-sub">Your full cellular speed</div>
+      </div>
+    </div>
+
+    <a href="#pricing" class="cta-btn">Get FastNet <span class="cta-price">$29</span></a>
+  </div>
+</section>
+
+<section class="section" style="border-top: 1px solid var(--border);">
+  <div class="container">
+    <h2 class="section-title">How It Works</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div>
+          <h3>Install FastNet on your iPhone</h3>
+          <p>Free iOS app runs a local SOCKS5 proxy on your phone. Your data stays on your device &mdash; nothing is sent to any server.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div>
+          <h3>Connect your Mac via USB cable</h3>
+          <p>Plug in any Lightning or USB-C cable. FastNet Connect (Mac app) detects your iPhone automatically.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div>
+          <h3>Click Start</h3>
+          <p>One click to activate. Your Mac's traffic now routes through iPhone's cellular connection at full speed, bypassing hotspot throttling.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="border-top: 1px solid var(--border);">
+  <div class="container">
+    <h2 class="section-title">Why FastNet</h2>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="icon">&#9889;</div>
+        <h3>Full Speed</h3>
+        <p>Get 100% of your cellular speed. No throttling, no caps.</p>
+      </div>
+      <div class="why-card">
+        <div class="icon">&#128274;</div>
+        <h3>Private &amp; Secure</h3>
+        <p>All traffic stays local between your devices. No cloud servers, no accounts, no data collection.</p>
+      </div>
+      <div class="why-card">
+        <div class="icon">&#128268;</div>
+        <h3>One Click</h3>
+        <p>No terminal commands, no config files. Just plug in and click Start. System proxy is set automatically.</p>
+      </div>
+      <div class="why-card">
+        <div class="icon">&#128176;</div>
+        <h3>Pay Once</h3>
+        <p>One-time purchase. No subscription. Saves you $10-25/month vs upgrading your carrier plan.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="pricing" style="border-top: 1px solid var(--border);">
+  <div class="container">
+    <h2 class="section-title">Early Access Pricing</h2>
+    <div class="pricing-card">
+      <div class="pricing-name">FastNet Connect for Mac</div>
+      <div class="pricing-amount"><sup>$</sup>29</div>
+      <div class="pricing-period">one-time payment &middot; lifetime updates</div>
+      <div class="pricing-save">Launch price &mdash; will increase to $49</div>
+      <ul class="pricing-features">
+        <li>FastNet Connect Mac app</li>
+        <li>FastNet iOS app (free)</li>
+        <li>Automatic USB device detection</li>
+        <li>One-click system proxy setup</li>
+        <li>Works with all carriers</li>
+        <li>No jailbreak required</li>
+        <li>Lifetime updates</li>
+        <li>Email support</li>
+      </ul>
+      <!-- REPLACE_WITH_STRIPE_LINK: Create a payment link at https://dashboard.stripe.com/payment-links -->
+      <a href="https://buy.stripe.com/YOUR_PAYMENT_LINK_HERE" class="cta-btn" style="width: 100%; justify-content: center;">Buy Now &mdash; $29</a>
+      <p style="font-size: 12px; color: var(--text2); margin-top: 16px;">
+        macOS 13+ required. iPhone with iOS 16+ required. USB cable required.<br>
+        30-day money-back guarantee.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="border-top: 1px solid var(--border);">
+  <div class="container">
+    <h2 class="section-title">FAQ</h2>
+
+    <div class="faq-item">
+      <div class="faq-q">How does this bypass throttling?</div>
+      <div class="faq-a">Carriers detect hotspot traffic by inspecting packet headers (TTL values). FastNet routes your Mac's traffic through a local SOCKS5 proxy on your iPhone via USB. To the carrier, it looks like normal phone traffic &mdash; no hotspot flag, no throttling.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">Is this legal?</div>
+      <div class="faq-a">FastNet is a standard SOCKS5 proxy &mdash; the same technology used by millions of developers daily. How you use your cellular data is between you and your carrier. We recommend reviewing your carrier's terms of service.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">Why does it need a USB cable?</div>
+      <div class="faq-a">USB provides a direct, private tunnel between your Mac and iPhone that bypasses the carrier's hotspot detection entirely. WiFi hotspot traffic is flagged and inspectable by the carrier &mdash; USB is not.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">Does it work with all carriers?</div>
+      <div class="faq-a">Yes. FastNet works with any carrier that throttles hotspot: T-Mobile, Verizon, AT&amp;T, Mint Mobile, Visible, Cricket, and others. If your carrier throttles your hotspot, FastNet will bypass it.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">What about Windows / Linux?</div>
+      <div class="faq-a">Currently Mac only. Windows and Linux support are on the roadmap based on demand.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">Do I need to jailbreak my iPhone?</div>
+      <div class="faq-a">No. FastNet works on stock iOS 16+, no jailbreak needed.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">Is my data safe?</div>
+      <div class="faq-a">Yes. Everything runs locally on your devices. FastNet has no servers, collects no data, and requires no account. Your traffic goes directly from Mac to iPhone to carrier &mdash; we never see it.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">What if it doesn't work for me?</div>
+      <div class="faq-a">We offer a 30-day money-back guarantee, no questions asked. Email us at pjiang726@gmail.com.</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-links">
+      <a href="https://github.com/paul726/FastNet/blob/main/PRIVACY.md">Privacy</a>
+      <a href="https://github.com/paul726/FastNet/blob/main/TERMS.md">Terms</a>
+      <a href="mailto:pjiang726@gmail.com">Support</a>
+    </div>
+    <p>&copy; 2026 FastNet. All rights reserved.</p>
+  </div>
+</footer>
+
+</body>
+</html>
