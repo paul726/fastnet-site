@@ -15,18 +15,15 @@
 <meta property="og:description" content="Turn your iPhone's unlimited data into uncapped Mac internet. One USB cable. One click. $29 one-time.">
 <meta property="og:url" content="https://fastnet-site.vercel.app/">
 <meta property="og:type" content="website">
-<!-- TODO: create /og.png (1200x630) and uncomment the lines below -->
-<!--
 <meta property="og:image" content="https://fastnet-site.vercel.app/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
--->
+<meta property="og:image:alt" content="Speedtest comparison: hotspot throttled at 0.21 Mbps versus FastNet at 306 Mbps on the same T-Mobile SIM.">
 
-<!-- Twitter Card (text-only until og.png is ready) -->
-<meta name="twitter:card" content="summary">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="FastNet — Full Speed iPhone Hotspot on Mac">
 <meta name="twitter:description" content="Turn your iPhone's unlimited data into uncapped Mac internet. One USB cable. One click. $29 one-time.">
-<!-- <meta name="twitter:image" content="https://fastnet-site.vercel.app/og.png"> -->
+<meta name="twitter:image" content="https://fastnet-site.vercel.app/og.png">
 
 <!-- Structured data: Product schema for Google -->
 <script type="application/ld+json">
@@ -194,6 +191,57 @@ h1 .highlight {
 .speed-card.after .speed-value { color: var(--green); }
 .speed-unit { font-size: 16px; font-weight: 400; color: var(--text2); }
 .speed-sub { font-size: 13px; color: var(--text2); margin-top: 4px; }
+
+/* Real speedtest proof */
+.speed-proof {
+  margin: 0 0 40px;
+  padding: 0;
+}
+.speed-proof-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+.speed-proof-item {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  overflow: hidden;
+  position: relative;
+  aspect-ratio: 6 / 5;
+}
+.speed-proof-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+.speed-proof-tag {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 1;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.4px;
+  padding: 5px 10px;
+  border-radius: 999px;
+  backdrop-filter: blur(6px);
+  background: rgba(0,0,0,0.55);
+}
+.speed-proof-tag.bad { color: #fca5a5; border: 1px solid rgba(239,68,68,0.4); }
+.speed-proof-tag.good { color: #86efac; border: 1px solid rgba(34,197,94,0.4); }
+.speed-proof figcaption {
+  text-align: center;
+  font-size: 13px;
+  color: var(--text2);
+  margin-top: 14px;
+}
+@media (max-width: 640px) {
+  .speed-proof-grid { grid-template-columns: 1fr; }
+}
 
 /* CTA button */
 .cta-btn {
@@ -459,6 +507,20 @@ footer a:hover { color: var(--text); }
         <div class="speed-sub">Uses phone data &mdash; unlimited &amp; full speed</div>
       </div>
     </div>
+
+    <figure class="speed-proof">
+      <div class="speed-proof-grid">
+        <div class="speed-proof-item">
+          <div class="speed-proof-tag bad">Hotspot · throttled</div>
+          <img src="speedtest-throttled-crop.png" alt="Speedtest result while iPhone hotspot is throttled: 0.21 Mbps download, 0.46 Mbps upload on T-Mobile">
+        </div>
+        <div class="speed-proof-item">
+          <div class="speed-proof-tag good">With FastNet</div>
+          <img src="speedtest-fastnet-crop.png" alt="Speedtest result with FastNet running: 306.28 Mbps download, 14.24 Mbps upload on the same T-Mobile SIM">
+        </div>
+      </div>
+      <figcaption>Real Speedtest results &mdash; same T-Mobile SIM, same server, taken back-to-back.</figcaption>
+    </figure>
 
     <a href="#pricing" class="cta-btn">Get FastNet <span class="cta-price">$29</span></a>
   </div>
