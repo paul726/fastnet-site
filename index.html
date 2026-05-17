@@ -77,6 +77,7 @@ nav .container { display: flex; justify-content: space-between; align-items: cen
 .logo span { color: var(--accent); }
 nav a { color: var(--text2); text-decoration: none; font-size: 14px; }
 nav a:hover { color: var(--text); }
+.nav-links { display: flex; gap: 20px; align-items: center; }
 
 /* Hero */
 .hero {
@@ -481,7 +482,10 @@ footer a:hover { color: var(--text); }
 <nav>
   <div class="container">
     <div class="logo">Fast<span>Net</span></div>
-    <a href="#waitlist">Join Waitlist</a>
+    <div class="nav-links">
+      <a href="/blog/">Blog</a>
+      <a href="#waitlist">Join Waitlist</a>
+    </div>
   </div>
 </nav>
 

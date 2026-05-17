@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Why Your iPhone Hotspot Drops to 0.5 Mbps After 15 GB (And Every Way to Actually Fix It in 2026)</title>
+<meta name="description" content="Verizon, AT&amp;T, and T-Mobile all throttle your iPhone hotspot after a hidden monthly cap — even on &quot;unlimited&quot; plans. Here's exactly why it happens, how to confirm it, and every working fix in 2026, ranked from free to one-click.">
+<link rel="canonical" href="https://fastnet-site.vercel.app/blog/iphone-hotspot-throttle-fix.html">
+
+<link rel="icon" type="image/svg+xml" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="%233b82f6"/><path d="M20 16h24v8h-16v8h14v8h-14v16h-8z" fill="white"/></svg>'>
+
+<meta property="og:title" content="Why Your iPhone Hotspot Drops to 0.5 Mbps After 15 GB (And Every Way to Actually Fix It in 2026)">
+<meta property="og:description" content="The full guide to carrier hotspot throttling on Verizon, AT&amp;T, and T-Mobile: why it happens, how to confirm it, and every working fix from free TTL hacks to one-click apps.">
+<meta property="og:url" content="https://fastnet-site.vercel.app/blog/iphone-hotspot-throttle-fix.html">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://fastnet-site.vercel.app/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Why Your iPhone Hotspot Drops to 0.5 Mbps After 15 GB (And Every Way to Actually Fix It in 2026)">
+<meta name="twitter:description" content="The full guide to fixing carrier hotspot throttling on Verizon, AT&amp;T, and T-Mobile.">
+<meta name="twitter:image" content="https://fastnet-site.vercel.app/og.png">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Why Your iPhone Hotspot Drops to 0.5 Mbps After 15 GB (And Every Way to Actually Fix It in 2026)",
+  "description": "Verizon, AT&T, and T-Mobile all throttle your iPhone hotspot after a hidden monthly cap. This guide explains why and lists every working fix in 2026.",
+  "author": {
+    "@type": "Person",
+    "name": "Paul Jiang"
+  },
+  "datePublished": "2026-05-17",
+  "dateModified": "2026-05-17",
+  "image": "https://fastnet-site.vercel.app/og.png",
+  "publisher": {
+    "@type": "Organization",
+    "name": "FastNet",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://fastnet-site.vercel.app/og.png"
+    }
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Why does my iPhone hotspot get slow after 15 GB?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Carriers track tethered (hotspot) data separately from on-device cellular data. Most 'unlimited' plans include a hidden monthly hotspot allowance — typically 15 to 50 GB — after which your hotspot speed is throttled to roughly 0.2 to 1 Mbps, while your phone itself keeps running at full LTE or 5G speed on the same SIM."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Verizon throttle hotspot?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Verizon's Unlimited Welcome, Plus, and Ultimate plans all cap premium hotspot data at 5, 30, or 60 GB respectively. After the cap, hotspot speeds drop to 600 Kbps or below, while regular phone data remains uncapped."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does AT&T throttle hotspot?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. AT&T's Unlimited Premium, Extra, and Starter plans all include hotspot allowances (60 GB, 30 GB, and 5 GB respectively). Above the cap, hotspot speeds are reduced to a maximum of 128 Kbps for the rest of the billing cycle."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does T-Mobile throttle hotspot?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. T-Mobile's Go5G and Magenta plans cap full-speed hotspot at 15 to 50 GB. Past the cap, hotspot is reduced to 3G-equivalent speeds (roughly 600 Kbps), though phone data continues at 5G speed."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is there a way to use my full unlimited data on my Mac without hotspot throttling?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The reliable approaches are: (1) switch to a carrier with truly unlimited hotspot like Visible or US Mobile; (2) use a TTL trick to make hotspot traffic look like phone traffic on certain carriers; (3) route Mac traffic through a SOCKS5 proxy running on the iPhone via USB, so traffic exits the phone the same way Safari traffic does."
+      }
+    }
+  ]
+}
+</script>
+
+<style>
+:root {
+  --bg: #0a0a0a;
+  --surface: #141414;
+  --border: #222;
+  --text: #e8e8e8;
+  --text2: #888;
+  --text3: #bbb;
+  --accent: #3b82f6;
+  --green: #22c55e;
+  --red: #ef4444;
+  --yellow: #eab308;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+.container { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+
+nav { padding: 20px 0; border-bottom: 1px solid var(--border); }
+nav .container { display: flex; justify-content: space-between; align-items: center; }
+.logo { font-size: 18px; font-weight: 700; letter-spacing: -0.5px; text-decoration: none; color: var(--text); }
+.logo span { color: var(--accent); }
+nav .links a { color: var(--text2); text-decoration: none; font-size: 14px; margin-left: 20px; }
+nav .links a:hover { color: var(--text); }
+
+article { padding: 60px 0 80px; }
+.eyebrow { color: var(--text2); font-size: 13px; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 16px; }
+article h1 {
+  font-size: clamp(28px, 4.5vw, 40px);
+  font-weight: 800;
+  letter-spacing: -1px;
+  line-height: 1.2;
+  margin-bottom: 24px;
+}
+article h2 {
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  margin-top: 56px;
+  margin-bottom: 16px;
+  line-height: 1.3;
+}
+article h3 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-top: 32px;
+  margin-bottom: 12px;
+}
+article p { color: var(--text3); margin-bottom: 16px; font-size: 16px; }
+article ul, article ol { color: var(--text3); margin: 16px 0 24px 24px; }
+article li { margin-bottom: 8px; }
+article a { color: var(--accent); text-decoration: none; border-bottom: 1px solid rgba(59,130,246,0.3); }
+article a:hover { border-bottom-color: var(--accent); }
+article strong { color: var(--text); font-weight: 600; }
+article code {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: 'SF Mono', Menlo, monospace;
+  font-size: 14px;
+  color: var(--text);
+}
+article pre {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 16px;
+  overflow-x: auto;
+  margin: 16px 0;
+  font-size: 13px;
+}
+article pre code { background: none; border: none; padding: 0; }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 24px 0;
+  font-size: 14px;
+}
+th, td {
+  text-align: left;
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--border);
+}
+th {
+  background: var(--surface);
+  color: var(--text);
+  font-weight: 600;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+td { color: var(--text3); }
+td.good { color: var(--green); }
+td.bad { color: var(--red); }
+td.mid { color: var(--yellow); }
+
+.callout {
+  background: var(--surface);
+  border-left: 3px solid var(--accent);
+  padding: 16px 20px;
+  margin: 24px 0;
+  border-radius: 0 8px 8px 0;
+  color: var(--text3);
+  font-size: 15px;
+}
+.callout strong { color: var(--text); }
+
+.cta-box {
+  background: linear-gradient(135deg, rgba(59,130,246,0.08), rgba(139,92,246,0.06));
+  border: 1px solid rgba(59,130,246,0.2);
+  border-radius: 12px;
+  padding: 24px 28px;
+  margin: 40px 0;
+  text-align: center;
+}
+.cta-box h3 { margin-top: 0; }
+.cta-box p { margin-bottom: 16px; }
+.cta-button {
+  display: inline-block;
+  background: var(--accent);
+  color: white !important;
+  padding: 12px 28px;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: none !important;
+  font-size: 15px;
+}
+.cta-button:hover { opacity: 0.9; }
+.cta-subtle { font-size: 13px; color: var(--text2); margin-top: 12px; margin-bottom: 0; }
+
+footer { border-top: 1px solid var(--border); padding: 40px 0; color: var(--text2); font-size: 14px; text-align: center; }
+footer a { color: var(--text2); text-decoration: none; margin: 0 12px; }
+footer a:hover { color: var(--text); }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="container">
+    <a href="/" class="logo">Fast<span>Net</span></a>
+    <div class="links">
+      <a href="/">Home</a>
+      <a href="/blog/">Blog</a>
+    </div>
+  </div>
+</nav>
+
+<article>
+  <div class="container">
+    <div class="eyebrow">May 17, 2026 · 8 min read</div>
+    <h1>Why Your iPhone Hotspot Drops to 0.5 Mbps After 15 GB (And Every Way to Actually Fix It in 2026)</h1>
+
+    <p>If your iPhone hotspot suddenly turned into dial-up speed a few days into the billing cycle, you are not imagining it and your phone is not broken. Your carrier is throttling your hotspot data on purpose, on every "unlimited" plan from Verizon, AT&amp;T, and T-Mobile, after a hidden monthly cap that no one talks about in the ads.</p>
+
+    <p>This article explains what is actually happening at the network level, how to confirm you are being throttled in 60 seconds, and every working fix in 2026 — ranked honestly from free to one-click, including the free ones that work and the paid ones that do not.</p>
+
+    <h2 id="what-is-happening">What is actually happening when your hotspot slows down</h2>
+
+    <p>Your iPhone has one SIM and one cellular radio, but your carrier sees two different kinds of traffic going through it:</p>
+
+    <ul>
+      <li><strong>On-device traffic</strong> — Safari, Instagram, FaceTime, anything that is opened on the phone itself.</li>
+      <li><strong>Tethered traffic</strong> — anything that comes from a laptop, tablet, or other device connected through Personal Hotspot.</li>
+    </ul>
+
+    <p>The carrier separates these by inspecting the TTL (time-to-live) field of every IP packet, by checking certain HTTP headers, and on modern networks by passive fingerprinting of TCP/IP stacks. When traffic looks tethered, it gets put into a separate metering bucket. Once you have used your monthly hotspot allowance from that bucket — typically 5 to 60 GB depending on plan — the carrier deprioritizes the bucket to roughly 600 Kbps or 128 Kbps for the rest of the billing cycle.</p>
+
+    <p>Your phone keeps running at full speed because <strong>on-device traffic is in a different bucket that has not been used up</strong>. This is why a speed test on your iPhone reads 200 Mbps while your Mac on the same hotspot crawls along at 0.5 Mbps.</p>
+
+    <div class="callout">
+      <strong>The "unlimited" plan name is technically accurate.</strong> Your phone really does get unlimited data. What is limited is hotspot data — and that limit is buried on page seven of the plan details that nobody reads.
+    </div>
+
+    <h2 id="hotspot-caps-2026">The 2026 hotspot caps for the major US carriers</h2>
+
+    <p>Numbers below are accurate as of May 2026 and apply to postpaid plans on the named carriers' own networks. Prepaid and MVNO subscribers should consult their specific plan.</p>
+
+    <table>
+      <thead>
+        <tr><th>Carrier</th><th>Plan</th><th>Full-speed hotspot</th><th>After cap</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Verizon</td><td>Unlimited Welcome</td><td class="bad">5 GB</td><td>600 Kbps</td></tr>
+        <tr><td>Verizon</td><td>Unlimited Plus</td><td class="mid">30 GB</td><td>600 Kbps</td></tr>
+        <tr><td>Verizon</td><td>Unlimited Ultimate</td><td class="good">60 GB</td><td>600 Kbps</td></tr>
+        <tr><td>AT&amp;T</td><td>Unlimited Starter</td><td class="bad">5 GB</td><td>128 Kbps</td></tr>
+        <tr><td>AT&amp;T</td><td>Unlimited Extra</td><td class="mid">30 GB</td><td>128 Kbps</td></tr>
+        <tr><td>AT&amp;T</td><td>Unlimited Premium</td><td class="good">60 GB</td><td>128 Kbps</td></tr>
+        <tr><td>T-Mobile</td><td>Go5G</td><td class="mid">15 GB</td><td>3G (~600 Kbps)</td></tr>
+        <tr><td>T-Mobile</td><td>Go5G Plus</td><td class="good">50 GB</td><td>3G (~600 Kbps)</td></tr>
+        <tr><td>T-Mobile</td><td>Magenta MAX</td><td class="good">40 GB</td><td>3G (~600 Kbps)</td></tr>
+      </tbody>
+    </table>
+
+    <p>If you regularly work from a laptop using your phone's hotspot — digital nomads, RV/van life, anyone in a coverage gap for home internet, anyone whose home ISP is unreliable — 15 to 30 GB lasts about a week of normal work. Then you hit the wall and your "unlimited" plan effectively becomes useless for the next three weeks.</p>
+
+    <h2 id="confirm-throttled">How to confirm you are being throttled in 60 seconds</h2>
+
+    <ol>
+      <li>On your iPhone, open <a href="https://fast.com">fast.com</a> in Safari. Note the speed (probably 100+ Mbps if you have a decent signal).</li>
+      <li>Enable Personal Hotspot. Connect your Mac to it (USB or Wi-Fi, doesn't matter).</li>
+      <li>On your Mac, open <a href="https://fast.com">fast.com</a>. If the Mac reads less than 5 Mbps while the phone reads 100+ Mbps on the same hotspot, you are being throttled at the tethering bucket — not at the cell tower.</li>
+    </ol>
+
+    <p>If both the phone and Mac are slow, you are in a congested cell or have poor signal — that is a different problem and no software fix will help. The diagnostic only works when the phone is fast and the Mac is slow.</p>
+
+    <h2 id="every-fix">Every fix that exists, ranked honestly</h2>
+
+    <h3 id="fix-switch-carrier">Fix 1: Switch to a carrier with truly unlimited hotspot</h3>
+
+    <p>Carriers that do not throttle hotspot at all (as of 2026):</p>
+
+    <ul>
+      <li><strong>Visible (Verizon network)</strong> — $25 to $45/month, no hotspot cap on the higher tier.</li>
+      <li><strong>US Mobile (Verizon or T-Mobile network)</strong> — "Unlimited Premium" includes 100 GB hotspot or unlimited depending on month.</li>
+      <li><strong>Google Fi</strong> — caps you at 50 GB total (phone + hotspot pooled), then full data slows but hotspot is not separately metered.</li>
+    </ul>
+
+    <p><strong>Pros:</strong> Real fix at the bill level. No software, no fiddling. <strong>Cons:</strong> Switching carriers is friction, you may lose a family plan discount or device financing, and coverage can vary even on the "same" underlying network because of priority levels.</p>
+
+    <p>This is the highest-leverage fix if you are not locked in. If you are, read on.</p>
+
+    <h3 id="fix-ttl">Fix 2: The TTL trick (free, works on some carriers, fragile)</h3>
+
+    <p>The original TTL fingerprint detection used by carriers is bypassed by manually adjusting the IP TTL on your laptop. On macOS:</p>
+
+    <pre><code>sudo sysctl -w net.inet.ip.ttl=65</code></pre>
+
+    <p>This makes outgoing packets from the Mac look like they originated on the phone (which would have TTL 64 by default; bumping to 65 means the phone decrements to 64 when forwarding, which is what the carrier expects to see for on-device traffic).</p>
+
+    <p><strong>Pros:</strong> Free. Takes 10 seconds. Works on many carriers — especially older detection systems.</p>
+
+    <p><strong>Cons:</strong></p>
+    <ul>
+      <li>Resets every time you reboot the Mac. You can put it in a launchd plist, but most people forget.</li>
+      <li>Modern carriers (Verizon and AT&amp;T in 2026) detect tethering via additional signals: TCP fingerprints, DNS pattern, HTTPS SNI distribution, video streaming behavior. TTL alone is no longer enough on these.</li>
+      <li>If your carrier inspects HTTP user agents or HTTPS SNI, TTL does not help.</li>
+      <li>If the carrier does catch on, your account can be flagged for review.</li>
+    </ul>
+
+    <p>Try it first because it is free, but do not be surprised if you still get throttled within a few hours or after the next billing cycle.</p>
+
+    <h3 id="fix-pdanet">Fix 3: PDANet+ (paid, dated, still works for some)</h3>
+
+    <p>PDANet has been around since the BlackBerry era and still ships. It uses USB tethering plus traffic shaping to disguise hotspot as phone traffic. It works on some carriers but not all — and the user interface and onboarding flow have not been meaningfully updated in over a decade.</p>
+
+    <p><strong>Pros:</strong> Established product, free trial, works on Android too. <strong>Cons:</strong> macOS app is from a different era visually; setup is not one-click; effectiveness varies by carrier and seems to degrade as carriers add new detection methods.</p>
+
+    <h3 id="fix-iproxy">Fix 4: iproxy + a manual SOCKS5 server (free, terminal-heavy)</h3>
+
+    <p>The general principle is sound: if you can get a SOCKS5 proxy running on your iPhone and forward a local port from your Mac through USB to that proxy, all Mac traffic will exit the phone the same way Safari traffic does. The carrier sees only on-device traffic.</p>
+
+    <p>The DIY recipe is:</p>
+
+    <ol>
+      <li>Install <code>libimobiledevice</code> on the Mac (<code>brew install libimobiledevice</code>).</li>
+      <li>Run a SOCKS5 server on iPhone — there are open-source apps that do this, or you can write one in 200 lines of Swift using the <code>Network</code> framework.</li>
+      <li>Run <code>iproxy 1082 1082</code> on the Mac to forward port 1082 over USB.</li>
+      <li>Set the Mac's system SOCKS proxy to <code>127.0.0.1:1082</code> in System Settings → Network → Wi-Fi/Ethernet → Details → Proxies.</li>
+    </ol>
+
+    <p><strong>Pros:</strong> Free. Open standards. You understand and control every layer. <strong>Cons:</strong> You live in Terminal. The iOS app side has to keep running, which iOS sometimes kills in the background. Re-enabling everything after a reboot is a chore. If you are the kind of person who already wrote a launchd plist or two, you will love this. If not, the daily overhead is real.</p>
+
+    <h3 id="fix-fastnet">Fix 5: A native one-click app for the same approach</h3>
+
+    <p>This is the gap FastNet fills — same proxy-over-USB architecture as the iproxy recipe, but packaged as two apps you install and forget. The iOS app runs a SOCKS5 proxy in the background. The Mac menu bar app handles the USB tunnel via libimobiledevice and toggles the system proxy on and off with one click.</p>
+
+    <p>To the carrier, traffic exits the phone with the same TTL, the same TCP fingerprint, and the same HTTPS SNI distribution as if you opened Safari on the phone and browsed the same sites yourself. There is no TTL trickery to detect because it is not a trick — the traffic literally originates from the phone's network stack.</p>
+
+    <div class="cta-box">
+      <h3>FastNet — the one-click version of the iproxy recipe</h3>
+      <p>iOS app is free. Mac menu bar app is $29 one-time, 30-day no-questions refund. Works on Verizon, AT&amp;T, T-Mobile, and most MVNOs.</p>
+      <a href="/?utm_source=blog&utm_medium=cta&utm_campaign=throttle_fix_guide" class="cta-button">See FastNet on the homepage</a>
+      <p class="cta-subtle">Honest disclosure: I built FastNet. If iproxy works for you, save the $29.</p>
+    </div>
+
+    <h2 id="why-proxy-works">Why the proxy approach is the most durable fix</h2>
+
+    <p>Carriers detect hotspot in three layers:</p>
+
+    <ol>
+      <li><strong>Layer 1 — TTL fingerprint.</strong> Old technique, bypassed by Fix 2 above.</li>
+      <li><strong>Layer 2 — TCP/IP stack fingerprint.</strong> Mac and iPhone produce slightly different TCP window sizes, options ordering, MSS values. Carriers passively compare against a library of known stacks.</li>
+      <li><strong>Layer 3 — HTTPS SNI and DNS patterns.</strong> The mix of domains a phone normally talks to differs from a laptop. iCloud, Apple Push, App Store, Maps versus Slack, GitHub, npm, AWS.</li>
+    </ol>
+
+    <p>The TTL trick only beats Layer 1. PDANet and similar shapers attempt Layer 2 (with mixed results). The proxy-over-USB approach beats all three at once, because the packets really do come from the phone's network stack — same TTL, same TCP fingerprint, same SNI distribution — because Safari and FastNet on the phone share the same iOS network code.</p>
+
+    <p>This is also why the approach is durable over time: you are not playing whack-a-mole with new detection methods. You are routing traffic the way the carrier expects on-device traffic to be routed, because it <em>is</em> on-device traffic, just initiated by an app that happens to forward bytes from your laptop.</p>
+
+    <h2 id="usb-vs-wifi">Why USB matters (and the speed ceilings)</h2>
+
+    <p>Wi-Fi hotspot is what most people think of, but it has two problems for this use case:</p>
+
+    <ul>
+      <li>Wi-Fi hotspot is itself a tethering signal — your phone broadcasts an SSID, which is one of the easiest things for a carrier to detect at the OS level via Network Extension hooks.</li>
+      <li>Wi-Fi hotspot speed is capped by your Mac's Wi-Fi radio and ambient interference, typically 30 to 80 Mbps in real conditions.</li>
+    </ul>
+
+    <p>USB tethering, on the other hand:</p>
+
+    <ul>
+      <li>Looks like a generic USB ethernet device to macOS. No SSID, no Wi-Fi.</li>
+      <li>Lightning iPhones (14 and earlier) cap at roughly 280 to 320 Mbps because Lightning uses USB 2.0.</li>
+      <li>USB-C iPhones (15 and later) can sustain over 800 Mbps on USB 3 with a proper cable.</li>
+    </ul>
+
+    <p>For most people on cellular, USB is faster than Wi-Fi hotspot and the speed ceiling is way above what your cellular connection can deliver anyway. You are network-bound, not USB-bound.</p>
+
+    <h2 id="faq">FAQ</h2>
+
+    <h3>Does this violate carrier ToS?</h3>
+    <p>Most carrier terms of service forbid using more tethered data than your plan includes. The proxy approach makes tethered traffic look like on-device traffic, so the carrier's automated systems do not flag it. Whether this violates the spirit of the ToS depends on how strictly you read it. We are not lawyers and we are not going to claim "100% undetectable" — your data volume patterns can still be inferred. Use your own judgment.</p>
+
+    <h3>Will the carrier ban me?</h3>
+    <p>Account suspension for tethering use is rare and typically only happens for extreme cases (hundreds of GB per month, clearly running a home internet replacement). Normal laptop use — a few hours of work per day, 50 to 100 GB per month — has not, to our knowledge, triggered enforcement on any major US carrier.</p>
+
+    <h3>Why is my hotspot slow even before the cap?</h3>
+    <p>If your hotspot is slow from day one of the billing cycle, you are likely in a congested cell. Hotspot users are deprioritized on most networks below regular phone users, so during peak hours you may get slower speeds even within your hotspot allowance. There is no software fix for cell congestion — the proxy approach makes your Mac traffic look like phone traffic, which is in the higher-priority queue, so it can help here too.</p>
+
+    <h3>Does this work on iPad or Apple TV?</h3>
+    <p>The proxy approach as implemented in FastNet works on macOS only today. iPad and Apple TV do not have a system SOCKS proxy setting in the same way and need a different approach. If there is demand we may add support — feel free to email and let us know.</p>
+
+    <h3>Does this work on Windows or Linux?</h3>
+    <p>FastNet is Mac-only today. The same architecture would work on Windows and Linux because libimobiledevice is cross-platform — it is on the roadmap based on demand.</p>
+
+    <h3>Will Apple stop this from working in a future iOS update?</h3>
+    <p>Possible but unlikely. The SOCKS5 server is a normal iOS app using the public <code>Network</code> framework. USB-over-libimobiledevice has been stable since iOS 7. Apple has no business incentive to break this — it is the carriers, not Apple, who care about tethering caps, and Apple has historically pushed back on carrier-driven iOS restrictions.</p>
+
+    <h2 id="conclusion">The short version</h2>
+
+    <p>Every major US carrier throttles hotspot after a hidden cap. The cleanest fix is to switch to a carrier that doesn't (Visible, US Mobile). If you can't switch, a SOCKS5 proxy running on the phone with USB forwarding to the Mac is the most durable software fix — because it doesn't try to disguise tethered traffic, it routes traffic through the phone's own network stack so the carrier sees on-device traffic.</p>
+
+    <p>The DIY recipe with iproxy is free and works if you don't mind the terminal. <a href="/?utm_source=blog&utm_medium=inline&utm_campaign=throttle_fix_guide">FastNet</a> is the same architecture packaged as two one-click apps, for people who'd rather pay $29 than maintain a launchd plist.</p>
+
+    <p>Either way, you no longer need to put up with 0.5 Mbps for three weeks out of every month.</p>
+
+  </div>
+</article>
+
+<footer>
+  <div class="container">
+    <a href="/">Home</a>
+    <a href="/blog/">Blog</a>
+    <a href="mailto:pjiang726@gmail.com">Contact</a>
+  </div>
+</footer>
+
+</body>
+</html>
