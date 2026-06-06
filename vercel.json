@@ -1,5 +1,7 @@
 {
-  "buildCommand": "",
   "outputDirectory": ".",
-  "cleanUrls": true
+  "cleanUrls": true,
+  "rewrites": [
+    { "source": "/buy", "destination": "/api/checkout" }
+  ]
 }
