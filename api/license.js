@@ -34,8 +34,10 @@ h1{font-size:28px;font-weight:700;letter-spacing:-.02em;margin-bottom:6px}
 .sub{color:var(--text2);margin-bottom:32px}
 .label{color:var(--text2);font-size:13px;margin:24px 0 8px}
 .key{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:16px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13px;word-break:break-all;color:var(--text)}
-button{margin-top:14px;background:var(--accent);color:#fff;border:0;border-radius:10px;padding:11px 18px;font-size:15px;font-weight:600;cursor:pointer}
-button:hover{opacity:.92}
+button{margin-top:14px;background:var(--surface);color:var(--text);border:1px solid var(--border);border-radius:10px;padding:11px 18px;font-size:15px;font-weight:600;cursor:pointer}
+button:hover{border-color:#444}
+a.dl{display:inline-block;background:var(--accent);color:#fff;text-decoration:none;border-radius:10px;padding:13px 20px;font-size:16px;font-weight:700;margin-top:4px}
+a.dl:hover{opacity:.92}
 ol{color:#cfcfcf;margin:18px 0 0 20px}li{margin-bottom:8px}
 .tip{color:var(--text2);font-size:13px;margin-top:28px}
 a{color:var(--accent);text-decoration:none}
@@ -43,14 +45,17 @@ a{color:var(--accent);text-decoration:none}
 <h1>✓ You're all set</h1>
 <div class="sub">Thanks for buying FastNet${email ? ', ' + esc(email) : ''}.</div>
 
-<div class="label">Your license key</div>
+<div class="label">1 · Download the app</div>
+<a class="dl" href="/download">⤓&nbsp; Download FastNet for Mac</a>
+
+<div class="label" style="margin-top:32px">2 · Your license key</div>
 <div class="key" id="key">${esc(license)}</div>
 <button onclick="navigator.clipboard.writeText(document.getElementById('key').textContent).then(()=>{this.textContent='Copied ✓'})">Copy license key</button>
 
-<div class="label" style="margin-top:32px">How to activate</div>
+<div class="label" style="margin-top:32px">3 · Activate</div>
 <ol>
-  <li>Open the <strong>FastNet</strong> app on your Mac (menu bar icon).</li>
-  <li>Paste this key into <strong>“Paste your license key”</strong> and click <strong>Activate</strong>.</li>
+  <li>Open the downloaded <strong>FastNet.dmg</strong> and drag <strong>FastNet</strong> into Applications.</li>
+  <li>Launch it (bolt icon in the menu bar), paste the key into <strong>“Paste your license key”</strong>, and click <strong>Activate</strong>.</li>
 </ol>
 
 <div class="tip">Keep this key — you can re-open this page anytime to copy it again. Questions? <a href="mailto:pjiang726@gmail.com">pjiang726@gmail.com</a></div>

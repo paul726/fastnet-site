@@ -2,6 +2,7 @@
   "outputDirectory": ".",
   "cleanUrls": true,
   "redirects": [
-    { "source": "/buy", "destination": "https://buy.stripe.com/00wcN6b2z3Cj2xgdTL6EU00", "permanent": false }
+    { "source": "/buy", "destination": "https://buy.stripe.com/00wcN6b2z3Cj2xgdTL6EU00", "permanent": false },
+    { "source": "/download", "destination": "/downloads/FastNet.dmg", "permanent": false }
   ]
 }
