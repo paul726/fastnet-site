@@ -723,24 +723,7 @@ footer a:hover { color: var(--text); }
     else ref = sessionStorage.getItem('fn_ref') || '';
   } catch (e) {}
 
-  // Waitlist submit handler — opens a pre-filled mailto:
-  const form = document.getElementById('waitlist-form');
-  const emailIn = document.getElementById('waitlist-email');
-  const success = document.getElementById('waitlist-success');
-  if (form) {
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const email = (emailIn.value || '').trim();
-      if (!email) return;
-      const subject = encodeURIComponent('FastNet waitlist signup');
-      const refLine = ref ? `\nReferral: ${ref}` : '';
-      const body = encodeURIComponent(
-        `Hi Paul, please add ${email} to the FastNet waitlist — I'd like to lock in the $29 launch price and get the TestFlight link when iOS is approved.${refLine}\n`
-      );
-      window.location.href = `mailto:pjiang726@gmail.com?subject=${subject}&body=${body}`;
-      success.style.display = 'block';
-    });
-  }
+  // (UTM captured above for attribution; waitlist form removed — Buy → /buy.)
 })();
 </script>
 
