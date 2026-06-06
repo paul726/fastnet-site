@@ -1,7 +1,7 @@
 {
   "outputDirectory": ".",
   "cleanUrls": true,
-  "rewrites": [
-    { "source": "/buy", "destination": "/api/checkout" }
+  "redirects": [
+    { "source": "/buy", "destination": "https://buy.stripe.com/00wcN6b2z3Cj2xgdTL6EU00", "permanent": false }
   ]
 }
