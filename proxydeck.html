@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ProxyDeck — Local SOCKS5 Proxy for iPhone</title>
+<meta name="description" content="ProxyDeck is a private, on-device SOCKS5 proxy for iPhone with a live connection inspector. Support and usage guide.">
+<link rel="canonical" href="https://fastnet-site.vercel.app/proxydeck">
+<link rel="icon" type="image/svg+xml" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="%233b82f6"/><path d="M20 16h24v8h-16v8h14v8h-14v16h-8z" fill="white"/></svg>'>
+<style>
+:root { --bg:#0a0a0a; --surface:#141414; --border:#222; --text:#e8e8e8; --text2:#888; --accent:#3b82f6; }
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue',sans-serif; background:var(--bg); color:var(--text); line-height:1.65; -webkit-font-smoothing:antialiased; }
+.container { max-width:720px; margin:0 auto; padding:64px 24px 96px; }
+a { color:var(--accent); text-decoration:none; }
+a:hover { text-decoration:underline; }
+h1 { font-size:34px; font-weight:700; letter-spacing:-0.02em; margin-bottom:6px; }
+.tag { color:var(--text2); font-size:15px; margin-bottom:40px; }
+h2 { font-size:20px; font-weight:600; margin:38px 0 12px; }
+p { color:#cfcfcf; margin-bottom:14px; }
+ol, ul { color:#cfcfcf; margin:0 0 14px 22px; }
+li { margin-bottom:8px; }
+code { background:var(--surface); border:1px solid var(--border); border-radius:6px; padding:1px 7px; font-size:14px; }
+strong { color:var(--text); }
+.card { background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:20px 24px; margin:24px 0; }
+.footer { margin-top:64px; padding-top:24px; border-top:1px solid var(--border); color:var(--text2); font-size:13px; }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>ProxyDeck</h1>
+  <div class="tag">A private, on-device SOCKS5 proxy for iPhone — with a live connection inspector.</div>
+
+  <p>ProxyDeck runs a SOCKS5 proxy listener on your device and forwards traffic from any app you point at it — straight to the destination. Nothing is routed through anyone else's servers, and it collects no data.</p>
+
+  <h2>How to use it</h2>
+  <ol>
+    <li>Open ProxyDeck and tap <strong>Start</strong>. The proxy listens locally on <code>127.0.0.1:1082</code>.</li>
+    <li>Point any SOCKS5-aware app at <code>127.0.0.1</code>, port <code>1082</code>.</li>
+    <li>Watch each connection appear in the live inspector — host, port, protocol, and status.</li>
+    <li>Tap <strong>Stop</strong> to shut the proxy down.</li>
+  </ol>
+
+  <h2>Privacy</h2>
+  <p>ProxyDeck collects nothing — no accounts, no analytics, no tracking, and no network calls to us. See the <a href="/privacy">Privacy Policy</a> and <a href="/terms">Terms of Use</a>.</p>
+
+  <h2>Support</h2>
+  <div class="card">
+    <p>Questions, bug reports, or feature requests? Email <a href="mailto:pjiang726@gmail.com">pjiang726@gmail.com</a> and we'll get back to you.</p>
+  </div>
+
+  <div class="footer">© 2026 ProxyDeck · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a></div>
+</div>
+</body>
+</html>
