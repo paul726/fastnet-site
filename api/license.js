@@ -54,8 +54,8 @@ a{color:var(--accent);text-decoration:none}
 
 <div class="label" style="margin-top:32px">3 · Activate</div>
 <ol>
-  <li>Open the downloaded <strong>FastNet.dmg</strong> and drag <strong>FastNet</strong> into Applications.</li>
-  <li>Launch it (bolt icon in the menu bar), paste the key into <strong>“Paste your license key”</strong>, and click <strong>Activate</strong>.</li>
+  <li>Open the downloaded <strong>FastNet.pkg</strong> and follow the installer (one admin password).</li>
+  <li>Launch <strong>FastNet</strong> (paper-plane icon in the menu bar), paste the key into <strong>“Paste your license key”</strong>, and click <strong>Activate</strong>.</li>
 </ol>
 
 <div class="tip">Keep this key — you can re-open this page anytime to copy it again. Questions? <a href="mailto:pjiang726@gmail.com">pjiang726@gmail.com</a></div>
