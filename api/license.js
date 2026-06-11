@@ -58,6 +58,11 @@ a{color:var(--accent);text-decoration:none}
   <li>Launch <strong>FastNet</strong> (paper-plane icon in the menu bar), paste the key into <strong>“Paste your license key”</strong>, and click <strong>Activate</strong>.</li>
 </ol>
 
+<div class="label" style="margin-top:32px">4 · Install the iPhone app</div>
+<p style="color:#cfcfcf;margin:0 0 12px">FastNet pairs with a small companion app on your iPhone. Open this link <strong>on your iPhone</strong> to install it via TestFlight, then pair it with the Mac app over USB or Wi-Fi.</p>
+<a class="dl" href="https://testflight.apple.com/join/R2cqReMt">⤓&nbsp; Install on iPhone (TestFlight)</a>
+<p class="tip" style="margin-top:10px">Tip: open this page on your iPhone (or email yourself the link) so the button launches TestFlight on the phone. Trouble? <a href="mailto:pjiang726@gmail.com">pjiang726@gmail.com</a></p>
+
 <div class="tip">Keep this key — you can re-open this page anytime to copy it again. Questions? <a href="mailto:pjiang726@gmail.com">pjiang726@gmail.com</a></div>
 </div></body></html>`;
 }
