@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ProxyDeck — Local SOCKS5 Proxy for iPhone</title>
-<meta name="description" content="ProxyDeck is a private, on-device SOCKS5 proxy for iPhone with a live connection inspector. Support and usage guide.">
+<title>FastNet — Support</title>
+<meta name="description" content="FastNet lets your Mac use your iPhone's cellular connection, over USB or Wi-Fi. Setup and support guide.">
 <link rel="canonical" href="https://fastnet-site.vercel.app/proxydeck">
-<link rel="icon" type="image/svg+xml" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="%233b82f6"/><path d="M20 16h24v8h-16v8h14v8h-14v16h-8z" fill="white"/></svg>'>
+<link rel="icon" type="image/svg+xml" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="%233b82f6"/><path d="M14 50 L50 14 L34 50 L30 36 Z" fill="white"/></svg>'>
 <style>
 :root { --bg:#0a0a0a; --surface:#141414; --border:#222; --text:#e8e8e8; --text2:#888; --accent:#3b82f6; }
 * { margin:0; padding:0; box-sizing:border-box; }
@@ -28,28 +28,29 @@ strong { color:var(--text); }
 </head>
 <body>
 <div class="container">
-  <h1>ProxyDeck</h1>
-  <div class="tag">A private, on-device SOCKS5 proxy for iPhone — with a live connection inspector.</div>
+  <a class="back" href="/">← FastNet</a>
+  <h1>FastNet</h1>
+  <div class="tag">Use your iPhone's cellular connection on your Mac — over USB or Wi-Fi.</div>
 
-  <p>ProxyDeck runs a SOCKS5 proxy listener on your device and forwards traffic from any app you point at it — straight to the destination. Nothing is routed through anyone else's servers, and it collects no data.</p>
+  <p>FastNet has two parts: a small app on your <strong>iPhone</strong> and the <strong>FastNet Connect</strong> app on your <strong>Mac</strong>. Together they route your Mac's traffic out through your iPhone's cellular data — so your Mac gets online through the phone, without burning the metered hotspot allowance.</p>
 
-  <h2>How to use it</h2>
+  <h2>Setup</h2>
   <ol>
-    <li>Open ProxyDeck and tap <strong>Start</strong>. The proxy listens locally on <code>127.0.0.1:1082</code>.</li>
-    <li>Point any SOCKS5-aware app at <code>127.0.0.1</code>, port <code>1082</code>.</li>
-    <li>Watch each connection appear in the live inspector — host, port, protocol, and status.</li>
-    <li>Tap <strong>Stop</strong> to shut the proxy down.</li>
+    <li>Install <strong>FastNet</strong> on your iPhone using the TestFlight invite that came with your purchase.</li>
+    <li>Install <strong>FastNet Connect</strong> on your Mac and activate it with your license key.</li>
+    <li>Connect the iPhone to the Mac with a <strong>USB cable</strong>, or put both on the same <strong>Wi-Fi</strong>.</li>
+    <li>Open FastNet on the iPhone, then click <strong>Connect</strong> in the Mac app.</li>
   </ol>
 
   <h2>Privacy</h2>
-  <p>ProxyDeck collects nothing — no accounts, no analytics, no tracking, and no network calls to us. See the <a href="/privacy">Privacy Policy</a> and <a href="/terms">Terms of Use</a>.</p>
+  <p>FastNet collects nothing — no accounts, no analytics, no tracking, and no network calls to us. See the <a href="/privacy">Privacy Policy</a> and <a href="/terms">Terms of Use</a>.</p>
 
   <h2>Support</h2>
   <div class="card">
     <p>Questions, bug reports, or feature requests? Email <a href="mailto:pjiang726@gmail.com">pjiang726@gmail.com</a> and we'll get back to you.</p>
   </div>
 
-  <div class="footer">© 2026 ProxyDeck · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a></div>
+  <div class="footer">© 2026 FastNet · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a></div>
 </div>
 </body>
 </html>
