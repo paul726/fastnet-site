@@ -484,7 +484,7 @@ footer a:hover { color: var(--text); }
     <div class="logo">Fast<span>Net</span></div>
     <div class="nav-links">
       <a href="/blog/">Blog</a>
-      <a href="#notify">Get notified</a>
+      <a href="/buy">Get FastNet</a>
     </div>
   </div>
 </nav>
@@ -526,8 +526,8 @@ footer a:hover { color: var(--text); }
       <figcaption>Real Speedtest results &mdash; same T-Mobile SIM, same server, taken back-to-back.</figcaption>
     </figure>
 
-    <a href="#notify" class="cta-btn">Get notified at launch</a>
-    <p style="font-size: 13px; color: var(--text2); margin-top: 14px; max-width: 480px; text-align: center; line-height: 1.5;">Launching soon &mdash; a Mac app plus a free FastNet companion app for your iPhone. macOS (Apple Silicon) + iPhone. One-time $29, no subscription.</p>
+    <a href="/buy" class="cta-btn">Get FastNet &mdash; <span class="cta-price">$29 one-time</span></a>
+    <p style="font-size: 13px; color: var(--text2); margin-top: 14px; max-width: 480px; text-align: center; line-height: 1.5;">One-time $29 &middot; lifetime license &middot; instant download. For macOS (Apple Silicon) + your iPhone (companion app via TestFlight). <a href="/download" style="color: var(--text2); text-decoration: underline;">Download first</a> &mdash; it unlocks once you enter your license.</p>
   </div>
 </section>
 
@@ -598,7 +598,7 @@ footer a:hover { color: var(--text); }
       <div class="pricing-save">One-time &mdash; no subscription</div>
       <ul class="pricing-features">
         <li>FastNet Connect Mac app</li>
-        <li>Free FastNet companion app for iPhone</li>
+        <li>Free iPhone companion app (via TestFlight)</li>
         <li>Pair over USB or Wi-Fi (your choice)</li>
         <li>One-click connect &mdash; routes all traffic</li>
         <li>Works with all carriers</li>
@@ -606,30 +606,25 @@ footer a:hover { color: var(--text); }
         <li>Lifetime updates</li>
         <li>Email support</li>
       </ul>
-      <a href="#notify" class="cta-btn buy-btn" style="width: 100%; justify-content: center;">Get notified at launch</a>
+      <a href="/buy" class="cta-btn buy-btn" style="width: 100%; justify-content: center;">Buy FastNet &mdash; $29</a>
       <div style="display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 14px; padding: 10px 14px; background: rgba(59,130,246,0.08); border: 1px solid rgba(59,130,246,0.2); border-radius: 10px;">
-        <span style="color: var(--accent); font-weight: 700;">!</span>
-        <span style="font-size: 13px; color: var(--text);">Launching soon &mdash; drop your email below and we'll tell you the moment it's live.</span>
+        <span style="color: var(--accent); font-weight: 700;">&#8595;</span>
+        <span style="font-size: 13px; color: var(--text);">Instant download after checkout &middot; license key delivered on the spot</span>
       </div>
       <p style="font-size: 12px; color: var(--text2); margin-top: 12px;">
-        macOS 13+ (Apple Silicon) &middot; iPhone with iOS 16+ &middot; USB or Wi-Fi &middot; one-time $29
+        macOS 13+ (Apple Silicon) &middot; iPhone with iOS 16+ &middot; USB or Wi-Fi &middot; 30-day refund
       </p>
     </div>
   </div>
 </section>
 
-<section class="section" style="border-top: 1px solid var(--border);" id="notify">
+<section class="section" style="border-top: 1px solid var(--border);" id="get">
   <div class="container">
     <div class="waitlist">
-      <h3>Launching soon</h3>
-      <p>The Mac app is ready; the free FastNet iPhone companion is in final App Store review. Leave your email and we'll send one message the day it goes live &mdash; no spam, nothing else.</p>
-      <form id="notify-form" class="waitlist-form" onsubmit="return false;">
-        <input type="email" id="notify-email" placeholder="you@example.com" required>
-        <button type="submit" id="notify-submit">Notify me</button>
-      </form>
-      <p id="notify-success" style="display: none; margin-top: 16px; padding: 12px 16px; background: rgba(34,197,94,0.1); border: 1px solid rgba(34,197,94,0.3); border-radius: 10px; color: var(--text); font-size: 14px;">
-        Thanks &mdash; your email app should have opened with a pre-filled message. Hit send and you're on the list. (If nothing opened, email <a href="mailto:pjiang726@gmail.com?subject=Notify%20me%20when%20FastNet%20launches" style="color: var(--accent);">pjiang726@gmail.com</a> directly.)
-      </p>
+      <h3>Get FastNet</h3>
+      <p>$29 one-time &mdash; lifetime license, no subscription. Pay, get your license key on the spot, download the Mac app, install the free iPhone companion via TestFlight, and you're on full-speed phone data in a couple of minutes.</p>
+      <a href="/buy" class="cta-btn" style="margin-top: 4px;">Buy FastNet &mdash; <span class="cta-price">$29 one-time</span></a>
+      <p style="font-size: 13px; color: var(--text2); margin-top: 14px;">macOS (Apple Silicon) + iPhone &middot; <a href="/download" style="color: var(--text2); text-decoration: underline;">download first</a>, unlock with your license.</p>
     </div>
   </div>
 </section>
@@ -669,8 +664,8 @@ footer a:hover { color: var(--text); }
     </div>
 
     <div class="faq-item">
-      <div class="faq-q">Why does it need a USB cable?</div>
-      <div class="faq-a">USB provides a direct, private tunnel between your Mac and iPhone that bypasses the carrier's hotspot detection entirely. WiFi hotspot traffic is flagged and inspectable by the carrier &mdash; USB is not.</div>
+      <div class="faq-q">USB or Wi-Fi &mdash; which should I use?</div>
+      <div class="faq-a">Either works. USB is a direct cable link between your Mac and iPhone: most reliable, lowest latency, and the phone charges while connected. Wi-Fi is a direct device-to-device link (like AirDrop) &mdash; no cable, and you don't need to be on any network, just have Wi-Fi on. Either way your Mac's traffic leaves the phone as ordinary phone data, not tethered hotspot data.</div>
     </div>
 
     <div class="faq-item">
@@ -712,7 +707,7 @@ footer a:hover { color: var(--text); }
 </footer>
 
 <script>
-// UTM → captured into waitlist mailto so we know which Reddit post drove each signup.
+// UTM → captured for attribution so we know which channel drove each visit.
 (function () {
   const params = new URLSearchParams(location.search);
   const incoming = ['utm_source', 'utm_medium', 'utm_campaign']
@@ -728,24 +723,7 @@ footer a:hover { color: var(--text); }
     else ref = sessionStorage.getItem('fn_ref') || '';
   } catch (e) {}
 
-  // "Notify me at launch" — opens a pre-filled mailto (no backend).
-  const form = document.getElementById('notify-form');
-  const emailIn = document.getElementById('notify-email');
-  const success = document.getElementById('notify-success');
-  if (form) {
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const email = (emailIn.value || '').trim();
-      if (!email) return;
-      const subject = encodeURIComponent('Notify me when FastNet launches');
-      const refLine = ref ? `\nReferral: ${ref}` : '';
-      const body = encodeURIComponent(
-        `Hi Paul, please email ${email} when FastNet launches.${refLine}\n`
-      );
-      window.location.href = `mailto:pjiang726@gmail.com?subject=${subject}&body=${body}`;
-      success.style.display = 'block';
-    });
-  }
+  // (UTM captured above for attribution; Buy → /buy.)
 })();
 </script>
 
