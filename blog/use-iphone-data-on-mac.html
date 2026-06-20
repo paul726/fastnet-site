@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How to Use Your iPhone's Unlimited Data on a Mac — Full Speed, No Hotspot Cap (2026)</title>
+<meta name="description" content="You have unlimited data on your iPhone, but using it on a Mac means slow, capped hotspot. Here's why hotspot and USB tethering both hit the cap — and the one approach that uses your real, uncapped phone data instead.">
+<link rel="canonical" href="https://fastnet-site.vercel.app/blog/use-iphone-data-on-mac.html">
+
+<link rel="icon" type="image/svg+xml" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="%233b82f6"/><path d="M14 50 L50 14 L34 50 L30 36 Z" fill="white"/></svg>'>
+
+<meta property="og:title" content="How to Use Your iPhone's Unlimited Data on a Mac — Full Speed, No Hotspot Cap (2026)">
+<meta property="og:description" content="Why hotspot and USB tethering both hit your carrier's hidden hotspot cap — and the one approach that uses your real, uncapped phone data on a Mac instead.">
+<meta property="og:url" content="https://fastnet-site.vercel.app/blog/use-iphone-data-on-mac.html">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://fastnet-site.vercel.app/og.png">
+
+<style>
+:root {
+  --bg: #0a0a0a; --surface: #141414; --border: #222;
+  --text: #e8e8e8; --text2: #888; --text3: #cfcfcf; --accent: #3b82f6; --green: #22c55e;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', sans-serif; background: var(--bg); color: var(--text); line-height: 1.65; -webkit-font-smoothing: antialiased; }
+.container { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+
+nav { padding: 20px 0; border-bottom: 1px solid var(--border); }
+nav .container { display: flex; justify-content: space-between; align-items: center; }
+.logo { font-size: 18px; font-weight: 700; letter-spacing: -0.5px; text-decoration: none; color: var(--text); }
+.logo span { color: var(--accent); }
+nav .links a { color: var(--text2); text-decoration: none; font-size: 14px; margin-left: 20px; }
+nav .links a:hover { color: var(--text); }
+
+article { padding: 56px 0 40px; }
+article .meta { color: var(--text2); font-size: 13px; margin-bottom: 18px; }
+article h1 { font-size: clamp(30px, 5vw, 42px); font-weight: 800; letter-spacing: -1px; line-height: 1.18; margin-bottom: 22px; }
+article h2 { font-size: 25px; font-weight: 700; letter-spacing: -0.5px; line-height: 1.3; margin: 44px 0 14px; }
+article h3 { font-size: 19px; font-weight: 600; margin: 28px 0 10px; }
+article p { color: var(--text3); font-size: 17px; margin-bottom: 16px; }
+article ul, article ol { color: var(--text3); font-size: 17px; margin: 0 0 16px 22px; }
+article li { margin-bottom: 8px; }
+article strong { color: var(--text); }
+article a { color: var(--accent); text-decoration: none; }
+article a:hover { text-decoration: underline; }
+article code { background: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: 1px 7px; font-size: 14px; }
+.lede { font-size: 19px; color: var(--text); }
+table { width: 100%; border-collapse: collapse; margin: 18px 0; font-size: 15px; }
+th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--border); color: var(--text3); vertical-align: top; }
+th { color: var(--text); font-weight: 600; }
+.cta { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 24px 26px; margin: 36px 0; }
+.cta h3 { margin-top: 0; color: var(--text); }
+.cta .btn { display: inline-block; background: var(--accent); color: #fff; text-decoration: none; border-radius: 10px; padding: 12px 20px; font-weight: 700; margin-top: 10px; }
+.cta .btn:hover { opacity: .92; text-decoration: none; }
+.note { color: var(--text2); font-size: 14px; }
+footer { border-top: 1px solid var(--border); padding: 40px 0; color: var(--text2); font-size: 14px; text-align: center; }
+footer a { color: var(--text2); text-decoration: none; margin: 0 12px; }
+footer a:hover { color: var(--text); }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="container">
+    <a href="/" class="logo">Fast<span>Net</span></a>
+    <div class="links">
+      <a href="/">Home</a>
+      <a href="/blog/">Blog</a>
+    </div>
+  </div>
+</nav>
+
+<article>
+  <div class="container">
+    <div class="meta">June 19, 2026 · 7 min read</div>
+    <h1>How to Use Your iPhone's Unlimited Data on a Mac — at Full Speed, Without the Hotspot Cap</h1>
+
+    <p class="lede">You pay for unlimited data. Your phone flies. But the moment you try to get that same connection onto your Mac, it crawls — or stops working entirely after a few gigabytes. This isn't your imagination, and it isn't a bug. Here's exactly what's going on, and the one way to actually use your real, uncapped data on a laptop.</p>
+
+    <h2>"Unlimited data" and "unlimited hotspot" are two different things</h2>
+    <p>On almost every US plan — even the ones marketed as "unlimited" — the carrier tracks two separate buckets:</p>
+    <ul>
+      <li><strong>Phone data</strong>: what your iPhone uses for its own apps. Genuinely unlimited, at full speed.</li>
+      <li><strong>Hotspot / tethered data</strong>: what other devices use <em>through</em> your phone. Capped at a hidden monthly limit (often 15–50 GB), after which it's throttled to 600 kbps–2 Mbps — barely usable.</li>
+    </ul>
+    <p>So when you share your iPhone's connection with a Mac, you're spending the small, capped bucket — not the unlimited one you actually pay for. That's why your phone is fast while your laptop is stuck buffering.</p>
+
+    <h2>The three normal ways to get your iPhone online onto a Mac</h2>
+    <table>
+      <tr><th>Method</th><th>How it feels</th><th>What the carrier counts it as</th></tr>
+      <tr><td><strong>Personal Hotspot (Wi-Fi)</strong></td><td>Easiest; drains the phone battery fast and runs hot</td><td>Hotspot → capped</td></tr>
+      <tr><td><strong>USB tethering</strong></td><td>More stable, charges while connected, lower latency</td><td>Hotspot → capped</td></tr>
+      <tr><td><strong>Local proxy (phone-data routing)</strong></td><td>Routes the Mac out as ordinary phone traffic</td><td>Phone data → uncapped</td></tr>
+    </table>
+    <p>Notice the pattern: the first two are different <em>cables and radios</em>, but to the carrier they're the same thing — tethering — and both spend the capped bucket.</p>
+
+    <h2>Why both hotspot and USB tethering hit the cap</h2>
+    <p>It's a common myth that USB tethering "doesn't count." It does. Carriers don't decide what's tethered by looking at whether you used Wi-Fi or a cable — they detect it on the network side (traffic patterns, TTL, and other signals that distinguish "this packet came from the phone itself" vs "this packet was forwarded from another device"). Switch from Wi-Fi hotspot to a USB cable and you'll get a more stable, faster-while-it-lasts connection — but you'll hit the exact same monthly hotspot cap.</p>
+    <p>USB is still worth using for stability and for keeping the phone charged. It just doesn't solve the cap on its own.</p>
+
+    <h2>The approach that uses your real, uncapped data</h2>
+    <p>There's one method that side-steps the cap entirely: instead of letting the carrier see your Mac's traffic as "tethered," you route it so it leaves the iPhone as <strong>ordinary phone data</strong> — the same bucket your phone's own apps use. To the carrier it looks like the phone is browsing, so it draws from your unlimited, full-speed data instead of the metered hotspot allowance.</p>
+    <p>This is exactly what <a href="/">FastNet</a> does. A small app on the iPhone and a companion app on the Mac pair up over a USB cable or Wi-Fi, and your Mac's traffic egresses through the phone's cellular connection as phone data — no hotspot cap, no throttle wall.</p>
+
+    <div class="cta">
+      <h3>Use the plan you already pay for</h3>
+      <p>FastNet routes your Mac's traffic out through your iPhone's cellular as regular phone data — full speed, no hotspot cap. One-time $29, no subscription. macOS (Apple Silicon) + iPhone.</p>
+      <a class="btn" href="/">See how it works →</a>
+    </div>
+
+    <h2>USB or Wi-Fi — which should you use?</h2>
+    <p>Both work; they're just trade-offs:</p>
+    <ul>
+      <li><strong>USB cable</strong> — the more reliable option. The phone charges while connected, latency is lowest, and there's no wireless interference. Best for long work sessions.</li>
+      <li><strong>Wi-Fi (peer-to-peer)</strong> — no cable needed. You don't even have to be on the same network; it's a direct device-to-device link, like AirDrop. Just have Wi-Fi switched on on both devices.</li>
+    </ul>
+
+    <h2>Setting it up</h2>
+    <ol>
+      <li>Install the FastNet companion app on your iPhone.</li>
+      <li>Install FastNet on your Mac and activate it.</li>
+      <li>Connect the two with a USB cable (or have Wi-Fi on for both), open the iPhone app, and click <strong>Connect</strong> on the Mac.</li>
+    </ol>
+    <p>From there, everything on your Mac — browser, email, video calls, large downloads — goes out through your iPhone's cellular at full speed.</p>
+
+    <h2>FAQ</h2>
+    <h3>Does this really work on "unlimited" plans?</h3>
+    <p>Yes — that's exactly the case it's built for. If your plan gives the phone unlimited full-speed data but caps the hotspot, this lets the Mac use the unlimited side.</p>
+    <h3>Is routing traffic as phone data against my carrier's terms?</h3>
+    <p>Carriers' tethering rules are a grey area, and terms vary by plan and provider. We're not lawyers — read your own plan. What FastNet does technically is send your Mac's traffic out as ordinary connections from the phone; we don't sell or inspect your data.</p>
+    <h3>How fast is it?</h3>
+    <p>You get your real cellular speed instead of the throttled hotspot speed — typically the difference between sub-1 Mbps and full 4G/5G. USB is generally the most consistent.</p>
+    <h3>What do I need?</h3>
+    <p>An iPhone and a Mac (Apple Silicon). No jailbreak, no plan upgrade, no remote VPN server.</p>
+
+    <h2>The short version</h2>
+    <p>Hotspot and USB tethering both spend your <em>capped</em> hotspot bucket — that's why your Mac slows to a crawl even though your phone is fast. The only durable fix is to use your <em>uncapped</em> phone-data bucket on the Mac, by routing its traffic out as ordinary phone traffic. That's the whole idea behind <a href="/">FastNet</a>.</p>
+    <p class="note">Related: <a href="/blog/iphone-hotspot-throttle-fix.html">Why your iPhone hotspot drops to 0.5 Mbps after 15 GB — and every way to fix it</a>.</p>
+  </div>
+</article>
+
+<footer>
+  <div class="container">
+    <a href="/">Home</a>
+    <a href="/blog/">Blog</a>
+    <a href="mailto:pjiang726@gmail.com">Contact</a>
+  </div>
+</footer>
+
+</body>
+</html>
