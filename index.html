@@ -33,7 +33,7 @@
   "name": "FastNet",
   "applicationCategory": "UtilitiesApplication",
   "operatingSystem": "macOS 13+, iOS 16+",
-  "description": "iOS SOCKS5 proxy and Mac companion app that routes Mac traffic through iPhone's cellular network to bypass hotspot throttling.",
+  "description": "FastNet Connect for Mac works with the optional Mac Bridge in ProxyDeck for iPhone to route Mac traffic through the iPhone's cellular connection.",
   "offers": {
     "@type": "Offer",
     "price": "29.00",
@@ -483,6 +483,7 @@ footer a:hover { color: var(--text); }
   <div class="container">
     <div class="logo">Fast<span>Net</span></div>
     <div class="nav-links">
+      <a href="#setup">Setup Guide</a>
       <a href="/blog/">Blog</a>
       <a href="/buy">Get FastNet</a>
     </div>
@@ -527,33 +528,34 @@ footer a:hover { color: var(--text); }
     </figure>
 
     <a href="/buy" class="cta-btn">Get FastNet &mdash; <span class="cta-price">$29 one-time</span></a>
-    <p style="font-size: 13px; color: var(--text2); margin-top: 14px; max-width: 480px; text-align: center; line-height: 1.5;">One-time $29 &middot; lifetime license &middot; instant download. For macOS (Apple Silicon) + your iPhone (companion app via TestFlight). <a href="/download" style="color: var(--text2); text-decoration: underline;">Download first</a> &mdash; it unlocks once you enter your license.</p>
+    <p style="font-size: 13px; color: var(--text2); margin-top: 14px; max-width: 520px; text-align: center; line-height: 1.5;">One-time $29 &middot; lifetime license &middot; FastNet Connect for Apple Silicon Macs &middot; free <a href="https://apps.apple.com/app/id6777330755" style="color: var(--text2); text-decoration: underline;">ProxyDeck for iPhone</a>. Already have the app? Follow the <a href="#setup" style="color: var(--text2); text-decoration: underline;">Mac setup guide</a>.</p>
   </div>
 </section>
 
-<section class="section" style="border-top: 1px solid var(--border);">
+<section class="section" id="setup" style="border-top: 1px solid var(--border);">
   <div class="container">
-    <h2 class="section-title">How It Works</h2>
+    <h2 class="section-title">Setup Guide</h2>
+    <p style="color: var(--text2); text-align: center; margin: -28px auto 36px; max-width: 580px;">Viewing this page on your iPhone? Open <strong style="color: var(--text);">fastnet-site.vercel.app</strong> on your Mac before downloading. <code>FastNet.pkg</code> installs on macOS only.</p>
     <div class="steps">
       <div class="step">
         <div class="step-num">1</div>
         <div>
-          <h3>Install the free FastNet app on your iPhone</h3>
-          <p>The companion iPhone app runs a local proxy on your phone. Your data stays on your device &mdash; nothing is sent to any server of ours.</p>
+          <h3>Install ProxyDeck on your iPhone</h3>
+          <p><a href="https://apps.apple.com/app/id6777330755">Get ProxyDeck from the App Store</a>. Network Lab works independently; FastNet uses its optional Mac Bridge mode.</p>
         </div>
       </div>
       <div class="step">
         <div class="step-num">2</div>
         <div>
           <h3>Install FastNet Connect on your Mac</h3>
-          <p>A quick installer (one click, one password). Pair your iPhone over a USB cable <em>or</em> wirelessly over Wi-Fi &mdash; no cable required, no manual config.</p>
+          <p>On your Mac, <a href="/download">download FastNet.pkg</a>, open it, and complete the installer. The package cannot be installed on an iPhone.</p>
         </div>
       </div>
       <div class="step">
         <div class="step-num">3</div>
         <div>
-          <h3>Click Connect</h3>
-          <p>One click and all your Mac's traffic rides your phone's cellular &mdash; your unlimited phone data, not your hotspot allowance. Full speed, no caps.</p>
+          <h3>Start Mac Bridge and connect</h3>
+          <p>Open ProxyDeck, select <strong>Mac Bridge</strong>, and tap <strong>Start Mac Bridge</strong>. Keep ProxyDeck in the foreground, then connect from FastNet Connect over USB or nearby peer-to-peer Wi-Fi.</p>
         </div>
       </div>
     </div>
@@ -598,8 +600,8 @@ footer a:hover { color: var(--text); }
       <div class="pricing-save">One-time &mdash; no subscription</div>
       <ul class="pricing-features">
         <li>FastNet Connect Mac app</li>
-        <li>Free iPhone companion app (via TestFlight)</li>
-        <li>Pair over USB or Wi-Fi (your choice)</li>
+        <li>Free ProxyDeck iPhone app from the App Store</li>
+        <li>Pair over USB or nearby peer-to-peer Wi-Fi</li>
         <li>One-click connect &mdash; routes all traffic</li>
         <li>Works with all carriers</li>
         <li>No jailbreak required</li>
@@ -622,9 +624,9 @@ footer a:hover { color: var(--text); }
   <div class="container">
     <div class="waitlist">
       <h3>Get FastNet</h3>
-      <p>$29 one-time &mdash; lifetime license, no subscription. Pay, get your license key on the spot, download the Mac app, install the free iPhone companion via TestFlight, and you're on full-speed phone data in a couple of minutes.</p>
+      <p>$29 one-time &mdash; lifetime license, no subscription. Get your license key, install FastNet Connect on your Mac, and pair it with the free ProxyDeck app from the App Store.</p>
       <a href="/buy" class="cta-btn" style="margin-top: 4px;">Buy FastNet &mdash; <span class="cta-price">$29 one-time</span></a>
-      <p style="font-size: 13px; color: var(--text2); margin-top: 14px;">macOS (Apple Silicon) + iPhone &middot; <a href="/download" style="color: var(--text2); text-decoration: underline;">download first</a>, unlock with your license.</p>
+      <p style="font-size: 13px; color: var(--text2); margin-top: 14px;">On your Apple Silicon Mac, <a href="/download" style="color: var(--text2); text-decoration: underline;">download FastNet Connect</a>, then unlock it with your license. <code>FastNet.pkg</code> cannot be installed on iPhone.</p>
     </div>
   </div>
 </section>
@@ -635,12 +637,12 @@ footer a:hover { color: var(--text); }
 
     <div class="faq-item">
       <div class="faq-q">How does this work?</div>
-      <div class="faq-a">Carriers track hotspot usage separately from phone data. FastNet routes your Mac's traffic through a local proxy on your iPhone &mdash; over a USB cable or wirelessly over Wi-Fi. To the carrier, it looks like regular phone data, so it uses your unlimited phone data instead of your limited hotspot allowance.</div>
+      <div class="faq-a">Carriers track hotspot usage separately from phone data. FastNet Connect routes your Mac's traffic through ProxyDeck's optional Mac Bridge &mdash; over USB or nearby peer-to-peer Wi-Fi. To the carrier, it looks like regular phone data, so it uses your unlimited phone data instead of your limited hotspot allowance.</div>
     </div>
 
     <div class="faq-item">
       <div class="faq-q">How is this different from PDANet+?</div>
-      <div class="faq-a">PDANet+ pioneered this approach years ago and still works for some users. The differences: FastNet is a native macOS menu bar app (no extra desktop window), the iOS side is built specifically for modern iOS 16+, and the entire setup is one click &mdash; no manual proxy configuration on Mac. If PDANet+ already works for you, no need to switch.</div>
+      <div class="faq-a">PDANet+ pioneered this approach years ago and still works for some users. The differences: FastNet Connect is a native macOS menu bar app, ProxyDeck is built for modern iOS, and the setup requires no terminal or manual proxy configuration. If PDANet+ already works for you, no need to switch.</div>
     </div>
 
     <div class="faq-item">
@@ -650,7 +652,7 @@ footer a:hover { color: var(--text); }
 
     <div class="faq-item">
       <div class="faq-q">Will this be detected by my carrier?</div>
-      <div class="faq-a">Tethering detection usually relies on TTL inspection, User-Agent fingerprinting, and DNS heuristics. Because FastNet runs as a local proxy on the phone, the traffic originates from the phone's TCP stack &mdash; the same stack as Safari or any other app. There's no tool that guarantees 100% invisibility (carriers can still infer from volume), but the proxy approach removes the most common detection signals.</div>
+      <div class="faq-a">Tethering detection usually relies on TTL inspection, User-Agent fingerprinting, and DNS heuristics. Because ProxyDeck's Mac Bridge uses the phone's TCP stack, traffic originates from the same network stack as other iPhone apps. No tool guarantees invisibility, and carriers may still infer usage from traffic patterns.</div>
     </div>
 
     <div class="faq-item">
@@ -698,8 +700,8 @@ footer a:hover { color: var(--text); }
 <footer>
   <div class="container">
     <div class="footer-links">
-      <a href="https://github.com/paul726/FastNet/blob/main/PRIVACY.md">Privacy</a>
-      <a href="https://github.com/paul726/FastNet/blob/main/TERMS.md">Terms</a>
+      <a href="/privacy">Privacy</a>
+      <a href="/terms">Terms</a>
       <a href="mailto:pjiang726@gmail.com">Support</a>
     </div>
     <p>&copy; 2026 FastNet. All rights reserved.</p>

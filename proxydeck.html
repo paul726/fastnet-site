@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FastNet — Support</title>
-<meta name="description" content="FastNet lets your Mac use your iPhone's cellular connection, over USB or Wi-Fi. Setup and support guide.">
+<title>ProxyDeck and FastNet Connect — Setup &amp; Support</title>
+<meta name="description" content="Set up ProxyDeck on iPhone and the optional FastNet Connect companion on Mac over USB or nearby peer-to-peer Wi-Fi.">
 <link rel="canonical" href="https://fastnet-site.vercel.app/proxydeck">
 <link rel="icon" type="image/svg+xml" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="%233b82f6"/><path d="M14 50 L50 14 L34 50 L30 36 Z" fill="white"/></svg>'>
 <style>
@@ -29,21 +29,27 @@ strong { color:var(--text); }
 <body>
 <div class="container">
   <a class="back" href="/">← FastNet</a>
-  <h1>FastNet</h1>
-  <div class="tag">Use your iPhone's cellular connection on your Mac — over USB or Wi-Fi.</div>
+  <h1>ProxyDeck</h1>
+  <div class="tag">Network Lab for iPhone, with an optional FastNet Connect companion for Mac.</div>
 
-  <p>FastNet has two parts: a small app on your <strong>iPhone</strong> and the <strong>FastNet Connect</strong> app on your <strong>Mac</strong>. Together they route your Mac's traffic out through your iPhone's cellular data — so your Mac gets online through the phone, without burning the metered hotspot allowance.</p>
+  <p><strong>Network Lab</strong> works entirely on your iPhone and requires no Mac, account, or companion app. It checks DNS, HTTPS, TCP, and the built-in local SOCKS5 path.</p>
 
-  <h2>Setup</h2>
+  <p><strong>Mac Bridge</strong> is optional. It works with <strong>FastNet Connect</strong> on your Mac over USB or nearby peer-to-peer Wi-Fi and only while ProxyDeck remains in the foreground.</p>
+
+  <h2>Mac Bridge setup</h2>
+  <div class="card">
+    <p><strong>On an iPhone right now?</strong> Open <a href="/">fastnet-site.vercel.app</a> on your Mac before downloading. <code>FastNet.pkg</code> is a macOS installer and cannot be installed on iPhone.</p>
+  </div>
   <ol>
-    <li>Install <strong>FastNet</strong> on your iPhone using the TestFlight invite that came with your purchase.</li>
-    <li>Install <strong>FastNet Connect</strong> on your Mac and activate it with your license key.</li>
-    <li>Connect the iPhone to the Mac with a <strong>USB cable</strong>, or put both on the same <strong>Wi-Fi</strong>.</li>
-    <li>Open FastNet on the iPhone, then click <strong>Connect</strong> in the Mac app.</li>
+    <li><a href="https://apps.apple.com/app/id6777330755">Install ProxyDeck from the App Store</a> on your iPhone.</li>
+    <li>On your Mac, <a href="/download">download FastNet Connect</a>, open <strong>FastNet.pkg</strong>, and complete the installer.</li>
+    <li>Launch FastNet Connect on your Mac and activate it with your license key.</li>
+    <li>Open ProxyDeck on the iPhone, select <strong>Mac Bridge</strong>, and tap <strong>Start Mac Bridge</strong>.</li>
+    <li>Keep ProxyDeck in the foreground, then connect from the Mac over USB or nearby peer-to-peer Wi-Fi.</li>
   </ol>
 
   <h2>Privacy</h2>
-  <p>FastNet collects nothing — no accounts, no analytics, no tracking, and no network calls to us. See the <a href="/privacy">Privacy Policy</a> and <a href="/terms">Terms of Use</a>.</p>
+  <p>ProxyDeck and FastNet Connect collect nothing — no accounts, analytics, tracking, or traffic logs. See the <a href="/privacy">Privacy Policy</a> and <a href="/terms">Terms of Use</a>.</p>
 
   <h2>Support</h2>
   <div class="card">

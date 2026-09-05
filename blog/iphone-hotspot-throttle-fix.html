@@ -368,13 +368,13 @@ footer a:hover { color: var(--text); }
 
     <h3 id="fix-fastnet">Fix 5: A native one-click app for the same approach</h3>
 
-    <p>This is the gap FastNet fills — same proxy-over-USB architecture as the iproxy recipe, but packaged as two apps you install and forget. The iOS app runs a SOCKS5 proxy in the background. The Mac menu bar app handles the USB tunnel via libimobiledevice and toggles the system proxy on and off with one click.</p>
+    <p>This is the gap FastNet fills — the same proxy architecture as the iproxy recipe, packaged as ProxyDeck on iPhone and FastNet Connect on Mac. In ProxyDeck, you start the optional Mac Bridge and keep the app in the foreground; FastNet Connect handles USB or nearby peer-to-peer Wi-Fi transport and the Mac's system routing.</p>
 
     <p>To the carrier, traffic exits the phone with the same TTL, the same TCP fingerprint, and the same HTTPS SNI distribution as if you opened Safari on the phone and browsed the same sites yourself. There is no TTL trickery to detect because it is not a trick — the traffic literally originates from the phone's network stack.</p>
 
     <div class="cta-box">
       <h3>FastNet — the one-click version of the iproxy recipe</h3>
-      <p>iOS app is free. Mac menu bar app is $29 one-time, 30-day no-questions refund. Works on Verizon, AT&amp;T, T-Mobile, and most MVNOs.</p>
+      <p>ProxyDeck is free on the App Store. FastNet Connect for Mac is $29 one-time with a 30-day no-questions refund. Works on Verizon, AT&amp;T, T-Mobile, and most MVNOs.</p>
       <a href="/?utm_source=blog&utm_medium=cta&utm_campaign=throttle_fix_guide" class="cta-button">See FastNet on the homepage</a>
       <p class="cta-subtle">Honest disclosure: I built FastNet. If iproxy works for you, save the $29.</p>
     </div>
@@ -430,7 +430,7 @@ footer a:hover { color: var(--text); }
     <p>FastNet is Mac-only today. The same architecture would work on Windows and Linux because libimobiledevice is cross-platform — it is on the roadmap based on demand.</p>
 
     <h3>Will Apple stop this from working in a future iOS update?</h3>
-    <p>Possible but unlikely. The SOCKS5 server is a normal iOS app using the public <code>Network</code> framework. USB-over-libimobiledevice has been stable since iOS 7. Apple has no business incentive to break this — it is the carriers, not Apple, who care about tethering caps, and Apple has historically pushed back on carrier-driven iOS restrictions.</p>
+    <p>Platform behavior can change. ProxyDeck uses public iOS networking APIs and its Mac Bridge is explicitly foreground-only. USB transport relies on established device communication tooling, while the wireless path uses nearby peer-to-peer networking. Future iOS or macOS changes may still require an app update.</p>
 
     <h2 id="conclusion">The short version</h2>
 
