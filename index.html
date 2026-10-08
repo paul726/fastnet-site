@@ -3,16 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FastNet — Full Speed iPhone Hotspot on Mac</title>
-<meta name="description" content="Bypass carrier hotspot throttling. Get full cellular speed on your Mac with one USB cable and one click.">
+<title>FastNet Connect for Mac + ProxyDeck for iPhone</title>
+<meta name="description" content="Connect your Mac through your iPhone over USB or nearby Wi-Fi. Install free ProxyDeck on iPhone and FastNet Connect on Mac ($29 one-time).">
 <link rel="canonical" href="https://fastnet-site.vercel.app/">
 
 <!-- Favicon: inline SVG, no extra request -->
 <link rel="icon" type="image/svg+xml" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="%233b82f6"/><path d="M20 16h24v8h-16v8h14v8h-14v16h-8z" fill="white"/></svg>'>
 
 <!-- Open Graph (Reddit, Facebook, iMessage previews) -->
-<meta property="og:title" content="FastNet — Full Speed iPhone Hotspot on Mac">
-<meta property="og:description" content="Turn your iPhone's unlimited data into uncapped Mac internet. Over USB or Wi-Fi. One click. $29 one-time.">
+<meta property="og:title" content="FastNet Connect for Mac + ProxyDeck for iPhone">
+<meta property="og:description" content="iPhone fast, Mac hotspot slow? Connect over USB or nearby Wi-Fi with free ProxyDeck for iPhone and FastNet Connect for Mac ($29 one-time).">
 <meta property="og:url" content="https://fastnet-site.vercel.app/">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://fastnet-site.vercel.app/og.png">
@@ -21,8 +21,8 @@
 <meta property="og:image:alt" content="Speedtest comparison: hotspot throttled at 0.21 Mbps versus FastNet at 306 Mbps on the same T-Mobile SIM.">
 
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="FastNet — Full Speed iPhone Hotspot on Mac">
-<meta name="twitter:description" content="Turn your iPhone's unlimited data into uncapped Mac internet. Over USB or Wi-Fi. One click. $29 one-time.">
+<meta name="twitter:title" content="FastNet Connect for Mac + ProxyDeck for iPhone">
+<meta name="twitter:description" content="iPhone fast, Mac hotspot slow? Connect over USB or nearby Wi-Fi with free ProxyDeck for iPhone and FastNet Connect for Mac ($29 one-time).">
 <meta name="twitter:image" content="https://fastnet-site.vercel.app/og.png">
 
 <!-- Structured data: Product schema for Google -->
@@ -52,7 +52,7 @@
   --surface: #141414;
   --border: #222;
   --text: #e8e8e8;
-  --text2: #888;
+  --text2: #a3a3a3;
   --accent: #3b82f6;
   --green: #22c55e;
   --red: #ef4444;
@@ -81,7 +81,7 @@ nav a:hover { color: var(--text); }
 
 /* Hero */
 .hero {
-  padding: 80px 0 60px;
+  padding: 48px 0 60px;
   text-align: center;
 }
 .badge {
@@ -265,6 +265,25 @@ h1 .highlight {
   box-shadow: 0 8px 24px rgba(59,130,246,0.3);
 }
 .cta-price { opacity: 0.85; font-weight: 400; }
+a:focus-visible, button:focus-visible { outline: 3px solid #93c5fd; outline-offset: 4px; }
+.install-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; text-align: left; }
+.install-card { display: flex; flex-direction: column; padding: 22px; background: var(--surface); border: 1px solid var(--border); border-radius: 14px; }
+.install-card.phone { border-color: rgba(59,130,246,0.5); background: linear-gradient(145deg, rgba(59,130,246,0.12), var(--surface)); }
+.install-platform { color: var(--text2); font-size: 12px; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 8px; }
+.install-card h2 { font-size: 22px; letter-spacing: -0.5px; }
+.install-price { color: var(--text); font-weight: 600; font-size: 14px; margin: 4px 0 10px; }
+.install-description { color: var(--text2); font-size: 14px; margin-bottom: 18px; }
+.install-card .cta-btn { justify-content: center; text-align: center; padding: 13px 12px; font-size: 14px; margin-top: auto; }
+.cta-secondary { background: transparent; border: 1px solid #555; }
+.install-requirements { color: var(--text2); font-size: 12px; margin-top: 12px; }
+.install-requirements a, .setup-note a, .step a, .waitlist p a { color: #93c5fd; text-decoration: underline; text-underline-offset: 3px; }
+.setup-note { color: var(--text2); font-size: 14px; margin: 18px auto 32px; max-width: 610px; }
+.setup-note strong { color: var(--text); }
+.setup-intro { text-align: center; color: var(--text2); margin: -24px auto 28px; max-width: 580px; }
+.setup-intro strong { overflow-wrap: anywhere; }
+.step .cta-btn { margin-top: 14px; color: #fff; text-decoration: none; padding: 12px 18px; font-size: 14px; }
+.waitlist .cta-btn { width: 100%; justify-content: center; margin-bottom: 12px; padding: 14px 18px; }
+html { scroll-padding-top: 24px; }
 
 /* How it works */
 .section { padding: 60px 0; }
@@ -470,6 +489,12 @@ footer a:hover { color: var(--text); }
 
 /* Responsive */
 @media (max-width: 520px) {
+  .hero { padding-top: 32px; }
+  .subtitle { font-size: 16px; margin-bottom: 24px; }
+  .install-grid { grid-template-columns: 1fr; }
+  .install-card { padding: 18px; }
+  .nav-links { gap: 12px; }
+  nav a { font-size: 12px; }
   .speed-compare { flex-direction: column; align-items: center; }
   .speed-card { width: 100%; }
   .step { flex-direction: column; gap: 12px; }
@@ -485,7 +510,7 @@ footer a:hover { color: var(--text); }
     <div class="nav-links">
       <a href="#setup">Setup Guide</a>
       <a href="/blog/">Blog</a>
-      <a href="/buy">Get FastNet</a>
+      <a href="#apps">Get the apps</a>
     </div>
   </div>
 </nav>
@@ -493,8 +518,28 @@ footer a:hover { color: var(--text); }
 <section class="hero">
   <div class="container">
     <div class="badge">For Mac + iPhone</div>
-    <h1>Hotspot data ran out?<br><span class="highlight">Not anymore.</span></h1>
-    <p class="subtitle">Turn your iPhone's unlimited data into unlimited hotspot for your Mac. Over USB or Wi-Fi. One click. No jailbreak. No plan upgrade.</p>
+    <h1>iPhone fast.<br><span class="highlight">Mac hotspot slow?</span></h1>
+    <p class="subtitle">Connect your Mac through your iPhone's cellular connection over USB or nearby Wi-Fi. FastNet Connect on Mac pairs with ProxyDeck on iPhone. No jailbreak.</p>
+
+    <div class="install-grid" id="apps" aria-label="Install the two apps for Mac Bridge">
+      <div class="install-card phone">
+        <p class="install-platform">On your iPhone</p>
+        <h2>ProxyDeck</h2>
+        <p class="install-price">Free on the App Store</p>
+        <p class="install-description">Pairs with the $29 Mac app. Look for <strong>ProxyDeck &mdash; Network Lab</strong> on the App Store, then choose Mac Bridge.</p>
+        <a class="cta-btn" href="https://apps.apple.com/app/id6777330755">Install ProxyDeck &mdash; Free</a>
+        <p class="install-requirements">iOS 16+. Keep the app in the foreground for Mac Bridge. Network Lab also works without a Mac.</p>
+      </div>
+      <div class="install-card">
+        <p class="install-platform">On your Mac</p>
+        <h2>FastNet Connect</h2>
+        <p class="install-price">$29 one-time &middot; no subscription</p>
+        <p class="install-description">The Mac app that connects to ProxyDeck. Mac Bridge requires both apps and a paid Mac license.</p>
+        <a class="cta-btn cta-secondary" href="#mac-setup">Set up FastNet on Mac</a>
+        <p class="install-requirements">Apple Silicon &middot; macOS 13+ &middot; <a href="/buy">Buy a Mac license</a></p>
+      </div>
+    </div>
+    <p class="setup-note"><strong>Keep ProxyDeck open on your iPhone while connected.</strong> Mac Bridge stops when it leaves the foreground. Installing the free iPhone app alone does not connect your Mac. <a href="#setup">See all setup steps</a>.</p>
 
     <div class="video-wrap">
       <div class="video-container"><video src="demo.mp4" controls playsinline preload="metadata"></video></div>
@@ -527,28 +572,30 @@ footer a:hover { color: var(--text); }
       <figcaption>Real Speedtest results &mdash; same T-Mobile SIM, same server, taken back-to-back.</figcaption>
     </figure>
 
-    <a href="/buy" class="cta-btn">Get FastNet &mdash; <span class="cta-price">$29 one-time</span></a>
-    <p style="font-size: 13px; color: var(--text2); margin-top: 14px; max-width: 520px; text-align: center; line-height: 1.5;">One-time $29 &middot; lifetime license &middot; FastNet Connect for Apple Silicon Macs &middot; free <a href="https://apps.apple.com/app/id6777330755" style="color: var(--text2); text-decoration: underline;">ProxyDeck for iPhone</a>. Already have the app? Follow the <a href="#setup" style="color: var(--text2); text-decoration: underline;">Mac setup guide</a>.</p>
+    <a href="#apps" class="cta-btn">Get the iPhone + Mac apps</a>
   </div>
 </section>
 
 <section class="section" id="setup" style="border-top: 1px solid var(--border);">
   <div class="container">
-    <h2 class="section-title">Setup Guide</h2>
-    <p style="color: var(--text2); text-align: center; margin: -28px auto 36px; max-width: 580px;">Viewing this page on your iPhone? Open <strong style="color: var(--text);">fastnet-site.vercel.app</strong> on your Mac before downloading. <code>FastNet.pkg</code> installs on macOS only.</p>
+    <h2 class="section-title">Two apps. One connection.</h2>
+    <p class="setup-intro">On your iPhone? Install ProxyDeck now, then open <strong>fastnet-site.vercel.app/#mac-setup</strong> on your Mac for step 2. The Mac installer cannot run on iPhone.</p>
     <div class="steps">
       <div class="step">
         <div class="step-num">1</div>
         <div>
           <h3>Install ProxyDeck on your iPhone</h3>
-          <p><a href="https://apps.apple.com/app/id6777330755">Get ProxyDeck from the App Store</a>. Network Lab works independently; FastNet uses its optional Mac Bridge mode.</p>
+          <p>The App Store name is <strong>ProxyDeck &mdash; Network Lab</strong>. It is free. Network Lab works independently; FastNet Connect uses its optional Mac Bridge mode.</p>
+          <a class="cta-btn" href="https://apps.apple.com/app/id6777330755">Install ProxyDeck &mdash; Free</a>
         </div>
       </div>
-      <div class="step">
+      <div class="step" id="mac-setup">
         <div class="step-num">2</div>
         <div>
           <h3>Install FastNet Connect on your Mac</h3>
-          <p>On your Mac, <a href="/download">download FastNet.pkg</a>, open it, and complete the installer. The package cannot be installed on an iPhone.</p>
+          <p>On an Apple Silicon Mac with macOS 13+, download and open <strong>FastNet.pkg</strong>. A <a href="/buy">$29 one-time Mac license</a> is required to activate FastNet Connect. Already purchased? Use your existing license key.</p>
+          <a class="cta-btn cta-secondary" href="/download">Download Mac installer</a>
+          <p class="install-requirements">For macOS only, not iPhone. Downloading the installer does not include a license.</p>
         </div>
       </div>
       <div class="step">
@@ -623,10 +670,11 @@ footer a:hover { color: var(--text); }
 <section class="section" style="border-top: 1px solid var(--border);" id="get">
   <div class="container">
     <div class="waitlist">
-      <h3>Get FastNet</h3>
-      <p>$29 one-time &mdash; lifetime license, no subscription. Get your license key, install FastNet Connect on your Mac, and pair it with the free ProxyDeck app from the App Store.</p>
-      <a href="/buy" class="cta-btn" style="margin-top: 4px;">Buy FastNet &mdash; <span class="cta-price">$29 one-time</span></a>
-      <p style="font-size: 13px; color: var(--text2); margin-top: 14px;">On your Apple Silicon Mac, <a href="/download" style="color: var(--text2); text-decoration: underline;">download FastNet Connect</a>, then unlock it with your license. <code>FastNet.pkg</code> cannot be installed on iPhone.</p>
+      <h3>Start with the right app</h3>
+      <p>ProxyDeck is the free iPhone app. FastNet Connect is the separately purchased Mac app. You need both for Mac Bridge.</p>
+      <a href="https://apps.apple.com/app/id6777330755" class="cta-btn">Install ProxyDeck &mdash; Free</a>
+      <a href="/buy" class="cta-btn cta-secondary">Buy Mac license &mdash; $29</a>
+      <p>Already have a Mac license? <a href="#mac-setup">Go to the Mac download and setup</a>. Keep ProxyDeck in the foreground during use.</p>
     </div>
   </div>
 </section>
@@ -634,6 +682,11 @@ footer a:hover { color: var(--text); }
 <section class="section" style="border-top: 1px solid var(--border);">
   <div class="container">
     <h2 class="section-title">FAQ</h2>
+
+    <div class="faq-item">
+      <div class="faq-q">Why does the App Store say ProxyDeck instead of FastNet?</div>
+      <div class="faq-a">They are the two apps used together for Mac Bridge: <strong>ProxyDeck &mdash; Network Lab</strong> is the free iPhone app, and <strong>FastNet Connect</strong> is the $29 Mac app. ProxyDeck also includes standalone network diagnostics that need no Mac or purchase. Its optional Mac Bridge connects to FastNet Connect only while ProxyDeck remains in the foreground.</div>
+    </div>
 
     <div class="faq-item">
       <div class="faq-q">How does this work?</div>
