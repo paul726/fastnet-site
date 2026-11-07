@@ -12,11 +12,5 @@
       "destination": "/downloads/FastNet.pkg",
       "permanent": false
     }
-  ],
-  "rewrites": [
-    {
-      "source": "/google42140ebb80eb6777.html",
-      "destination": "/google42140ebb80eb6777.txt"
-    }
   ]
 }
