@@ -783,22 +783,10 @@ footer a:hover { color: var(--text); }
   </div>
 </footer>
 
+<script src="/ref.js"></script>
 <script>
-// UTM → captured for attribution so we know which channel drove each visit.
 (function () {
-  const params = new URLSearchParams(location.search);
-  const incoming = ['utm_source', 'utm_medium', 'utm_campaign']
-    .map(k => params.get(k))
-    .filter(Boolean)
-    .join('_')
-    .replace(/[^a-zA-Z0-9_-]/g, '_')
-    .slice(0, 200);
-
-  let ref = incoming;
-  try {
-    if (incoming) sessionStorage.setItem('fn_ref', incoming);
-    else ref = sessionStorage.getItem('fn_ref') || '';
-  } catch (e) {}
+  const ref = window.fnRef || '';
 
   // Windows waitlist: opens the visitor's mail app with a pre-filled message.
   const form = document.getElementById('windows-form');
