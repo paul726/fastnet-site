@@ -6,3 +6,7 @@ node_modules
 og-template.html
 speedtest-throttled.png
 speedtest-fastnet.png
+.gstack/
+
+# design-review screenshots and reports
+.gstack
