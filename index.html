@@ -76,7 +76,7 @@ nav .container { display: flex; align-items: center; justify-content: space-betw
 .nav-links a.nav-cta:hover { background: var(--button-hover); }
 
 /* Type */
-h1 { font-size: clamp(36px, 4.9vw, 58px); line-height: 1.04; letter-spacing: -.045em; font-weight: 800; text-wrap: balance; }
+h1 { font-size: clamp(36px, 4.8vw, 56px); line-height: 1.04; letter-spacing: -.045em; font-weight: 800; text-wrap: balance; }
 h1 span { color: var(--accent); white-space: nowrap; }
 h2 { font-size: clamp(28px, 3.6vw, 40px); line-height: 1.15; letter-spacing: -.035em; font-weight: 750; text-wrap: balance; }
 h3 { font-size: 18px; line-height: 1.35; font-weight: 650; }
@@ -94,15 +94,16 @@ h3 { font-size: 18px; line-height: 1.35; font-weight: 650; }
 
 /* Hero */
 .hero { padding: 72px 0 48px; background: radial-gradient(ellipse at 80% 0%, #15203b 0, transparent 62%); }
-.hero-grid { display: grid; grid-template-columns: minmax(0, 1.08fr) minmax(0, .92fr); gap: 56px; align-items: center; }
+.hero-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 48px; align-items: center; }
 .lede { font-size: 19px; color: var(--muted); margin-top: 22px; max-width: 520px; }
 .hero .actions { margin-top: 30px; }
 .hero .fine { margin-top: 16px; max-width: 520px; }
-.shot { position: relative; height: 560px; }
-.shot-phone { position: absolute; left: 4%; top: 0; height: 560px; width: auto; border-radius: 44px; border: 1px solid rgba(255,255,255,.16); box-shadow: 0 30px 80px rgba(0,0,0,.55); }
-.shot-mac { position: absolute; right: 0; top: 72px; width: 262px; height: auto; border-radius: 13px; border: 1px solid rgba(255,255,255,.22); box-shadow: 0 24px 70px rgba(0,0,0,.65); }
-.shot-label { position: absolute; font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
-.shot-label.mac { right: 0; top: 44px; }
+.shot { display: flex; justify-content: center; align-items: flex-start; gap: 22px; }
+.shot figure { flex: 0 0 auto; }
+.shot figcaption { font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; }
+.shot-phone { display: block; height: 500px; width: auto; border-radius: 40px; border: 1px solid rgba(255,255,255,.16); box-shadow: 0 30px 80px rgba(0,0,0,.55); }
+.shot-mac-wrap { margin-top: 84px; }
+.shot-mac { display: block; width: 236px; height: auto; border-radius: 13px; border: 1px solid rgba(255,255,255,.22); box-shadow: 0 24px 70px rgba(0,0,0,.65); }
 .notice { margin-top: 44px; padding: 16px 20px; border: 1px solid #2a3a5c; border-radius: 12px; background: #10151f; color: #d6dfef; font-size: 15px; }
 
 /* Sections */
@@ -178,10 +179,6 @@ footer { border-top: 1px solid var(--border); padding: 36px 0 44px; color: var(-
 @media (max-width: 900px) {
   .hero { padding: 44px 0 36px; }
   .hero-grid, .pricing, .band { grid-template-columns: 1fr; gap: 36px; }
-  .shot { height: 470px; max-width: 420px; margin: 0 auto; width: 100%; }
-  .shot-phone { height: 470px; left: 2%; }
-  .shot-mac { width: 220px; top: 64px; }
-  .shot-label.mac { top: 38px; }
   .section { padding: 56px 0; }
   .nav-links a:not(.nav-cta):not(.keep) { display: none; }
 }
@@ -191,6 +188,10 @@ footer { border-top: 1px solid var(--border); padding: 36px 0 44px; color: var(-
   .actions { flex-direction: column; }
   .button { width: 100%; }
   .proof, .why, .includes { grid-template-columns: 1fr; }
+  .shot { flex-direction: column; align-items: center; gap: 28px; }
+  .shot-mac-wrap { margin-top: 0; order: -1; }
+  .shot-mac { width: 260px; }
+  .shot-phone { height: 460px; }
   .steps li { grid-template-columns: 44px minmax(0, 1fr); gap: 14px; }
   .price-card { padding: 24px; }
   .band { padding: 24px 20px; }
@@ -228,9 +229,14 @@ footer { border-top: 1px solid var(--border); padding: 36px 0 44px; color: var(-
         <p class="fine">Two apps work together: <strong>FastNet Connect</strong> on your Mac ($29 one-time, 30-day refund) and <strong>ProxyDeck</strong> on your iPhone (free). Apple Silicon, macOS 13+, iOS 16+. <a href="#setup">See the setup steps</a>.</p>
       </div>
       <div class="shot">
-        <img class="shot-phone" src="hero-phone.jpg" width="590" height="1294" alt="ProxyDeck on an iPhone with Mac Bridge running: 35 active connections and 38.5 MB of traffic.">
-        <span class="shot-label mac" aria-hidden="true">Mac menu bar</span>
-        <img class="shot-mac" src="hero-mac.jpg" width="512" height="330" alt="The FastNet Connect panel in the Mac menu bar, switched on, showing the iPhone connected over USB.">
+        <figure>
+          <figcaption>On your iPhone</figcaption>
+          <img class="shot-phone" src="hero-phone.jpg" width="590" height="1294" alt="ProxyDeck on an iPhone with Mac Bridge running: 35 active connections and 38.5 MB of traffic.">
+        </figure>
+        <figure class="shot-mac-wrap">
+          <figcaption>In your Mac's menu bar</figcaption>
+          <img class="shot-mac" src="hero-mac.jpg" width="512" height="330" alt="The FastNet Connect panel in the Mac menu bar, switched on, showing the iPhone connected over USB.">
+        </figure>
       </div>
     </div>
     <p class="notice"><strong>Keep ProxyDeck open on your iPhone while connected.</strong> Mac Bridge stops when the app leaves the foreground. Installing the free iPhone app alone does not connect your Mac. On a Windows PC? FastNet is Mac-only today: <a href="#windows">get an email if the Windows version ships</a>.</p>
