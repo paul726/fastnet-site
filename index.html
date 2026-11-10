@@ -48,738 +48,373 @@
 
 <style>
 :root {
-  --bg: #0a0a0a;
-  --surface: #141414;
-  --border: #222;
-  --text: #e8e8e8;
-  --text2: #a3a3a3;
-  --accent: #3b82f6;
-  --green: #22c55e;
-  --red: #ef4444;
+  --bg: #0a0a0b; --surface: #131417; --surface-2: #191b20; --border: #26282e; --border-2: #3a3d47;
+  --text: #ededed; --muted: #a9aeb9; --accent: #8ab4ff; --button: #315fce; --button-hover: #3d6fe6;
+  --good: #4ade80; --bad: #f87171;
 }
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body {
-  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', sans-serif;
-  background: var(--bg);
-  color: var(--text);
-  line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
-}
-.container { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; scroll-padding-top: 24px; color-scheme: dark; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+a { color: var(--accent); text-underline-offset: 4px; }
+a:hover { color: #c8dcff; }
+a:focus-visible, button:focus-visible, summary:focus-visible, input:focus-visible, video:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }
+img, video { max-width: 100%; }
+.container { width: min(100%, 1080px); margin: 0 auto; padding: 0 28px; }
+.skip-link { position: absolute; left: 16px; top: -80px; z-index: 5; padding: 8px 16px; background: var(--text); color: var(--bg); }
+.skip-link:focus { top: 16px; }
 
 /* Nav */
-nav {
-  padding: 20px 0;
-  border-bottom: 1px solid var(--border);
-}
-nav .container { display: flex; justify-content: space-between; align-items: center; }
-.logo { font-size: 18px; font-weight: 700; letter-spacing: -0.5px; }
-.logo span { color: var(--accent); }
-nav a { color: var(--text2); text-decoration: none; font-size: 14px; }
-nav a:hover { color: var(--text); }
-.nav-links { display: flex; gap: 20px; align-items: center; }
+nav { border-bottom: 1px solid var(--border); padding: 14px 0; }
+nav .container { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+.logo { display: inline-flex; align-items: center; gap: 10px; color: var(--text); font-size: 18px; font-weight: 700; letter-spacing: -.4px; text-decoration: none; }
+.logo svg { width: 26px; height: 26px; border-radius: 7px; }
+.logo .wordmark span { color: var(--accent); }
+.nav-links { display: flex; align-items: center; gap: 6px; }
+.nav-links a { color: var(--muted); text-decoration: none; font-size: 14.5px; padding: 12px 12px; }
+.nav-links a:hover { color: var(--text); }
+.nav-links a.nav-cta { color: #fff; background: var(--button); border-radius: 9px; padding: 10px 16px; font-weight: 650; margin-left: 8px; }
+.nav-links a.nav-cta:hover { background: var(--button-hover); }
+
+/* Type */
+h1 { font-size: clamp(36px, 4.9vw, 58px); line-height: 1.04; letter-spacing: -.045em; font-weight: 800; text-wrap: balance; }
+h1 span { color: var(--accent); white-space: nowrap; }
+h2 { font-size: clamp(28px, 3.6vw, 40px); line-height: 1.15; letter-spacing: -.035em; font-weight: 750; text-wrap: balance; }
+h3 { font-size: 18px; line-height: 1.35; font-weight: 650; }
+.eyebrow { color: var(--accent); text-transform: uppercase; letter-spacing: .12em; font-size: 12px; font-weight: 650; margin-bottom: 16px; }
+.intro { color: var(--muted); font-size: 17px; max-width: 640px; margin-top: 14px; }
+.intro strong, .fine strong, .notice strong { color: var(--text); }
+.fine { color: var(--muted); font-size: 13.5px; }
+
+/* Buttons */
+.button { display: inline-flex; align-items: center; justify-content: center; min-height: 50px; padding: 13px 22px; border: 1px solid var(--button); border-radius: 11px; background: var(--button); color: #fff; font-size: 15.5px; font-weight: 650; text-decoration: none; text-align: center; cursor: pointer; transition: background-color .15s ease-out, border-color .15s ease-out; }
+.button:hover { background: var(--button-hover); border-color: var(--button-hover); color: #fff; }
+.button.secondary { background: transparent; border-color: var(--border-2); }
+.button.secondary:hover { background: var(--surface-2); border-color: #565a67; }
+.actions { display: flex; flex-wrap: wrap; gap: 12px; }
 
 /* Hero */
-.hero {
-  padding: 48px 0 60px;
-  text-align: center;
-}
-.badge {
-  display: inline-block;
-  padding: 6px 14px;
-  background: rgba(59,130,246,0.1);
-  border: 1px solid rgba(59,130,246,0.2);
-  border-radius: 20px;
-  font-size: 13px;
-  color: var(--accent);
-  margin-bottom: 24px;
-}
-h1 {
-  font-size: clamp(32px, 6vw, 48px);
-  font-weight: 800;
-  letter-spacing: -1.5px;
-  line-height: 1.15;
-  margin-bottom: 20px;
-}
-h1 .highlight {
-  background: linear-gradient(135deg, var(--accent), #8b5cf6);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-.subtitle {
-  font-size: 18px;
-  color: var(--text2);
-  max-width: 520px;
-  margin: 0 auto 40px;
-}
+.hero { padding: 72px 0 48px; background: radial-gradient(ellipse at 80% 0%, #15203b 0, transparent 62%); }
+.hero-grid { display: grid; grid-template-columns: minmax(0, 1.08fr) minmax(0, .92fr); gap: 56px; align-items: center; }
+.lede { font-size: 19px; color: var(--muted); margin-top: 22px; max-width: 520px; }
+.hero .actions { margin-top: 30px; }
+.hero .fine { margin-top: 16px; max-width: 520px; }
+.shot { position: relative; height: 560px; }
+.shot-phone { position: absolute; left: 4%; top: 0; height: 560px; width: auto; border-radius: 44px; border: 1px solid rgba(255,255,255,.16); box-shadow: 0 30px 80px rgba(0,0,0,.55); }
+.shot-mac { position: absolute; right: 0; top: 72px; width: 262px; height: auto; border-radius: 13px; border: 1px solid rgba(255,255,255,.22); box-shadow: 0 24px 70px rgba(0,0,0,.65); }
+.shot-label { position: absolute; font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.shot-label.mac { right: 0; top: 44px; }
+.notice { margin-top: 44px; padding: 16px 20px; border: 1px solid #2a3a5c; border-radius: 12px; background: #10151f; color: #d6dfef; font-size: 15px; }
+
+/* Sections */
+.section { padding: 76px 0; border-top: 1px solid var(--border); }
+.section-head { margin-bottom: 36px; }
+
+/* Proof */
+.proof { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.proof-card { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 26px 26px 22px; }
+.proof-label { font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+.proof-num { font-size: clamp(48px, 7vw, 76px); font-weight: 800; letter-spacing: -.05em; line-height: 1.05; margin: 6px 0 18px; font-variant-numeric: tabular-nums; }
+.proof-num small { font-size: 20px; font-weight: 500; letter-spacing: 0; color: var(--muted); margin-left: 6px; }
+.proof-num.bad { color: var(--bad); }
+.proof-num.good { color: var(--good); }
+.proof-img { overflow: hidden; border-radius: 10px; border: 1px solid var(--border); aspect-ratio: 1200 / 462; }
+.proof-img img { display: block; width: 100%; height: auto; margin-top: -11.5%; } /* hides the ad banner at the top of the Speedtest capture */
+.proof + .fine { margin-top: 16px; }
 
 /* Video */
-.video-wrap {
-  max-width: 640px;
-  margin: 0 auto 48px;
-  border-radius: 16px;
-  overflow: hidden;
-  border: 1px solid var(--border);
-  background: var(--surface);
-}
-.video-wrap .video-container {
-  position: relative;
-  padding-bottom: 56.25%;
-  height: 0;
-}
-.video-wrap .video-container iframe,
-.video-wrap .video-container video {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border: none;
-}
-.video-wrap .video-placeholder {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 80px 24px;
-  color: var(--text2);
-  font-size: 14px;
-  gap: 12px;
-}
-.video-wrap .video-placeholder .play-icon {
-  width: 64px;
-  height: 64px;
-  border-radius: 50%;
-  background: rgba(59,130,246,0.15);
-  border: 2px solid rgba(59,130,246,0.3);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 24px;
-}
+.video { border: 1px solid var(--border); border-radius: 16px; overflow: hidden; background: var(--surface); }
+.video video { display: block; width: 100%; aspect-ratio: 16 / 9; background: #0d0f14; }
 
-/* Speed demo */
-.speed-compare {
-  display: flex;
-  gap: 16px;
-  justify-content: center;
-  margin-bottom: 48px;
-  flex-wrap: wrap;
-}
-.speed-card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 28px 36px;
-  text-align: center;
-  min-width: 200px;
-}
-.speed-card.before { border-color: rgba(239,68,68,0.3); }
-.speed-card.after { border-color: rgba(34,197,94,0.3); }
-.speed-label {
-  font-size: 12px;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  color: var(--text2);
-  margin-bottom: 8px;
-}
-.speed-value {
-  font-size: 42px;
-  font-weight: 800;
-  letter-spacing: -2px;
-}
-.speed-card.before .speed-value { color: var(--red); }
-.speed-card.after .speed-value { color: var(--green); }
-.speed-unit { font-size: 16px; font-weight: 400; color: var(--text2); }
-.speed-sub { font-size: 13px; color: var(--text2); margin-top: 4px; }
-
-/* Real speedtest proof */
-.speed-proof {
-  margin: 0 0 40px;
-  padding: 0;
-}
-.speed-proof-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 14px;
-}
-.speed-proof-item {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  overflow: hidden;
-  position: relative;
-  aspect-ratio: 6 / 5;
-}
-.speed-proof-item img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center top;
-  display: block;
-}
-.speed-proof-tag {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  z-index: 1;
-  font-size: 11px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 1.4px;
-  padding: 5px 10px;
-  border-radius: 999px;
-  backdrop-filter: blur(6px);
-  background: rgba(0,0,0,0.55);
-}
-.speed-proof-tag.bad { color: #fca5a5; border: 1px solid rgba(239,68,68,0.4); }
-.speed-proof-tag.good { color: #86efac; border: 1px solid rgba(34,197,94,0.4); }
-.speed-proof figcaption {
-  text-align: center;
-  font-size: 13px;
-  color: var(--text2);
-  margin-top: 14px;
-}
-@media (max-width: 640px) {
-  .speed-proof-grid { grid-template-columns: 1fr; }
-}
-
-/* CTA button */
-.cta-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 16px 36px;
-  background: var(--accent);
-  color: #fff;
-  font-size: 16px;
-  font-weight: 600;
-  border: none;
-  border-radius: 12px;
-  cursor: pointer;
-  text-decoration: none;
-  transition: transform 0.15s, box-shadow 0.15s;
-}
-.cta-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(59,130,246,0.3);
-}
-.cta-price { opacity: 0.85; font-weight: 400; }
-a:focus-visible, button:focus-visible { outline: 3px solid #93c5fd; outline-offset: 4px; }
-.install-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; text-align: left; }
-.install-card { display: flex; flex-direction: column; padding: 22px; background: var(--surface); border: 1px solid var(--border); border-radius: 14px; }
-.install-card.phone { border-color: rgba(59,130,246,0.5); background: linear-gradient(145deg, rgba(59,130,246,0.12), var(--surface)); }
-.install-platform { color: var(--text2); font-size: 12px; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 8px; }
-.install-card h2 { font-size: 22px; letter-spacing: -0.5px; }
-.install-price { color: var(--text); font-weight: 600; font-size: 14px; margin: 4px 0 10px; }
-.install-description { color: var(--text2); font-size: 14px; margin-bottom: 18px; }
-.install-card .cta-btn { justify-content: center; text-align: center; padding: 13px 12px; font-size: 14px; margin-top: auto; }
-.cta-secondary { background: transparent; border: 1px solid #555; }
-.install-requirements { color: var(--text2); font-size: 12px; margin-top: 12px; }
-.install-requirements a, .setup-note a, .step a, .waitlist p a { color: #93c5fd; text-decoration: underline; text-underline-offset: 3px; }
-.setup-note { color: var(--text2); font-size: 14px; margin: 18px auto 32px; max-width: 610px; }
-.setup-note strong { color: var(--text); }
-.setup-intro { text-align: center; color: var(--text2); margin: -24px auto 28px; max-width: 580px; }
-.setup-intro strong { overflow-wrap: anywhere; }
-.step .cta-btn { margin-top: 14px; color: #fff; text-decoration: none; padding: 12px 18px; font-size: 14px; }
-.waitlist .cta-btn { width: 100%; justify-content: center; margin-bottom: 12px; padding: 14px 18px; }
-html { scroll-padding-top: 24px; }
-
-/* How it works */
-.section { padding: 60px 0; }
-.section-title {
-  font-size: 28px;
-  font-weight: 700;
-  letter-spacing: -0.5px;
-  margin-bottom: 40px;
-  text-align: center;
-}
-.steps {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-.step {
-  display: flex;
-  gap: 20px;
-  align-items: flex-start;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  padding: 24px;
-}
-.step-num {
-  flex-shrink: 0;
-  width: 36px;
-  height: 36px;
-  background: rgba(59,130,246,0.1);
-  border: 1px solid rgba(59,130,246,0.2);
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 700;
-  font-size: 14px;
-  color: var(--accent);
-}
-.step h3 { font-size: 16px; font-weight: 600; margin-bottom: 4px; }
-.step p { font-size: 14px; color: var(--text2); }
+/* Steps */
+.steps { list-style: none; counter-reset: step; border-bottom: 1px solid var(--border); }
+.steps li { counter-increment: step; display: grid; grid-template-columns: 52px minmax(0, 1fr); gap: 20px; padding: 28px 0; border-top: 1px solid var(--border); }
+.steps li::before { content: counter(step); display: grid; place-items: center; width: 40px; height: 40px; border: 1px solid #496394; border-radius: 50%; color: var(--accent); font-weight: 650; }
+.steps p { color: var(--muted); font-size: 15.5px; margin-top: 6px; max-width: 680px; }
+.steps p strong { color: var(--text); }
+.steps .button { margin-top: 16px; min-height: 46px; padding: 11px 18px; font-size: 14.5px; }
+.steps .fine { margin-top: 12px; }
 
 /* Why */
-.why-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 16px;
-}
-.why-card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  padding: 24px;
-}
-.why-card .icon { font-size: 28px; margin-bottom: 12px; }
-.why-card h3 { font-size: 15px; font-weight: 600; margin-bottom: 6px; }
-.why-card p { font-size: 13px; color: var(--text2); }
+.why { display: grid; grid-template-columns: 1fr 1fr; gap: 0 56px; }
+.why div { padding: 24px 0; border-top: 1px solid var(--border); }
+.why p { color: var(--muted); font-size: 15.5px; margin-top: 6px; }
 
 /* Pricing */
-.pricing-card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 20px;
-  padding: 40px;
-  text-align: center;
-  max-width: 400px;
-  margin: 0 auto;
-  position: relative;
-  overflow: hidden;
-}
-.pricing-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: linear-gradient(90deg, var(--accent), #8b5cf6);
-}
-.pricing-name {
-  font-size: 14px;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  color: var(--text2);
-  margin-bottom: 12px;
-}
-.pricing-amount {
-  font-size: 56px;
-  font-weight: 800;
-  letter-spacing: -3px;
-  margin-bottom: 4px;
-}
-.pricing-amount sup { font-size: 28px; vertical-align: super; font-weight: 600; }
-.pricing-period { font-size: 14px; color: var(--text2); margin-bottom: 24px; }
-.pricing-features {
-  list-style: none;
-  text-align: left;
-  margin-bottom: 32px;
-}
-.pricing-features li {
-  padding: 8px 0;
-  font-size: 14px;
-  color: var(--text2);
-  border-bottom: 1px solid var(--border);
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-.pricing-features li::before {
-  content: '\2713';
-  color: var(--green);
-  font-weight: 700;
-  font-size: 14px;
-}
-.pricing-save {
-  display: inline-block;
-  padding: 6px 14px;
-  background: rgba(34,197,94,0.1);
-  border: 1px solid rgba(34,197,94,0.2);
-  border-radius: 8px;
-  font-size: 13px;
-  color: var(--green);
-  margin-bottom: 24px;
-}
+.pricing { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 400px); gap: 56px; align-items: start; }
+.includes { list-style: none; margin-top: 26px; display: grid; grid-template-columns: 1fr 1fr; gap: 0 32px; }
+.includes li { position: relative; padding: 12px 0 12px 28px; border-top: 1px solid var(--border); color: var(--muted); font-size: 15px; }
+.includes li::before { content: ''; position: absolute; left: 4px; top: 18px; width: 12px; height: 6px; border-left: 2px solid var(--good); border-bottom: 2px solid var(--good); transform: rotate(-45deg); }
+.price-card { background: linear-gradient(160deg, #172033, var(--surface) 70%); border: 1px solid #3b4d73; border-radius: 18px; padding: 32px; }
+.price-name { font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+.price { font-size: 68px; font-weight: 800; letter-spacing: -.05em; line-height: 1.05; margin: 8px 0 2px; }
+.price sup { font-size: 30px; font-weight: 650; vertical-align: super; letter-spacing: 0; margin-right: 2px; }
+.price-card .button { width: 100%; margin-top: 24px; }
+.price-card .fine { margin-top: 14px; }
+.price-terms { color: var(--muted); font-size: 15px; }
 
-/* Waitlist */
-.waitlist {
-  max-width: 480px;
-  margin: 0 auto;
-  text-align: center;
-  padding: 36px 28px;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-}
-.waitlist h3 {
-  font-size: 18px;
-  font-weight: 600;
-  margin-bottom: 8px;
-}
-.waitlist p {
-  font-size: 14px;
-  color: var(--text2);
-  margin-bottom: 20px;
-}
-.waitlist-form {
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-}
-.waitlist-form input[type="email"] {
-  flex: 1;
-  min-width: 200px;
-  padding: 12px 14px;
-  background: var(--bg);
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  color: var(--text);
-  font-size: 14px;
-  font-family: inherit;
-}
-.waitlist-form input[type="email"]:focus {
-  outline: none;
-  border-color: var(--accent);
-}
-.waitlist-form button {
-  padding: 12px 20px;
-  background: var(--surface);
-  color: var(--text);
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  font-size: 14px;
-  font-weight: 600;
-  cursor: pointer;
-  font-family: inherit;
-}
-.waitlist-form button:hover {
-  border-color: var(--accent);
-  color: var(--accent);
-}
+/* Windows */
+.band { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 420px); gap: 40px; align-items: center; background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 30px 32px; }
+.band p { color: var(--muted); font-size: 15px; margin-top: 8px; }
+.waitlist-form { display: flex; gap: 8px; flex-wrap: wrap; }
+.waitlist-form input[type="email"] { flex: 1; min-width: 200px; min-height: 48px; padding: 12px 14px; background: var(--bg); border: 1px solid var(--border-2); border-radius: 10px; color: var(--text); font-size: 15px; font-family: inherit; }
+.waitlist-form button { min-height: 48px; padding: 12px 20px; background: var(--surface-2); color: var(--text); border: 1px solid var(--border-2); border-radius: 10px; font-size: 15px; font-weight: 650; cursor: pointer; font-family: inherit; }
+.waitlist-form button:hover { border-color: var(--accent); color: var(--accent); }
+#windows-success { display: none; margin-top: 14px; padding: 12px 16px; background: rgba(74,222,128,.08); border: 1px solid rgba(74,222,128,.3); border-radius: 10px; color: var(--text); font-size: 14px; }
 
 /* FAQ */
-.faq-item {
-  border-bottom: 1px solid var(--border);
-  padding: 20px 0;
-}
-.faq-q {
-  font-size: 15px;
-  font-weight: 600;
-  margin-bottom: 8px;
-}
-.faq-a { font-size: 14px; color: var(--text2); }
+.faq { max-width: 800px; }
+details { border-top: 1px solid var(--border); }
+details:last-child { border-bottom: 1px solid var(--border); }
+summary { cursor: pointer; font-size: 16.5px; font-weight: 650; padding: 18px 12px 18px 0; }
+details p { color: var(--muted); margin: -4px 0 20px; font-size: 15.5px; }
+details code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 14px; background: var(--surface-2); padding: 2px 6px; border-radius: 5px; }
 
 /* Footer */
-footer {
-  border-top: 1px solid var(--border);
-  padding: 32px 0;
-  text-align: center;
-}
-footer p { font-size: 13px; color: var(--text2); }
-footer a { color: var(--text2); text-decoration: none; }
-footer a:hover { color: var(--text); }
-.footer-links { display: flex; justify-content: center; gap: 24px; margin-bottom: 12px; }
+footer { border-top: 1px solid var(--border); padding: 36px 0 44px; color: var(--muted); font-size: 13.5px; }
+.footer-links { display: flex; flex-wrap: wrap; gap: 6px 22px; margin-bottom: 16px; }
+.footer-links a { color: var(--muted); text-decoration: none; padding: 6px 0; }
+.footer-links a:hover { color: var(--text); }
 
-/* Responsive */
-@media (max-width: 520px) {
-  .hero { padding-top: 32px; }
-  .subtitle { font-size: 16px; margin-bottom: 24px; }
-  .install-grid { grid-template-columns: 1fr; }
-  .install-card { padding: 18px; }
-  .nav-links { gap: 12px; }
-  nav a { font-size: 12px; }
-  .speed-compare { flex-direction: column; align-items: center; }
-  .speed-card { width: 100%; }
-  .step { flex-direction: column; gap: 12px; }
-  .pricing-card { padding: 28px 20px; }
+@media (max-width: 900px) {
+  .hero { padding: 44px 0 36px; }
+  .hero-grid, .pricing, .band { grid-template-columns: 1fr; gap: 36px; }
+  .shot { height: 470px; max-width: 420px; margin: 0 auto; width: 100%; }
+  .shot-phone { height: 470px; left: 2%; }
+  .shot-mac { width: 220px; top: 64px; }
+  .shot-label.mac { top: 38px; }
+  .section { padding: 56px 0; }
+  .nav-links a:not(.nav-cta):not(.keep) { display: none; }
 }
+@media (max-width: 640px) {
+  .container { padding: 0 20px; }
+  .lede { font-size: 17px; }
+  .actions { flex-direction: column; }
+  .button { width: 100%; }
+  .proof, .why, .includes { grid-template-columns: 1fr; }
+  .steps li { grid-template-columns: 44px minmax(0, 1fr); gap: 14px; }
+  .price-card { padding: 24px; }
+  .band { padding: 24px 20px; }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .button { transition: none; } }
 </style>
 </head>
 <body>
-
-<nav>
+<a class="skip-link" href="#main">Skip to content</a>
+<nav aria-label="Main navigation">
   <div class="container">
-    <div class="logo">Fast<span>Net</span></div>
+    <a href="/" class="logo" aria-label="FastNet home"><svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" fill="#3b82f6"/><path d="M14 50 L50 14 L34 50 L30 36 Z" fill="#fff"/></svg><span class="wordmark">Fast<span>Net</span></span></a>
     <div class="nav-links">
-      <a href="#setup">Setup Guide</a>
-      <a href="/blog/">Blog</a>
-      <a href="#apps">Get the apps</a>
+      <a href="#setup" class="keep">Setup</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#faq">FAQ</a>
+      <a href="/blog/">Guides</a>
+      <a href="/buy" class="nav-cta">Buy &middot; $29</a>
     </div>
   </div>
 </nav>
 
-<section class="hero">
+<main id="main">
+<header class="hero">
   <div class="container">
-    <div class="badge">For Mac + iPhone</div>
-    <h1>iPhone fast.<br><span class="highlight">Mac hotspot slow?</span></h1>
-    <p class="subtitle">Put your Mac online through your iPhone's regular phone data instead of the capped hotspot allowance, over USB or nearby Wi-Fi. Any carrier. No jailbreak.</p>
-
-    <div class="install-grid" id="apps" aria-label="Install the two apps for Mac Bridge">
-      <div class="install-card phone">
-        <p class="install-platform">On your iPhone</p>
-        <h2>ProxyDeck</h2>
-        <p class="install-price">Free on the App Store</p>
-        <p class="install-description">Pairs with the $29 Mac app. Look for <strong>ProxyDeck &mdash; Network Lab</strong> on the App Store, then choose Mac Bridge.</p>
-        <a class="cta-btn" href="https://apps.apple.com/app/id6777330755">Install ProxyDeck &mdash; Free</a>
-        <p class="install-requirements">iOS 16+. Keep the app in the foreground for Mac Bridge. Network Lab also works without a Mac.</p>
-      </div>
-      <div class="install-card">
-        <p class="install-platform">On your Mac</p>
-        <h2>FastNet Connect</h2>
-        <p class="install-price">$29 one-time &middot; no subscription</p>
-        <p class="install-description">The Mac app that connects to ProxyDeck. Mac Bridge requires both apps and a paid Mac license.</p>
-        <a class="cta-btn" href="/buy">Buy Mac license &mdash; $29</a>
-        <p class="install-requirements">Apple Silicon &middot; macOS 13+ &middot; 30-day refund &middot; <a href="#mac-setup">Download and setup</a></p>
-      </div>
-    </div>
-    <p class="setup-note"><strong>Keep ProxyDeck open on your iPhone while connected.</strong> Mac Bridge stops when it leaves the foreground. Installing the free iPhone app alone does not connect your Mac. <a href="#setup">See all setup steps</a>.</p>
-    <p class="setup-note" style="margin-top: 10px;">On a Windows PC? FastNet is Mac-only today. <a href="#windows">Get an email if the Windows version ships</a>.</p>
-
-    <div class="video-wrap">
-      <div class="video-container"><video src="tutorial.mp4" poster="tutorial-poster.jpg" controls playsinline preload="metadata" aria-label="FastNet setup tutorial: install both apps, start Mac Bridge, and connect"></video></div>
-    </div>
-
-    <div class="speed-compare">
-      <div class="speed-card before">
-        <div class="speed-label">Hotspot (capped)</div>
-        <div class="speed-value">0.5 <span class="speed-unit">Mbps</span></div>
-        <div class="speed-sub">Throttled or data ran out</div>
-      </div>
-      <div class="speed-card after">
-        <div class="speed-label">With FastNet</div>
-        <div class="speed-value">220 <span class="speed-unit">Mbps</span></div>
-        <div class="speed-sub">Uses phone data &mdash; unlimited &amp; full speed</div>
-      </div>
-    </div>
-
-    <figure class="speed-proof">
-      <div class="speed-proof-grid">
-        <div class="speed-proof-item">
-          <div class="speed-proof-tag bad">Hotspot · throttled</div>
-          <img src="speedtest-throttled-crop.png" alt="Speedtest result while iPhone hotspot is throttled: 0.21 Mbps download, 0.46 Mbps upload on T-Mobile">
+    <div class="hero-grid">
+      <div>
+        <p class="eyebrow">For Mac + iPhone</p>
+        <h1>iPhone fast.<br><span>Mac hotspot slow?</span></h1>
+        <p class="lede">Put your Mac online through your iPhone's regular phone data instead of the capped hotspot allowance, over USB or nearby Wi-Fi. Any carrier. No jailbreak.</p>
+        <div class="actions" id="apps">
+          <a class="button" href="/buy">Buy Mac license &mdash; $29</a>
+          <a class="button secondary" href="https://apps.apple.com/app/id6777330755">Get the free iPhone app</a>
         </div>
-        <div class="speed-proof-item">
-          <div class="speed-proof-tag good">With FastNet</div>
-          <img src="speedtest-fastnet-crop.png" alt="Speedtest result with FastNet running: 306.28 Mbps download, 14.24 Mbps upload on the same T-Mobile SIM">
-        </div>
+        <p class="fine">Two apps work together: <strong>FastNet Connect</strong> on your Mac ($29 one-time, 30-day refund) and <strong>ProxyDeck</strong> on your iPhone (free). Apple Silicon, macOS 13+, iOS 16+. <a href="#setup">See the setup steps</a>.</p>
       </div>
-      <figcaption>Real Speedtest results &mdash; same T-Mobile SIM, taken back-to-back.</figcaption>
-    </figure>
+      <div class="shot">
+        <img class="shot-phone" src="hero-phone.jpg" width="590" height="1294" alt="ProxyDeck on an iPhone with Mac Bridge running: 35 active connections and 38.5 MB of traffic.">
+        <span class="shot-label mac" aria-hidden="true">Mac menu bar</span>
+        <img class="shot-mac" src="hero-mac.jpg" width="512" height="330" alt="The FastNet Connect panel in the Mac menu bar, switched on, showing the iPhone connected over USB.">
+      </div>
+    </div>
+    <p class="notice"><strong>Keep ProxyDeck open on your iPhone while connected.</strong> Mac Bridge stops when the app leaves the foreground. Installing the free iPhone app alone does not connect your Mac. On a Windows PC? FastNet is Mac-only today: <a href="#windows">get an email if the Windows version ships</a>.</p>
+  </div>
+</header>
 
-    <a href="#apps" class="cta-btn">Get the iPhone + Mac apps</a>
+<section class="section" id="proof" aria-labelledby="proof-title">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow">Measured, not promised</p>
+      <h2 id="proof-title">Same SIM, a minute apart.</h2>
+    </div>
+    <div class="proof">
+      <figure class="proof-card">
+        <figcaption class="proof-label">Personal Hotspot, throttled</figcaption>
+        <p class="proof-num bad">0.21<small>Mbps</small></p>
+        <div class="proof-img"><img src="speedtest-throttled-crop.png" width="1200" height="1000" loading="lazy" alt="Speedtest result while iPhone hotspot is throttled: 0.21 Mbps download, 0.46 Mbps upload on T-Mobile"></div>
+      </figure>
+      <figure class="proof-card">
+        <figcaption class="proof-label">With FastNet</figcaption>
+        <p class="proof-num good">306<small>Mbps</small></p>
+        <div class="proof-img"><img src="speedtest-fastnet-crop.png" width="1200" height="1000" loading="lazy" alt="Speedtest result with FastNet running: 306.28 Mbps download, 14.24 Mbps upload on the same T-Mobile SIM"></div>
+      </figure>
+    </div>
+    <p class="fine">Real Speedtest results &mdash; same T-Mobile SIM, taken back-to-back. Your speeds depend on signal, plan, and device.</p>
   </div>
 </section>
 
-<section class="section" id="setup" style="border-top: 1px solid var(--border);">
+<section class="section" id="demo" aria-labelledby="demo-title">
   <div class="container">
-    <h2 class="section-title">Two apps. One connection.</h2>
-    <p class="setup-intro">On your iPhone? Install ProxyDeck now, then open <strong>fastnet-site.vercel.app/#mac-setup</strong> on your Mac for step 2. The Mac installer cannot run on iPhone.</p>
-    <div class="steps">
-      <div class="step">
-        <div class="step-num">1</div>
+    <div class="section-head">
+      <p class="eyebrow">84 seconds</p>
+      <h2 id="demo-title">Watch the setup, start to finish.</h2>
+    </div>
+    <div class="video">
+      <video src="tutorial.mp4" poster="tutorial-poster.jpg" controls playsinline preload="metadata" aria-label="FastNet setup tutorial: install both apps, start Mac Bridge, and connect"></video>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="setup" aria-labelledby="setup-title">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow">Setup</p>
+      <h2 id="setup-title">Two apps. One connection.</h2>
+      <p class="intro">On your iPhone right now? Install ProxyDeck, then open <strong>fastnet-site.vercel.app</strong> on your Mac for step 2. The Mac installer cannot run on an iPhone.</p>
+    </div>
+    <ol class="steps">
+      <li>
         <div>
           <h3>Install ProxyDeck on your iPhone</h3>
           <p>The App Store name is <strong>ProxyDeck &mdash; Network Lab</strong>. It is free. Network Lab works independently; FastNet Connect uses its optional Mac Bridge mode.</p>
-          <a class="cta-btn" href="https://apps.apple.com/app/id6777330755">Install ProxyDeck &mdash; Free</a>
+          <a class="button" href="https://apps.apple.com/app/id6777330755">Install ProxyDeck &mdash; Free</a>
+          <p class="fine">iOS 16+. Network Lab also works without a Mac.</p>
         </div>
-      </div>
-      <div class="step" id="mac-setup">
-        <div class="step-num">2</div>
+      </li>
+      <li id="mac-setup">
         <div>
           <h3>Install FastNet Connect on your Mac</h3>
           <p>On an Apple Silicon Mac with macOS 13+, download and open <strong>FastNet.pkg</strong>. A <a href="/buy">$29 one-time Mac license</a> is required to activate FastNet Connect. Already purchased? Use your existing license key.</p>
-          <a class="cta-btn cta-secondary" href="/download">Download Mac installer</a>
-          <p class="install-requirements">For macOS only, not iPhone. Downloading the installer does not include a license.</p>
+          <a class="button secondary" href="/download">Download Mac installer</a>
+          <p class="fine">For macOS only, not iPhone. Downloading the installer does not include a license.</p>
         </div>
-      </div>
-      <div class="step">
-        <div class="step-num">3</div>
+      </li>
+      <li>
         <div>
           <h3>Start Mac Bridge and connect</h3>
           <p>Open ProxyDeck, select <strong>Mac Bridge</strong>, and tap <strong>Start Mac Bridge</strong>. Keep ProxyDeck in the foreground, then connect from FastNet Connect over USB or nearby peer-to-peer Wi-Fi.</p>
         </div>
-      </div>
-    </div>
+      </li>
+    </ol>
   </div>
 </section>
 
-<section class="section" style="border-top: 1px solid var(--border);">
+<section class="section" aria-labelledby="why-title">
   <div class="container">
-    <h2 class="section-title">Why FastNet</h2>
-    <div class="why-grid">
-      <div class="why-card">
-        <div class="icon">&#9889;</div>
-        <h3>Unlimited &amp; Full Speed</h3>
+    <div class="section-head">
+      <h2 id="why-title">Why FastNet</h2>
+    </div>
+    <div class="why">
+      <div>
+        <h3>Unlimited &amp; full speed</h3>
         <p>Uses your phone's data, not hotspot allowance. No throttling, no data caps.</p>
       </div>
-      <div class="why-card">
-        <div class="icon">&#128274;</div>
-        <h3>Private &amp; Secure</h3>
+      <div>
+        <h3>Private &amp; secure</h3>
         <p>All traffic stays local between your devices. No cloud servers, no accounts, no data collection.</p>
       </div>
-      <div class="why-card">
-        <div class="icon">&#128268;</div>
-        <h3>One Click</h3>
+      <div>
+        <h3>One click</h3>
         <p>No terminal commands, no config files. Connect over USB or Wi-Fi and click once &mdash; all your Mac's traffic is routed automatically.</p>
       </div>
-      <div class="why-card">
-        <div class="icon">&#128176;</div>
-        <h3>Pay Once</h3>
+      <div>
+        <h3>Pay once</h3>
         <p>One-time purchase. No subscription. Stop paying $10-25/month extra for hotspot data you already have.</p>
       </div>
     </div>
   </div>
 </section>
 
-<section class="section" id="pricing" style="border-top: 1px solid var(--border);">
+<section class="section" id="pricing" aria-labelledby="pricing-title">
   <div class="container">
-    <h2 class="section-title">Pricing</h2>
-    <div class="pricing-card">
-      <div class="pricing-name">FastNet Connect for Mac</div>
-      <div class="pricing-amount"><sup>$</sup>29</div>
-      <div class="pricing-period">one-time payment &middot; lifetime updates</div>
-      <div class="pricing-save">One-time &mdash; no subscription</div>
-      <ul class="pricing-features">
-        <li>FastNet Connect Mac app</li>
-        <li>Free ProxyDeck iPhone app from the App Store</li>
-        <li>Pair over USB or nearby peer-to-peer Wi-Fi</li>
-        <li>One-click connect &mdash; routes all traffic</li>
-        <li>Works with any carrier, not only US ones</li>
-        <li>No jailbreak required</li>
-        <li>Lifetime updates</li>
-        <li>Email support</li>
-      </ul>
-      <a href="/buy" class="cta-btn buy-btn" style="width: 100%; justify-content: center;">Buy FastNet &mdash; $29</a>
-      <div style="display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 14px; padding: 10px 14px; background: rgba(59,130,246,0.08); border: 1px solid rgba(59,130,246,0.2); border-radius: 10px;">
-        <span style="color: var(--accent); font-weight: 700;">&#8595;</span>
-        <span style="font-size: 13px; color: var(--text);">Instant download after checkout &middot; license key delivered on the spot</span>
+    <div class="pricing">
+      <div>
+        <p class="eyebrow">Pricing</p>
+        <h2 id="pricing-title">One price. No subscription.</h2>
+        <ul class="includes">
+          <li>FastNet Connect Mac app</li>
+          <li>Free ProxyDeck iPhone app from the App Store</li>
+          <li>Pair over USB or nearby peer-to-peer Wi-Fi</li>
+          <li>One-click connect &mdash; routes all traffic</li>
+          <li>Works with any carrier, not only US ones</li>
+          <li>No jailbreak required</li>
+          <li>Lifetime updates</li>
+          <li>Email support</li>
+        </ul>
       </div>
-      <p style="font-size: 12px; color: var(--text2); margin-top: 12px;">
-        macOS 13+ (Apple Silicon) &middot; iPhone with iOS 16+ &middot; USB or Wi-Fi &middot; 30-day refund
-      </p>
+      <div class="price-card" id="get">
+        <p class="price-name">FastNet Connect for Mac</p>
+        <p class="price"><sup>$</sup>29</p>
+        <p class="price-terms">one-time payment &middot; lifetime updates &middot; 30-day refund</p>
+        <a href="/buy" class="button buy-btn">Buy FastNet &mdash; $29</a>
+        <p class="fine">Instant download after checkout &middot; license key delivered on the spot.</p>
+        <p class="fine">macOS 13+ (Apple Silicon) &middot; iPhone with iOS 16+ &middot; USB or Wi-Fi. Already have a license? <a href="#mac-setup">Go to the Mac download and setup</a>.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="section" style="border-top: 1px solid var(--border);" id="get">
+<section class="section" id="windows" aria-labelledby="windows-title">
   <div class="container">
-    <div class="waitlist">
-      <h3>Start with the right app</h3>
-      <p>ProxyDeck is the free iPhone app. FastNet Connect is the separately purchased Mac app. You need both for Mac Bridge.</p>
-      <a href="https://apps.apple.com/app/id6777330755" class="cta-btn">Install ProxyDeck &mdash; Free</a>
-      <a href="/buy" class="cta-btn cta-secondary">Buy Mac license &mdash; $29</a>
-      <p>Already have a Mac license? <a href="#mac-setup">Go to the Mac download and setup</a>. Keep ProxyDeck in the foreground during use.</p>
+    <div class="band">
+      <div>
+        <h3 id="windows-title">FastNet for Windows?</h3>
+        <p>FastNet runs on Mac only today. We are deciding whether to build a Windows version, and the number of people who ask is what decides it. Leave your email and we'll send one message if it ships. Nothing else.</p>
+      </div>
+      <div>
+        <form id="windows-form" class="waitlist-form" onsubmit="return false;">
+          <input type="email" id="windows-email" placeholder="you@example.com" aria-label="Email address" required>
+          <button type="submit">Notify me</button>
+        </form>
+        <p id="windows-success">Your email app should have opened with a pre-filled message. Hit send and you're on the list. If nothing opened, email <a href="mailto:pjiang726@gmail.com?subject=FastNet%20for%20Windows%20-%20notify%20me">pjiang726@gmail.com</a> directly.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="section" style="border-top: 1px solid var(--border);" id="windows">
+<section class="section" id="faq" aria-labelledby="faq-title">
   <div class="container">
-    <div class="waitlist">
-      <h3>FastNet for Windows?</h3>
-      <p>FastNet runs on Mac only today. We are deciding whether to build a Windows version, and the number of people who ask is what decides it. Leave your email and we'll send one message if it ships. Nothing else.</p>
-      <form id="windows-form" class="waitlist-form" onsubmit="return false;">
-        <input type="email" id="windows-email" placeholder="you@example.com" aria-label="Email address" required>
-        <button type="submit">Notify me</button>
-      </form>
-      <p id="windows-success" style="display: none; margin-top: 16px; margin-bottom: 0; padding: 12px 16px; background: rgba(34,197,94,0.1); border: 1px solid rgba(34,197,94,0.3); border-radius: 10px; color: var(--text); font-size: 14px;">
-        Your email app should have opened with a pre-filled message. Hit send and you're on the list. If nothing opened, email <a href="mailto:pjiang726@gmail.com?subject=FastNet%20for%20Windows%20-%20notify%20me">pjiang726@gmail.com</a> directly.
-      </p>
+    <div class="section-head">
+      <h2 id="faq-title">FAQ</h2>
+    </div>
+    <div class="faq">
+      <details><summary>Why does the App Store say ProxyDeck instead of FastNet?</summary><p>They are the two apps used together for Mac Bridge: <strong>ProxyDeck &mdash; Network Lab</strong> is the free iPhone app, and <strong>FastNet Connect</strong> is the $29 Mac app. ProxyDeck also includes standalone network diagnostics that need no Mac or purchase. Its optional Mac Bridge connects to FastNet Connect only while ProxyDeck remains in the foreground.</p></details>
+      <details><summary>How does this work?</summary><p>Carriers track hotspot usage separately from phone data. FastNet Connect routes your Mac's traffic through ProxyDeck's optional Mac Bridge &mdash; over USB or nearby peer-to-peer Wi-Fi. To the carrier, it looks like regular phone data, so it uses your unlimited phone data instead of your limited hotspot allowance.</p></details>
+      <details><summary>How is this different from PDANet+?</summary><p>PDANet+ pioneered this approach years ago and still works for some users. The differences: FastNet Connect is a native macOS menu bar app, ProxyDeck is built for modern iOS, and the setup requires no terminal or manual proxy configuration. If PDANet+ already works for you, no need to switch. <a href="/pdanet-alternative">Where PdaNet+ stands on iPhone and Mac today</a>.</p></details>
+      <details><summary>Is FastNet a PairVPN alternative for iPhone and Mac?</summary><p>Yes, for the specific job of getting a Mac online through a nearby iPhone. PairVPN's iOS app was removed from the App Store in October 2026 and its Android build has not been updated since 2023. FastNet Connect pairs with ProxyDeck over USB or nearby Wi-Fi, with a $29 one-time Mac license and a foreground-only iPhone app. It does not replace PairVPN's remote home-network access or its Windows and Android clients. <a href="/pairvpn-alternative">What happened to PairVPN, and what changes if you switch</a>.</p></details>
+      <details><summary>Why pay $29 if I can do this with iproxy + a SOCKS5 server?</summary><p>You can. <code>iproxy 1082 1082</code> plus a SOCKS5 server on iPhone is the same idea, free, and well-documented. FastNet is for people who want it to just work without terminal commands, manual port forwarding, or remembering to set the system proxy each time. If you're comfortable in terminal and only need it occasionally, the manual setup is fine.</p></details>
+      <details><summary>Will this be detected by my carrier?</summary><p>Tethering detection usually relies on TTL inspection, User-Agent fingerprinting, and DNS heuristics. Because ProxyDeck's Mac Bridge uses the phone's TCP stack, traffic originates from the same network stack as other iPhone apps. No tool guarantees invisibility, and carriers may still infer usage from traffic patterns.</p></details>
+      <details><summary>What speeds can I expect?</summary><p>Lightning-port iPhones cap around 280&ndash;320 Mbps because Lightning is USB 2.0. USB-C iPhones (15 Pro and later) can push gigabit if your cellular signal supports it. Real-world speeds depend on tower congestion and signal strength.</p></details>
+      <details><summary>Is this legal?</summary><p>FastNet is a standard SOCKS5 proxy &mdash; the same technology used by millions of developers daily. How you use your cellular data is between you and your carrier. We recommend reviewing your carrier's terms of service.</p></details>
+      <details><summary>USB or Wi-Fi &mdash; which should I use?</summary><p>Either works. USB is a direct cable link between your Mac and iPhone: most reliable, lowest latency, and the phone charges while connected. Wi-Fi is a direct device-to-device link (like AirDrop) &mdash; no cable, and you don't need to be on any network, just have Wi-Fi on. Either way your Mac's traffic leaves the phone as ordinary phone data, not tethered hotspot data.</p></details>
+      <details><summary>Does it work with my carrier, and outside the US?</summary><p>FastNet does not depend on a particular carrier or country. Your Mac's traffic leaves the iPhone as ordinary phone data on whatever SIM is in it, which covers T-Mobile, Verizon, AT&amp;T, Mint Mobile, Visible, and Cricket in the US as well as carriers elsewhere. It helps when your plan gives the hotspot less data or speed than the phone itself. If it does not work on your carrier, the 30-day refund applies.</p></details>
+      <details><summary>What about Windows / Linux?</summary><p>Mac only today. A Windows version depends on demand: <a href="#windows">leave your email</a> and we'll write once if it ships. Linux is not planned yet.</p></details>
+      <details><summary>Do I need to jailbreak my iPhone?</summary><p>No. FastNet works on stock iOS 16+, no jailbreak needed.</p></details>
+      <details><summary>Is my data safe?</summary><p>Yes. Everything runs locally on your devices. FastNet has no servers, collects no data, and requires no account. Your traffic goes directly from Mac to iPhone to carrier &mdash; we never see it.</p></details>
+      <details><summary>What if it doesn't work for me?</summary><p>We offer a 30-day money-back guarantee, no questions asked. Email us at pjiang726@gmail.com.</p></details>
     </div>
   </div>
 </section>
-
-<section class="section" style="border-top: 1px solid var(--border);">
-  <div class="container">
-    <h2 class="section-title">FAQ</h2>
-
-    <div class="faq-item">
-      <div class="faq-q">Why does the App Store say ProxyDeck instead of FastNet?</div>
-      <div class="faq-a">They are the two apps used together for Mac Bridge: <strong>ProxyDeck &mdash; Network Lab</strong> is the free iPhone app, and <strong>FastNet Connect</strong> is the $29 Mac app. ProxyDeck also includes standalone network diagnostics that need no Mac or purchase. Its optional Mac Bridge connects to FastNet Connect only while ProxyDeck remains in the foreground.</div>
-    </div>
-
-    <div class="faq-item">
-      <div class="faq-q">How does this work?</div>
-      <div class="faq-a">Carriers track hotspot usage separately from phone data. FastNet Connect routes your Mac's traffic through ProxyDeck's optional Mac Bridge &mdash; over USB or nearby peer-to-peer Wi-Fi. To the carrier, it looks like regular phone data, so it uses your unlimited phone data instead of your limited hotspot allowance.</div>
-    </div>
-
-    <div class="faq-item">
-      <div class="faq-q">How is this different from PDANet+?</div>
-      <div class="faq-a">PDANet+ pioneered this approach years ago and still works for some users. The differences: FastNet Connect is a native macOS menu bar app, ProxyDeck is built for modern iOS, and the setup requires no terminal or manual proxy configuration. If PDANet+ already works for you, no need to switch. <a href="/pdanet-alternative" style="color: #8ab4ff;">Where PdaNet+ stands on iPhone and Mac today</a>.</div>
-    </div>
-
-    <div class="faq-item">
-      <div class="faq-q">Is FastNet a PairVPN alternative for iPhone and Mac?</div>
-      <div class="faq-a">Yes, for the specific job of getting a Mac online through a nearby iPhone. PairVPN's iOS app was removed from the App Store in October 2026 and its Android build has not been updated since 2023. FastNet Connect pairs with ProxyDeck over USB or nearby Wi-Fi, with a $29 one-time Mac license and a foreground-only iPhone app. It does not replace PairVPN's remote home-network access or its Windows and Android clients. <a href="/pairvpn-alternative" style="color: #8ab4ff;">What happened to PairVPN, and what changes if you switch</a>.</div>
-    </div>
-
-    <div class="faq-item">
-      <div class="faq-q">Why pay $29 if I can do this with iproxy + a SOCKS5 server?</div>
-      <div class="faq-a">You can. <code>iproxy 1082 1082</code> plus a SOCKS5 server on iPhone is the same idea, free, and well-documented. FastNet is for people who want it to just work without terminal commands, manual port forwarding, or remembering to set the system proxy each time. If you're comfortable in terminal and only need it occasionally, the manual setup is fine.</div>
-    </div>
-
-    <div class="faq-item">
-      <div class="faq-q">Will this be detected by my carrier?</div>
-      <div class="faq-a">Tethering detection usually relies on TTL inspection, User-Agent fingerprinting, and DNS heuristics. Because ProxyDeck's Mac Bridge uses the phone's TCP stack, traffic originates from the same network stack as other iPhone apps. No tool guarantees invisibility, and carriers may still infer usage from traffic patterns.</div>
-    </div>
-
-    <div class="faq-item">
-      <div class="faq-q">What speeds can I expect?</div>
-      <div class="faq-a">Lightning-port iPhones cap around 280&ndash;320 Mbps because Lightning is USB 2.0. USB-C iPhones (15 Pro and later) can push gigabit if your cellular signal supports it. Real-world speeds depend on tower congestion and signal strength.</div>
-    </div>
-
-    <div class="faq-item">
-      <div class="faq-q">Is this legal?</div>
-      <div class="faq-a">FastNet is a standard SOCKS5 proxy &mdash; the same technology used by millions of developers daily. How you use your cellular data is between you and your carrier. We recommend reviewing your carrier's terms of service.</div>
-    </div>
-
-    <div class="faq-item">
-      <div class="faq-q">USB or Wi-Fi &mdash; which should I use?</div>
-      <div class="faq-a">Either works. USB is a direct cable link between your Mac and iPhone: most reliable, lowest latency, and the phone charges while connected. Wi-Fi is a direct device-to-device link (like AirDrop) &mdash; no cable, and you don't need to be on any network, just have Wi-Fi on. Either way your Mac's traffic leaves the phone as ordinary phone data, not tethered hotspot data.</div>
-    </div>
-
-    <div class="faq-item">
-      <div class="faq-q">Does it work with my carrier, and outside the US?</div>
-      <div class="faq-a">FastNet does not depend on a particular carrier or country. Your Mac's traffic leaves the iPhone as ordinary phone data on whatever SIM is in it, which covers T-Mobile, Verizon, AT&amp;T, Mint Mobile, Visible, and Cricket in the US as well as carriers elsewhere. It helps when your plan gives the hotspot less data or speed than the phone itself. If it does not work on your carrier, the 30-day refund applies.</div>
-    </div>
-
-    <div class="faq-item">
-      <div class="faq-q">What about Windows / Linux?</div>
-      <div class="faq-a">Mac only today. A Windows version depends on demand: <a href="#windows" style="color: #8ab4ff;">leave your email</a> and we'll write once if it ships. Linux is not planned yet.</div>
-    </div>
-
-    <div class="faq-item">
-      <div class="faq-q">Do I need to jailbreak my iPhone?</div>
-      <div class="faq-a">No. FastNet works on stock iOS 16+, no jailbreak needed.</div>
-    </div>
-
-    <div class="faq-item">
-      <div class="faq-q">Is my data safe?</div>
-      <div class="faq-a">Yes. Everything runs locally on your devices. FastNet has no servers, collects no data, and requires no account. Your traffic goes directly from Mac to iPhone to carrier &mdash; we never see it.</div>
-    </div>
-
-    <div class="faq-item">
-      <div class="faq-q">What if it doesn't work for me?</div>
-      <div class="faq-a">We offer a 30-day money-back guarantee, no questions asked. Email us at pjiang726@gmail.com.</div>
-    </div>
-  </div>
-</section>
+</main>
 
 <footer>
   <div class="container">
     <div class="footer-links">
+      <a href="/proxydeck">Setup &amp; support</a>
+      <a href="/blog/">Guides</a>
+      <a href="/pairvpn-alternative">PairVPN alternative</a>
+      <a href="/pdanet-alternative">PdaNet alternative</a>
       <a href="/privacy">Privacy</a>
       <a href="/terms">Terms</a>
       <a href="mailto:pjiang726@gmail.com">Support</a>
     </div>
-    <p>&copy; 2026 FastNet. All rights reserved.</p>
+    <p>&copy; 2026 FastNet. Built and supported by one independent developer.</p>
   </div>
 </footer>
 
