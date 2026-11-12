@@ -24,7 +24,7 @@
       "url": "https://fastnet-site.vercel.app/pairvpn-alternative",
       "description": "PairVPN's iOS listing was removed in October 2026. FastNet Connect and ProxyDeck as a maintained alternative for getting a Mac online through an iPhone.",
       "datePublished": "2026-10-14",
-      "dateModified": "2026-11-06",
+      "dateModified": "2026-11-12",
       "publisher": { "@type": "Organization", "name": "FastNet", "url": "https://fastnet-site.vercel.app/" }
     },
     {
@@ -34,7 +34,7 @@
         { "@type": "Question", "name": "Can I sideload PairVPN instead?", "acceptedAnswer": { "@type": "Answer", "text": "It is possible for a tinkerer, but it needs an IPA you trust, a signing workflow, re-signing every 7 days on a free developer account, and the Mac client still has to come from somewhere now that the official download is gone." } },
         { "@type": "Question", "name": "Do I need Personal Hotspot turned on to use FastNet?", "acceptedAnswer": { "@type": "Answer", "text": "No. Over USB, FastNet Connect reaches ProxyDeck through the cable itself; over nearby Wi-Fi it uses a direct peer-to-peer link. Personal Hotspot stays off." } },
         { "@type": "Question", "name": "Is FastNet a complete replacement for PairVPN?", "acceptedAnswer": { "@type": "Answer", "text": "No. FastNet covers the iPhone-to-Mac internet-sharing use case only. It does not replace PairVPN's remote home or office network access, or its Windows and Android clients." } },
-        { "@type": "Question", "name": "Is the Mac side free?", "acceptedAnswer": { "@type": "Answer", "text": "No. The iPhone app ProxyDeck is free; the Mac app FastNet Connect needs a $29 one-time license." } }
+        { "@type": "Question", "name": "Is the Mac side free?", "acceptedAnswer": { "@type": "Answer", "text": "It is free to try. FastNet Connect runs without a license for the first 2 hours of connected time; after that it needs a $29 one-time license. The iPhone app ProxyDeck is free." } }
       ]
     }
   ]
@@ -148,7 +148,7 @@ footer { padding: 30px 0; border-top: 1px solid var(--border); color: var(--mute
         <a class="button" href="https://apps.apple.com/app/id6777330755">Get ProxyDeck for iPhone &middot; Free</a>
         <a class="button secondary" href="/#mac-setup">Set up FastNet on Mac</a>
       </div>
-      <p class="fine">Both apps required for Mac Bridge. Mac license: <strong>$29 one-time</strong>, no subscription. iOS 16+ and Apple Silicon Mac with macOS 13+.</p>
+      <p class="fine">Both apps required for Mac Bridge. Mac app: free for your first 2 hours connected, then <strong>$29 one-time</strong>, no subscription. iOS 16+ and Apple Silicon Mac with macOS 13+.</p>
       <p class="notice"><strong>Keep ProxyDeck open on your iPhone.</strong> Mac Bridge is foreground-only and stops when you leave the app. That is the same constraint PairVPN's own docs put on an iPhone running as the server (&ldquo;avoid turning off phone screen&rdquo;). If you need background operation on the phone, neither tool is the right fit.</p>
       <div class="route" aria-label="Connection path: Mac apps through FastNet Connect, to ProxyDeck on iPhone over USB or nearby Wi-Fi, then to the cellular internet">
         <div><strong>Your Mac</strong><small>FastNet Connect</small></div>
@@ -211,7 +211,7 @@ footer { padding: 30px 0; border-top: 1px solid var(--border); color: var(--mute
             <li><strong>Purpose:</strong> route Mac traffic through a nearby iPhone's cellular connection.</li>
             <li><strong>Connection:</strong> USB cable or nearby peer-to-peer Wi-Fi. No jailbreak required.</li>
             <li><strong>Requirements:</strong> Apple Silicon Mac, macOS 13+, iPhone with iOS 16+, and ProxyDeck kept in the foreground.</li>
-            <li><strong>Price:</strong> $29 one-time Mac license. The iPhone app is free; the complete Mac Bridge setup is not.</li>
+            <li><strong>Price:</strong> free for the first 2 hours of connected time, then a $29 one-time Mac license. The iPhone app is free.</li>
           </ul>
           <p>Not an Android, Windows, or remote home-network solution. The iPhone app is a foreground proxy and network utility, not an iOS system-wide VPN.</p>
         </article>
@@ -246,7 +246,7 @@ footer { padding: 30px 0; border-top: 1px solid var(--border); color: var(--mute
       <h2 id="setup-title">Two apps. Three steps.</h2>
       <ol class="steps">
         <li><div><h3>Install ProxyDeck on your iPhone.</h3><p>Look for <a href="https://apps.apple.com/app/id6777330755">ProxyDeck &mdash; Network Lab on the App Store</a>. It is free. Its standalone network checks work without a Mac or purchase.</p></div></li>
-        <li><div><h3>Set up FastNet Connect on your Mac.</h3><p>Open the <a href="/#mac-setup">Mac download and setup guide</a> on your Mac, then install and activate FastNet Connect. Use an existing license or <a href="/buy">buy a Mac license for $29</a>. The Mac installer cannot run on an iPhone.</p></div></li>
+        <li><div><h3>Set up FastNet Connect on your Mac.</h3><p>Open the <a href="/#mac-setup">Mac download and setup guide</a> on your Mac, then install FastNet Connect. It runs free for your first 2 hours of connected time; after that, use an existing license or <a href="/buy">buy a Mac license for $29</a>. The Mac installer cannot run on an iPhone.</p></div></li>
         <li><div><h3>Start Mac Bridge and connect.</h3><p>In ProxyDeck, open Mac Bridge and tap Start Mac Bridge. Keep ProxyDeck in the foreground, then connect from FastNet Connect over USB or nearby peer-to-peer Wi-Fi.</p></div></li>
       </ol>
     </div>
@@ -261,7 +261,7 @@ footer { padding: 30px 0; border-top: 1px solid var(--border); color: var(--mute
       <details><summary>Do I need Personal Hotspot turned on?</summary><p>No. Over USB, FastNet Connect reaches ProxyDeck through the cable itself. Over nearby Wi-Fi it uses a direct peer-to-peer link between the two devices. Personal Hotspot stays off. Unsure whether your setup fits? <a href="mailto:pjiang726@gmail.com">Ask us</a> before buying.</p></details>
       <details><summary>Can I use another iPhone app while connected?</summary><p>Mac Bridge stops when ProxyDeck leaves the foreground. Do not choose this setup if uninterrupted background operation on your iPhone is essential.</p></details>
       <details><summary>Does it guarantee unlimited data or bypass every hotspot restriction?</summary><p>No. FastNet does not change your mobile plan or guarantee how a carrier accounts for traffic. Review your plan's terms and allowances. Cellular congestion, signal strength, and device limits can still affect performance.</p></details>
-      <details><summary>Is the Mac connection free?</summary><p>No. The free iPhone app is not a free trial of the full two-app setup. Mac Bridge requires a paid FastNet Connect Mac license. Review the requirements above, or <a href="mailto:pjiang726@gmail.com">ask us about your setup</a> before buying.</p></details>
+      <details><summary>Is the Mac connection free?</summary><p>Free to try, then paid. FastNet Connect runs without a license for your first 2 hours of connected time, with no card or email, so you can check it on your carrier. After that, Mac Bridge needs the $29 one-time FastNet Connect license. ProxyDeck on the iPhone is free. Unsure about your setup? <a href="mailto:pjiang726@gmail.com">Ask us</a>.</p></details>
     </div>
   </section>
 
@@ -269,7 +269,7 @@ footer { padding: 30px 0; border-top: 1px solid var(--border); color: var(--mute
     <section class="closing" aria-labelledby="get-started-title">
       <h2 id="get-started-title">Your iPhone. Your Mac. Still online.</h2>
       <p>PairVPN is gone from the App Store. The job it did for Mac users isn't.</p>
-      <div class="actions"><a class="button" href="https://apps.apple.com/app/id6777330755">Get ProxyDeck for iPhone &middot; Free</a><a class="button secondary" href="/#mac-setup">Mac setup &amp; $29 license</a></div>
+      <div class="actions"><a class="button" href="https://apps.apple.com/app/id6777330755">Get ProxyDeck for iPhone &middot; Free</a><a class="button secondary" href="/#mac-setup">Mac setup &amp; free trial</a></div>
       <p class="fine">Keep ProxyDeck in the foreground during Mac Bridge use.</p>
     </section>
   </div>

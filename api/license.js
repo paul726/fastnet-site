@@ -56,7 +56,7 @@ a{color:var(--accent);text-decoration:none}
 <div class="label" style="margin-top:32px">3 · Activate</div>
 <ol>
   <li>Open the downloaded <strong>FastNet.pkg</strong> and follow the installer (one admin password).</li>
-  <li>Launch <strong>FastNet Connect</strong> (paper-plane icon in the menu bar), paste the key into <strong>“Paste your license key”</strong>, and click <strong>Activate</strong>.</li>
+  <li>Launch <strong>FastNet Connect</strong> (paper-plane icon in the menu bar), click <strong>Enter license key</strong> if you are still in the free trial, paste the key, and click <strong>Activate</strong>.</li>
 </ol>
 
 <div class="label" style="margin-top:32px">4 · Install the iPhone app</div>

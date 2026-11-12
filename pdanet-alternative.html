@@ -24,7 +24,7 @@
       "url": "https://fastnet-site.vercel.app/pdanet-alternative",
       "description": "PdaNet+ is Android-only today and its iPhone edition required a jailbreak. FastNet Connect and ProxyDeck as an alternative for getting a Mac online through a stock iPhone.",
       "datePublished": "2026-11-10",
-      "dateModified": "2026-11-10",
+      "dateModified": "2026-11-12",
       "publisher": { "@type": "Organization", "name": "FastNet", "url": "https://fastnet-site.vercel.app/" }
     },
     {
@@ -34,7 +34,7 @@
         { "@type": "Question", "name": "Does PdaNet+ work on a current Mac?", "acceptedAnswer": { "@type": "Answer", "text": "The developer's Mac page lists client 5.24 for macOS 10.15 to 11.0 in Wi-Fi Direct mode only, and client 5.01 for macOS 10.14 or 10.15 in USB mode only. It does not list macOS 12 or later. We have not tested PdaNet+ on a current Mac." } },
         { "@type": "Question", "name": "I use PdaNet+ on an Android phone. Should I switch to FastNet?", "acceptedAnswer": { "@type": "Answer", "text": "No. FastNet needs an iPhone. If PdaNet+ works with your Android phone and computer, keep using it." } },
         { "@type": "Question", "name": "Do I need Personal Hotspot turned on to use FastNet?", "acceptedAnswer": { "@type": "Answer", "text": "No. Over USB, FastNet Connect reaches ProxyDeck through the cable itself; over nearby Wi-Fi it uses a direct peer-to-peer link. Personal Hotspot stays off." } },
-        { "@type": "Question", "name": "Is there a free edition, like PdaNet+ has?", "acceptedAnswer": { "@type": "Answer", "text": "No. The iPhone app ProxyDeck is free, but connecting a Mac needs a $29 one-time FastNet Connect license. There is a 30-day refund." } },
+        { "@type": "Question", "name": "Is there a free edition, like PdaNet+ has?", "acceptedAnswer": { "@type": "Answer", "text": "There is no permanent free edition, but there is a free trial: FastNet Connect runs without a license for the first 2 hours of connected time. After that it needs a $29 one-time license, with a 30-day refund. The iPhone app ProxyDeck is free." } },
         { "@type": "Question", "name": "Does FastNet work with a Windows PC?", "acceptedAnswer": { "@type": "Answer", "text": "Not today. FastNet Connect runs on Apple Silicon Macs with macOS 13 or later." } }
       ]
     }
@@ -149,7 +149,7 @@ footer { padding: 30px 0; border-top: 1px solid var(--border); color: var(--mute
         <a class="button" href="https://apps.apple.com/app/id6777330755">Get ProxyDeck for iPhone &middot; Free</a>
         <a class="button secondary" href="/#mac-setup">Set up FastNet on Mac</a>
       </div>
-      <p class="fine">Both apps required for Mac Bridge. Mac license: <strong>$29 one-time</strong>, no subscription, 30-day refund. iOS 16+ and Apple Silicon Mac with macOS 13+. No jailbreak.</p>
+      <p class="fine">Both apps required for Mac Bridge. Mac app: free for your first 2 hours connected, then <strong>$29 one-time</strong>, no subscription, 30-day refund. iOS 16+ and Apple Silicon Mac with macOS 13+. No jailbreak.</p>
       <p class="notice"><strong>Keep ProxyDeck open on your iPhone.</strong> Mac Bridge is foreground-only and stops when you leave the app. If you need the phone free for other apps while the Mac is connected, this setup is not the right fit.</p>
       <div class="route" aria-label="Connection path: Mac apps through FastNet Connect, to ProxyDeck on iPhone over USB or nearby Wi-Fi, then to the cellular internet">
         <div><strong>Your Mac</strong><small>FastNet Connect</small></div>
@@ -213,7 +213,7 @@ footer { padding: 30px 0; border-top: 1px solid var(--border); color: var(--mute
             <li><strong>Computer:</strong> Apple Silicon Mac with macOS 13+.</li>
             <li><strong>Connection:</strong> USB cable or nearby peer-to-peer Wi-Fi.</li>
             <li><strong>Limits:</strong> ProxyDeck has to stay in the foreground on the iPhone.</li>
-            <li><strong>Price:</strong> $29 one-time Mac license with a 30-day refund. The iPhone app is free; the complete Mac Bridge setup is not.</li>
+            <li><strong>Price:</strong> free for the first 2 hours of connected time, then a $29 one-time Mac license with a 30-day refund. The iPhone app is free.</li>
           </ul>
           <p>Not an Android or Windows solution, and not a way to share the connection with several devices.</p>
         </article>
@@ -249,7 +249,7 @@ footer { padding: 30px 0; border-top: 1px solid var(--border); color: var(--mute
       <h2 id="setup-title">Two apps. Three steps.</h2>
       <ol class="steps">
         <li><div><h3>Install ProxyDeck on your iPhone.</h3><p>Look for <a href="https://apps.apple.com/app/id6777330755">ProxyDeck &mdash; Network Lab on the App Store</a>. It is free. Its standalone network checks work without a Mac or purchase.</p></div></li>
-        <li><div><h3>Set up FastNet Connect on your Mac.</h3><p>Open the <a href="/#mac-setup">Mac download and setup guide</a> on your Mac, then install and activate FastNet Connect. Use an existing license or <a href="/buy">buy a Mac license for $29</a>. The Mac installer cannot run on an iPhone.</p></div></li>
+        <li><div><h3>Set up FastNet Connect on your Mac.</h3><p>Open the <a href="/#mac-setup">Mac download and setup guide</a> on your Mac, then install FastNet Connect. It runs free for your first 2 hours of connected time; after that, use an existing license or <a href="/buy">buy a Mac license for $29</a>. The Mac installer cannot run on an iPhone.</p></div></li>
         <li><div><h3>Start Mac Bridge and connect.</h3><p>In ProxyDeck, open Mac Bridge and tap Start Mac Bridge. Keep ProxyDeck in the foreground, then connect from FastNet Connect over USB or nearby peer-to-peer Wi-Fi.</p></div></li>
       </ol>
     </div>
@@ -262,7 +262,7 @@ footer { padding: 30px 0; border-top: 1px solid var(--border); color: var(--mute
       <details><summary>Does PdaNet+ work on a current Mac?</summary><p>The developer's Mac page lists client 5.24 for macOS 10.15 to 11.0 in Wi-Fi Direct mode only, and client 5.01 for macOS 10.14 or 10.15 in USB mode only. It does not list macOS 12 or later. We have not tested PdaNet+ on a current Mac, so we can't tell you whether it still runs there.</p></details>
       <details><summary>I use PdaNet+ on an Android phone. Should I switch?</summary><p>No. FastNet needs an iPhone. If PdaNet+ works with your Android phone and computer, keep using it.</p></details>
       <details><summary>Do I need Personal Hotspot turned on?</summary><p>No. Over USB, FastNet Connect reaches ProxyDeck through the cable itself. Over nearby Wi-Fi it uses a direct peer-to-peer link between the two devices. Personal Hotspot stays off. Unsure whether your setup fits? <a href="mailto:pjiang726@gmail.com">Ask us</a> before buying.</p></details>
-      <details><summary>Is there a free edition, like PdaNet+ has?</summary><p>No. ProxyDeck on the iPhone is free, but it is not a free trial of the full two-app setup. Connecting a Mac needs a paid FastNet Connect license, $29 one-time, with a 30-day refund if it does not work for you.</p></details>
+      <details><summary>Is there a free edition, like PdaNet+ has?</summary><p>Not a permanent free edition, but there is a free trial. FastNet Connect runs without a license for your first 2 hours of connected time, with no card or email. After that, connecting a Mac needs the FastNet Connect license, $29 one-time, with a 30-day refund if it does not work for you. ProxyDeck on the iPhone is free.</p></details>
       <details><summary>Can I use another iPhone app while connected?</summary><p>Mac Bridge stops when ProxyDeck leaves the foreground. Do not choose this setup if uninterrupted background operation on your iPhone is essential.</p></details>
       <details><summary>Does it work with a Windows PC?</summary><p>Not today. FastNet Connect runs on Apple Silicon Macs only. A Windows version depends on demand: <a href="/?utm_source=pdanet-alternative&amp;utm_campaign=windows#windows">leave your email</a> and we'll write once if it ships.</p></details>
       <details><summary>Does it guarantee unlimited data or bypass every hotspot restriction?</summary><p>No. FastNet does not change your mobile plan or guarantee how a carrier accounts for traffic. Review your plan's terms and allowances. Cellular congestion, signal strength, and device limits can still affect performance.</p></details>
@@ -273,7 +273,7 @@ footer { padding: 30px 0; border-top: 1px solid var(--border); color: var(--mute
     <section class="closing" aria-labelledby="get-started-title">
       <h2 id="get-started-title">An iPhone, a Mac, and no jailbreak.</h2>
       <p>PdaNet+ covers Android. This covers the iPhone in your pocket and the Mac on your desk.</p>
-      <div class="actions"><a class="button" href="https://apps.apple.com/app/id6777330755">Get ProxyDeck for iPhone &middot; Free</a><a class="button secondary" href="/#mac-setup">Mac setup &amp; $29 license</a></div>
+      <div class="actions"><a class="button" href="https://apps.apple.com/app/id6777330755">Get ProxyDeck for iPhone &middot; Free</a><a class="button secondary" href="/#mac-setup">Mac setup &amp; free trial</a></div>
       <p class="fine">Keep ProxyDeck in the foreground during Mac Bridge use.</p>
     </section>
   </div>
