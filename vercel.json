@@ -4,6 +4,24 @@
   "redirects": [
     {
       "source": "/buy",
+      "has": [
+        {
+          "type": "query",
+          "key": "client_reference_id",
+          "value": "app_.*"
+        }
+      ],
+      "missing": [
+        {
+          "type": "query",
+          "key": "utm_medium"
+        }
+      ],
+      "destination": "/app-buy",
+      "permanent": false
+    },
+    {
+      "source": "/buy",
       "destination": "https://buy.stripe.com/00wcN6b2z3Cj2xgdTL6EU00",
       "permanent": false
     },

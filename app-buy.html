@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>Continuing to checkout | FastNet</title>
+<style>
+body { margin: 0; min-height: 100vh; display: grid; place-items: center; background: #0a0a0a; color: #b0b5bf; font: 16px/1.6 -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', sans-serif; }
+a { color: #8ab4ff; }
+</style>
+</head>
+<body>
+<p>Continuing to checkout&hellip; <a id="go" href="/buy?utm_medium=app">Continue</a></p>
+<script>
+// Buy buttons inside the Mac app open /buy?client_reference_id=app_<prompt>,
+// and vercel.json sends that here before Stripe. The app has no idea which
+// partner link the buyer first arrived through; this browser does (ref.js
+// stored it under fn_aff for 30 days). Put the partner in front so the sale is
+// still credited, keep the in-app prompt after it, and go on to /buy.
+// utm_medium=app marks the request as already handled, so /buy goes to Stripe.
+(function () {
+  var clean = function (v, max) { return String(v || '').replace(/[^a-zA-Z0-9_-]/g, '').slice(0, max); };
+  var src = clean(new URLSearchParams(location.search).get('client_reference_id'), 60);
+  var partner = '';
+  try {
+    var saved = JSON.parse(localStorage.getItem('fn_aff') || 'null');
+    if (saved && saved.c && Date.now() - saved.t < 30 * 864e5) partner = clean(saved.c, 40);
+  } catch (e) {}
+  var ref = partner ? 'aff_' + partner + (src ? '-' + src : '') : src;
+  var url = '/buy?utm_medium=app' + (ref ? '&client_reference_id=' + encodeURIComponent(ref) : '');
+  document.getElementById('go').href = url;
+  location.replace(url);
+})();
+</script>
+</body>
+</html>
