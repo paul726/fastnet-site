@@ -1,7 +1,7 @@
 // GET /api/license?session_id=cs_…
 // Retrieves the Checkout Session, confirms it's paid, mints an Ed25519-signed
 // license bound to the buyer's email, and returns an HTML page that shows the
-// key to copy into the FastNet Mac app. Stateless + idempotent: re-fetching the
+// key to copy into the FastNet Connect app (Mac or Windows: one license covers both). Stateless + idempotent: re-fetching the
 // same session yields the same license (iat = session.created).
 //
 // Env: STRIPE_SECRET_KEY, LICENSE_SIGNING_KEY (Ed25519 private key, PEM)
@@ -48,6 +48,7 @@ a{color:var(--accent);text-decoration:none}
 <div class="label">1 · Download the app</div>
 <p style="color:#cfcfcf;margin:0 0 12px">Open this page on your Mac before downloading. <strong>FastNet.pkg</strong> is a macOS installer and cannot be installed on iPhone.</p>
 <a class="dl" href="/download">⤓&nbsp; Download FastNet Connect for Mac</a>
+<p class="tip" style="margin-top:12px">On a Windows PC? The same key works there: <a href="/windows">get FastNet Connect for Windows</a>, then click <strong>Enter license key</strong> in the app and paste the key below. If you bought from inside the Windows app, it is already installed, so go straight to pasting the key.</p>
 
 <div class="label" style="margin-top:32px">2 · Your license key</div>
 <div class="key" id="key">${esc(license)}</div>

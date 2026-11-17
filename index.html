@@ -160,6 +160,8 @@ h3 { font-size: 18px; line-height: 1.35; font-weight: 650; }
 .waitlist-form input[type="email"] { flex: 1; min-width: 200px; min-height: 48px; padding: 12px 14px; background: var(--bg); border: 1px solid var(--border-2); border-radius: 10px; color: var(--text); font-size: 15px; font-family: inherit; }
 .waitlist-form button { min-height: 48px; padding: 12px 20px; background: var(--surface-2); color: var(--text); border: 1px solid var(--border-2); border-radius: 10px; font-size: 15px; font-weight: 650; cursor: pointer; font-family: inherit; }
 .waitlist-form button:hover { border-color: var(--accent); color: var(--accent); }
+.waitlist-link { display: inline-flex; align-items: center; min-height: 48px; padding: 12px 20px; background: var(--surface-2); color: var(--text); border: 1px solid var(--border-2); border-radius: 10px; font-size: 15px; font-weight: 650; text-decoration: none; }
+.waitlist-link:hover { border-color: var(--accent); color: var(--accent); }
 #windows-success { display: none; margin-top: 14px; padding: 12px 16px; background: rgba(74,222,128,.08); border: 1px solid rgba(74,222,128,.3); border-radius: 10px; color: var(--text); font-size: 14px; }
 
 /* FAQ */
@@ -239,7 +241,7 @@ footer { border-top: 1px solid var(--border); padding: 36px 0 44px; color: var(-
         </figure>
       </div>
     </div>
-    <p class="notice"><strong>Keep ProxyDeck open on your iPhone while connected.</strong> Mac Bridge stops when the app leaves the foreground. Installing the free iPhone app alone does not connect your Mac. On a Windows PC? FastNet is Mac-only today: <a href="#windows">get an email if the Windows version ships</a>.</p>
+    <p class="notice"><strong>Keep ProxyDeck open on your iPhone while connected.</strong> Mac Bridge stops when the app leaves the foreground. Installing the free iPhone app alone does not connect your Mac. On a Windows PC? <a href="/windows">FastNet Connect for Windows</a> pairs with the same iPhone app.</p>
   </div>
 </header>
 
@@ -361,7 +363,7 @@ footer { border-top: 1px solid var(--border); padding: 36px 0 44px; color: var(-
         <a href="/buy" class="button buy-btn">Buy FastNet &mdash; $29</a>
         <p class="fine">Not sure yet? <a href="#mac-setup">Try it free for 2 hours of connected time</a> first.</p>
         <p class="fine">Instant download after checkout &middot; license key delivered on the spot.</p>
-        <p class="fine">macOS 13+ (Apple Silicon) &middot; iPhone with iOS 16+ &middot; USB or Wi-Fi. Already have a license? <a href="#mac-setup">Go to the Mac download and setup</a>.</p>
+        <p class="fine">macOS 13+ (Apple Silicon) &middot; iPhone with iOS 16+ &middot; USB or Wi-Fi. Already have a license? <a href="#mac-setup">Go to the Mac download and setup</a>. The same license also unlocks <a href="/windows">FastNet Connect for Windows</a>.</p>
       </div>
     </div>
   </div>
@@ -371,15 +373,11 @@ footer { border-top: 1px solid var(--border); padding: 36px 0 44px; color: var(-
   <div class="container">
     <div class="band">
       <div>
-        <h3 id="windows-title">FastNet for Windows?</h3>
-        <p>FastNet runs on Mac only today. We are deciding whether to build a Windows version, and the number of people who ask is what decides it. Leave your email and we'll send one message if it ships. Nothing else.</p>
+        <h3 id="windows-title">FastNet for Windows</h3>
+        <p>FastNet Connect also runs on Windows 10 and 11. The PC joins the iPhone's Wi-Fi network and pairs with ProxyDeck by scanning a code: no cable. Same free 2-hour trial, and one license covers both Mac and Windows.</p>
       </div>
       <div>
-        <form id="windows-form" class="waitlist-form" onsubmit="return false;">
-          <input type="email" id="windows-email" placeholder="you@example.com" aria-label="Email address" required>
-          <button type="submit">Notify me</button>
-        </form>
-        <p id="windows-success">Your email app should have opened with a pre-filled message. Hit send and you're on the list. If nothing opened, email <a href="mailto:pjiang726@gmail.com?subject=FastNet%20for%20Windows%20-%20notify%20me">pjiang726@gmail.com</a> directly.</p>
+        <a class="waitlist-link" href="/windows">Download and setup for Windows</a>
       </div>
     </div>
   </div>
@@ -394,14 +392,14 @@ footer { border-top: 1px solid var(--border); padding: 36px 0 44px; color: var(-
       <details><summary>Why does the App Store say ProxyDeck instead of FastNet?</summary><p>They are the two apps used together for Mac Bridge: <strong>ProxyDeck &mdash; Network Lab</strong> is the free iPhone app, and <strong>FastNet Connect</strong> is the $29 Mac app. ProxyDeck also includes standalone network diagnostics that need no Mac or purchase. Its optional Mac Bridge connects to FastNet Connect only while ProxyDeck remains in the foreground.</p></details>
       <details><summary>How does this work?</summary><p>Carriers track hotspot usage separately from phone data. FastNet Connect routes your Mac's traffic through ProxyDeck's optional Mac Bridge &mdash; over USB or nearby peer-to-peer Wi-Fi. To the carrier, it looks like regular phone data, so it uses your unlimited phone data instead of your limited hotspot allowance.</p></details>
       <details><summary>How is this different from PDANet+?</summary><p>PDANet+ pioneered this approach years ago and still works for some users. The differences: FastNet Connect is a native macOS menu bar app, ProxyDeck is built for modern iOS, and the setup requires no terminal or manual proxy configuration. If PDANet+ already works for you, no need to switch. <a href="/pdanet-alternative">Where PdaNet+ stands on iPhone and Mac today</a>.</p></details>
-      <details><summary>Is FastNet a PairVPN alternative for iPhone and Mac?</summary><p>Yes, for the specific job of getting a Mac online through a nearby iPhone. PairVPN's iOS app was removed from the App Store in October 2026 and its Android build has not been updated since 2023. FastNet Connect pairs with ProxyDeck over USB or nearby Wi-Fi, with a $29 one-time Mac license and a foreground-only iPhone app. It does not replace PairVPN's remote home-network access or its Windows and Android clients. <a href="/pairvpn-alternative">What happened to PairVPN, and what changes if you switch</a>.</p></details>
+      <details><summary>Is FastNet a PairVPN alternative for iPhone and Mac?</summary><p>Yes, for the specific job of getting a Mac online through a nearby iPhone. PairVPN's iOS app was removed from the App Store in October 2026 and its Android build has not been updated since 2023. FastNet Connect pairs with ProxyDeck over USB or nearby Wi-Fi, with a $29 one-time Mac license and a foreground-only iPhone app. There is a <a href="/windows">Windows version of FastNet Connect</a> as well. It does not replace PairVPN's remote home-network access or its Android client. <a href="/pairvpn-alternative">What happened to PairVPN, and what changes if you switch</a>.</p></details>
       <details><summary>Why pay $29 if I can do this with iproxy + a SOCKS5 server?</summary><p>You can. <code>iproxy 1082 1082</code> plus a SOCKS5 server on iPhone is the same idea, free, and well-documented. FastNet is for people who want it to just work without terminal commands, manual port forwarding, or remembering to set the system proxy each time. If you're comfortable in terminal and only need it occasionally, the manual setup is fine.</p></details>
       <details><summary>Will this be detected by my carrier?</summary><p>Tethering detection usually relies on TTL inspection, User-Agent fingerprinting, and DNS heuristics. Because ProxyDeck's Mac Bridge uses the phone's TCP stack, traffic originates from the same network stack as other iPhone apps. No tool guarantees invisibility, and carriers may still infer usage from traffic patterns.</p></details>
       <details><summary>What speeds can I expect?</summary><p>Lightning-port iPhones cap around 280&ndash;320 Mbps because Lightning is USB 2.0. USB-C iPhones (15 Pro and later) can push gigabit if your cellular signal supports it. Real-world speeds depend on tower congestion and signal strength.</p></details>
       <details><summary>Is this legal?</summary><p>FastNet is a standard SOCKS5 proxy &mdash; the same technology used by millions of developers daily. How you use your cellular data is between you and your carrier. We recommend reviewing your carrier's terms of service.</p></details>
       <details><summary>USB or Wi-Fi &mdash; which should I use?</summary><p>Either works. USB is a direct cable link between your Mac and iPhone: most reliable, lowest latency, and the phone charges while connected. Wi-Fi is a direct device-to-device link (like AirDrop) &mdash; no cable, and you don't need to be on any network, just have Wi-Fi on. Either way your Mac's traffic leaves the phone as ordinary phone data, not tethered hotspot data.</p></details>
       <details><summary>Does it work with my carrier, and outside the US?</summary><p>FastNet does not depend on a particular carrier or country. Your Mac's traffic leaves the iPhone as ordinary phone data on whatever SIM is in it, which covers T-Mobile, Verizon, AT&amp;T, Mint Mobile, Visible, and Cricket in the US as well as carriers elsewhere. It helps when your plan gives the hotspot less data or speed than the phone itself. If it does not work on your carrier, the 30-day refund applies.</p></details>
-      <details><summary>What about Windows / Linux?</summary><p>Mac only today. A Windows version depends on demand: <a href="#windows">leave your email</a> and we'll write once if it ships. Linux is not planned yet.</p></details>
+      <details><summary>What about Windows / Linux?</summary><p>Windows 10 and 11 are supported: <a href="/windows">download FastNet Connect for Windows</a>. It pairs with ProxyDeck by scanning a code and uses the same license as the Mac app. Linux is not planned yet.</p></details>
       <details><summary>Do I need to jailbreak my iPhone?</summary><p>No. FastNet works on stock iOS 16+, no jailbreak needed.</p></details>
       <details><summary>Is my data safe?</summary><p>Yes. Everything runs locally on your devices. FastNet has no servers, collects no data, and requires no account. Your traffic goes directly from Mac to iPhone to carrier &mdash; we never see it.</p></details>
       <details><summary>Is there a free trial?</summary><p>Yes. FastNet Connect runs without a license for your first 2 hours of connected time, with no card or email. Only time your Mac is actually online through your iPhone counts. The app tells you 10 minutes before the trial runs out; after that it needs the $29 one-time license. ProxyDeck on the iPhone is free either way.</p></details>
@@ -432,24 +430,6 @@ footer { border-top: 1px solid var(--border); padding: 36px 0 44px; color: var(-
 (function () {
   const ref = window.fnRef || '';
 
-  // Windows waitlist: opens the visitor's mail app with a pre-filled message.
-  const form = document.getElementById('windows-form');
-  const emailIn = document.getElementById('windows-email');
-  const success = document.getElementById('windows-success');
-  if (form) {
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const email = (emailIn.value || '').trim();
-      if (!email) return;
-      const subject = encodeURIComponent('FastNet for Windows - notify me');
-      const refLine = ref ? `\nReferral: ${ref}` : '';
-      const body = encodeURIComponent(
-        `Hi Paul, please email ${email} if FastNet for Windows ships.${refLine}\n`
-      );
-      window.location.href = `mailto:pjiang726@gmail.com?subject=${subject}&body=${body}`;
-      success.style.display = 'block';
-    });
-  }
 })();
 </script>
 
