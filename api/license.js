@@ -2,7 +2,8 @@
 // Retrieves the Checkout Session, confirms it's paid, mints an Ed25519-signed
 // license bound to the buyer's email, and returns an HTML page that shows the
 // key to copy into the FastNet Mac app. Stateless + idempotent: re-fetching the
-// same session yields the same license (iat = session.created).
+// same session yields the same license (iat = session.created). A fully
+// refunded order gets no key.
 //
 // Env: STRIPE_SECRET_KEY, LICENSE_SIGNING_KEY (Ed25519 private key, PEM)
 const Stripe = require('stripe');
@@ -68,6 +69,23 @@ a{color:var(--accent);text-decoration:none}
 </div></body></html>`;
 }
 
+// A Checkout Session stays "paid" after a refund, so the refund has to be read
+// from the charge. Only a full refund withdraws the key. If the lookup itself
+// fails, the key is still shown: a Stripe hiccup must not lock out a buyer.
+async function wasRefunded(stripe, session) {
+  const intentId = typeof session.payment_intent === 'string'
+    ? session.payment_intent
+    : session.payment_intent && session.payment_intent.id;
+  if (!intentId) return false;
+  try {
+    const charges = await stripe.charges.list({ payment_intent: intentId, limit: 10 });
+    return charges.data.some((charge) => charge.refunded === true);
+  } catch (e) {
+    console.error('refund lookup failed:', e.message);
+    return false;
+  }
+}
+
 module.exports = async (req, res) => {
   const sessionId = req.query && req.query.session_id;
   if (!sessionId) { res.status(400).send('Missing session_id'); return; }
@@ -76,6 +94,10 @@ module.exports = async (req, res) => {
     const session = await stripe.checkout.sessions.retrieve(sessionId);
     if (session.payment_status !== 'paid') {
       res.status(402).send('Payment not completed for this session.');
+      return;
+    }
+    if (await wasRefunded(stripe, session)) {
+      res.status(410).send('This order was refunded, so its license key is no longer available.');
       return;
     }
     const email = (session.customer_details && session.customer_details.email) || '';
