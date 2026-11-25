@@ -158,6 +158,10 @@ h3 { font-size: 18px; line-height: 1.35; font-weight: 650; }
 .price-card .button { width: 100%; margin-top: 24px; }
 .price-card .fine { margin-top: 14px; }
 .price-terms { color: var(--muted); font-size: 15px; }
+.price-rise { margin-top: 6px; color: var(--accent); font-size: 14px; font-weight: 650; }
+.anchor { margin-top: 18px; border-top: 1px solid var(--border-2); }
+.anchor div { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; padding: 10px 0; border-bottom: 1px solid var(--border-2); color: var(--muted); font-size: 14.5px; }
+.anchor strong { color: var(--text); text-align: right; }
 
 /* Windows */
 .band { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 420px); gap: 40px; align-items: center; background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 30px 32px; }
@@ -216,6 +220,7 @@ footer { border-top: 1px solid var(--border); padding: 36px 0 44px; color: var(-
 </style>
 </head>
 <body>
+<script src="/price.js"></script>
 <a class="skip-link" href="#main">Skip to content</a>
 <nav aria-label="Main navigation">
   <div class="container">
@@ -386,8 +391,13 @@ footer { border-top: 1px solid var(--border); padding: 36px 0 44px; color: var(-
       </div>
       <div class="price-card" id="get">
         <p class="price-name">FastNet Connect &middot; Mac + Windows</p>
-        <p class="price"><sup>$</sup>29</p>
+        <p class="price"><sup>$</sup><span data-price-amount>29</span></p>
         <p class="price-terms">one-time payment &middot; lifetime updates &middot; 30-day refund</p>
+        <p class="price-rise" data-until-price-change>Goes up to $39 on January 1, 2027.</p>
+        <div class="anchor">
+          <div><span>Extra hotspot data from a carrier</span><strong>$10 or more, every month</strong></div>
+          <div><span>FastNet</span><strong>$29, once</strong></div>
+        </div>
         <a href="/buy" class="button buy-btn">Buy FastNet &mdash; $29</a>
         <p class="fine">Not sure yet? <a href="#mac-setup">Try it free for 2 hours of connected time</a> first.</p>
         <p class="fine">Instant download after checkout &middot; license key delivered on the spot.</p>
