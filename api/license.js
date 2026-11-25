@@ -49,10 +49,10 @@ a{color:var(--accent);text-decoration:none}
 <div class="sub">Thanks for buying FastNet${email ? ', ' + esc(email) : ''}.</div>
 
 <div class="oneclick" id="oneclick" hidden>
-<strong>FastNet Connect already on this Mac?</strong>
-<p>Activate it from here. Your browser asks whether to open FastNet Connect: allow it.</p>
+<strong id="oneclick-title">FastNet Connect already on this Mac?</strong>
+<p id="oneclick-how">Activate it from here. Your browser asks whether to open FastNet Connect: allow it.</p>
 <a class="dl" href="fastnet://activate?key=${encodeURIComponent(license)}">Activate in FastNet Connect</a>
-<p class="tip" style="margin-top:12px">Nothing happened? Install the latest version in step 1, then click the button again, or paste the key by hand (steps 2 and 3).</p>
+<p class="tip" id="oneclick-tip" style="margin-top:12px">Nothing happened? Install the latest version in step 1, then click the button again, or paste the key by hand (steps 2 and 3).</p>
 </div>
 
 <div class="label">1 · Download the app</div>
@@ -78,11 +78,20 @@ a{color:var(--accent);text-decoration:none}
 <div class="tip">Keep this key — you can re-open this page anytime to copy it again. Questions? <a href="mailto:pjiang726@gmail.com">pjiang726@gmail.com</a></div>
 </div>
 <script>
-// The activation link opens FastNet Connect for Mac, so offer it on Macs only
-// (an iPad also reports itself as a Mac, but has a touch screen).
-if (/Mac/.test(navigator.platform) && !(navigator.maxTouchPoints > 1)) {
+// The activation link opens FastNet Connect on this computer, so offer it only
+// where the app runs: a Mac (an iPad also reports itself as a Mac, but has a
+// touch screen) or a Windows PC.
+(function () {
+  var onMac = /Mac/.test(navigator.platform) && !(navigator.maxTouchPoints > 1);
+  var onWindows = /Win/.test(navigator.platform);
+  if (!onMac && !onWindows) return;
+  if (onWindows) {
+    document.getElementById('oneclick-title').textContent = 'FastNet Connect already on this PC?';
+    document.getElementById('oneclick-how').textContent = 'Activate it from here. Your browser asks whether to open FastNet Connect, then Windows asks whether to let it make changes: allow both.';
+    document.getElementById('oneclick-tip').innerHTML = 'Nothing happened? Install the latest <a href="/windows">FastNet Connect for Windows</a>, then click the button again, or paste the key by hand: click <strong>Enter license key</strong> in the app.';
+  }
   document.getElementById('oneclick').hidden = false;
-}
+})();
 </script>
 </body></html>`;
 }

@@ -211,9 +211,9 @@ code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .
       </div>
       <div class="table-wrap">
         <table class="sums" id="checksums">
-          <tr><th>Version</th><td>0.1.4</td></tr>
-          <tr><th>x64 SHA-256</th><td><code>a9b6b5af3adcc49b5f514e80b08cfd1d389240966744eb4f7a24503aa0cf4534</code></td></tr>
-          <tr><th>ARM64 SHA-256</th><td><code>26d51b42b829d3192cbd507860405dd2b49a0f3a83cd48b8c80764bb775b674a</code></td></tr>
+          <tr><th>Version</th><td>0.1.5</td></tr>
+          <tr><th>x64 SHA-256</th><td><code>93303d5715bec6aeb98783dd5687b30e8500d6dbaeb388c2d95a49273a16e44a</code></td></tr>
+          <tr><th>ARM64 SHA-256</th><td><code>a03e1d8ca17b1f066b190e60c831d408cd92a1c176dbcdeb52164c00535507b1</code></td></tr>
         </table>
       </div>
     </div>
@@ -236,10 +236,11 @@ code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .
     <div class="container">
       <h2 id="faq-title">Questions.</h2>
       <details><summary>Why does Windows say "unknown publisher"?</summary><p>Windows shows a publisher name only for apps signed with a certificate bought from a certificate company, which costs a few hundred dollars a year. FastNet is signed with a certificate we created ourselves. The signature still proves that every release comes from the same source and was not modified; Windows just cannot attach a verified name to it. The thumbprint above lets you check it yourself.</p></details>
-      <details><summary>What does the installer change on my PC?</summary><p>It copies the app into Program Files and adds a Start menu shortcut. When you click Connect, the app adds one inbound firewall rule for itself and creates a network adapter named FastNet using Wintun, the open-source driver from the WireGuard project. The adapter is removed when you close the app. Uninstalling from Windows Settings removes the app and the firewall rule.</p></details>
+      <details><summary>What does the installer change on my PC?</summary><p>It copies the app into Program Files, adds a Start menu shortcut, and registers <code>fastnet:</code> links so the Activate button on the license page can open the app. When you click Connect, the app adds one inbound firewall rule for itself and creates a network adapter named FastNet using Wintun, the open-source driver from the WireGuard project. The adapter is removed when you close the app. Uninstalling from Windows Settings removes the app, the link registration and the firewall rule.</p></details>
       <details><summary>My antivirus stopped it. What now?</summary><p>Some security software blocks any new network driver from an unknown publisher. If FastNet says it could not create its network adapter, allow FastNet Connect in your security software and start it again. A Windows restart that is still pending from an update can cause the same message.</p></details>
       <details><summary>Does the whole PC go through the iPhone?</summary><p>Yes. While it says Connected, all apps on the PC use the iPhone's connection, not only the browser. When you disconnect or close the app, the PC is back on its own network.</p></details>
-      <details><summary>Is the license the same as on the Mac?</summary><p>Yes. One FastNet license ($29, one-time) unlocks both the Mac and the Windows app. Enter the key from your purchase email under <strong>Enter license key</strong> in the app.</p></details>
+      <details><summary>Is the license the same as on the Mac?</summary><p>Yes. One FastNet license ($29, one-time) unlocks both the Mac and the Windows app. On the page you get after buying, click <strong>Activate in FastNet Connect</strong>, or copy the key and paste it under <strong>Enter license key</strong> in the app.</p></details>
+      <details><summary>It says Connected but nothing loads. What now?</summary><p>Click <strong>Diagnose</strong> at the bottom of the FastNet Connect window. It checks each part of the connection in turn, from this PC to the iPhone to an ordinary web request, and says which one fails and what to do. <strong>Copy report</strong> puts the details on the clipboard if you want to send them to support.</p></details>
       <details><summary>Does it work with an Android phone?</summary><p>No. The phone side is ProxyDeck for iPhone.</p></details>
     </div>
   </section>
