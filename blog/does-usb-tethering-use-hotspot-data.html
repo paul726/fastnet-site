@@ -5,13 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Does USB Tethering Use Hotspot Data on iPhone? Yes: Here's Why</title>
 <meta name="description" content="USB, Wi-Fi and Bluetooth tethering on an iPhone all draw from the same hotspot allowance. Why the cable makes no difference, and how to check your usage.">
-<link rel="canonical" href="https://fastnet-site.vercel.app/blog/does-usb-tethering-use-hotspot-data.html">
+<link rel="canonical" href="https://fastnet-site.vercel.app/blog/does-usb-tethering-use-hotspot-data">
 
 <link rel="icon" type="image/svg+xml" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="%233b82f6"/><path d="M14 50 L50 14 L34 50 L30 36 Z" fill="white"/></svg>'>
 
 <meta property="og:title" content="Does USB Tethering Use Hotspot Data on iPhone? Yes: Here's Why">
 <meta property="og:description" content="USB, Wi-Fi and Bluetooth tethering on an iPhone all draw from the same hotspot allowance. Why the cable makes no difference, and how to check your usage.">
-<meta property="og:url" content="https://fastnet-site.vercel.app/blog/does-usb-tethering-use-hotspot-data.html">
+<meta property="og:url" content="https://fastnet-site.vercel.app/blog/does-usb-tethering-use-hotspot-data">
 <meta property="og:type" content="article">
 <meta property="og:image" content="https://fastnet-site.vercel.app/og.png">
 <meta name="twitter:card" content="summary_large_image">
@@ -29,7 +29,7 @@
   "datePublished": "2026-11-24",
   "dateModified": "2026-11-24",
   "image": "https://fastnet-site.vercel.app/og.png",
-  "mainEntityOfPage": "https://fastnet-site.vercel.app/blog/does-usb-tethering-use-hotspot-data.html",
+  "mainEntityOfPage": "https://fastnet-site.vercel.app/blog/does-usb-tethering-use-hotspot-data",
   "publisher": {
     "@type": "Organization",
     "name": "FastNet",
@@ -174,13 +174,13 @@ footer a:hover { color: var(--text); }
     <p>Tether over USB for ten minutes and watch that number. It grows exactly as it does over Wi-Fi. Your carrier's app shows the figure that actually decides when you are slowed down.</p>
 
     <h2>What happens when the allowance runs out</h2>
-    <p>The phone's own apps keep full speed. Devices on the hotspot are slowed for the rest of the billing month, commonly to around 600 kbps and on some plans to 128 kbps. Pages still load, slowly; video calls and large downloads do not really work. The carrier guides have the numbers: <a href="/blog/t-mobile-hotspot-throttling-fix.html">T-Mobile</a>, <a href="/blog/verizon-hotspot-throttling-fix.html">Verizon</a>, <a href="/blog/att-hotspot-throttling-fix.html">AT&amp;T</a>.</p>
+    <p>The phone's own apps keep full speed. Devices on the hotspot are slowed for the rest of the billing month, commonly to around 600 kbps and on some plans to 128 kbps. Pages still load, slowly; video calls and large downloads do not really work. The carrier guides have the numbers: <a href="/blog/t-mobile-hotspot-throttling-fix">T-Mobile</a>, <a href="/blog/verizon-hotspot-throttling-fix">Verizon</a>, <a href="/blog/att-hotspot-throttling-fix">AT&amp;T</a>.</p>
 
     <h2>What does use the phone's regular data</h2>
     <p>The allowance applies to traffic the iPhone forwards for other devices through Personal Hotspot. Traffic that an app on the phone sends itself is ordinary phone data. A relay app builds on that difference: the computer hands its traffic to an app on the phone, and the app opens the connections.</p>
     <p>There are two ways to do it:</p>
     <ul>
-      <li><strong>By hand, free.</strong> Run a SOCKS5 proxy app on the iPhone, forward a port over USB with <code>iproxy</code>, and point the computer's proxy settings at it. It works, and it takes some terminal work each time. The steps are in <a href="/blog/get-past-hotspot-limit-mac.html">5 ways past the hotspot limit on a Mac</a>.</li>
+      <li><strong>By hand, free.</strong> Run a SOCKS5 proxy app on the iPhone, forward a port over USB with <code>iproxy</code>, and point the computer's proxy settings at it. It works, and it takes some terminal work each time. The steps are in <a href="/blog/get-past-hotspot-limit-mac">5 ways past the hotspot limit on a Mac</a>.</li>
       <li><strong>With FastNet.</strong> This is our app. FastNet Connect on a <a href="/">Mac</a> or a <a href="/windows">Windows PC</a> pairs with the free ProxyDeck app on the iPhone and sends the whole computer through it, with no proxy settings. On a Mac the link is a USB cable or a direct Wi-Fi connection, and Personal Hotspot stays off. On Windows the PC joins the iPhone's Wi-Fi network and pairs by scanning a code.</li>
     </ul>
     <p>Two things to know before you try it. ProxyDeck has to stay open on the iPhone's screen while you are connected. And how a carrier accounts for traffic is up to the carrier, whose terms still apply; in our own test on T-Mobile the iPhone's Personal Hotspot counter stayed at zero, and you can check yours the same way.</p>
@@ -203,7 +203,7 @@ footer a:hover { color: var(--text); }
     <p>Open Settings, then Cellular, and scroll to Personal Hotspot for the iPhone's own counter. Your carrier's app shows the official figure for the billing month.</p>
     <h2>The short version</h2>
     <p>USB tethering is Personal Hotspot with a cable. It is steadier than Wi-Fi and keeps the phone charged, and it uses the same hotspot allowance. To use the phone's regular data from a computer, the traffic has to be sent by an app on the phone, which is what a proxy set up by hand or <a href="/">FastNet</a> does.</p>
-    <p class="note">Related: <a href="/blog/iphone-hotspot-throttle-fix.html">Why your iPhone hotspot drops to 0.5 Mbps</a> &middot; <a href="/blog/use-iphone-data-on-mac.html">Use your iPhone's data on a Mac</a> &middot; <a href="/blog/use-iphone-data-on-windows-pc.html">Use your iPhone's data on a Windows PC</a>.</p>
+    <p class="note">Related: <a href="/blog/iphone-hotspot-throttle-fix">Why your iPhone hotspot drops to 0.5 Mbps</a> &middot; <a href="/blog/use-iphone-data-on-mac">Use your iPhone's data on a Mac</a> &middot; <a href="/blog/use-iphone-data-on-windows-pc">Use your iPhone's data on a Windows PC</a>.</p>
   </div>
 </article>
 
