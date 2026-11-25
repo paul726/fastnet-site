@@ -24,16 +24,16 @@
       "url": "https://fastnet-site.vercel.app/pairvpn-alternative",
       "description": "PairVPN's iOS listing was removed in October 2026. FastNet Connect and ProxyDeck as a maintained alternative for getting a Mac online through an iPhone.",
       "datePublished": "2026-10-14",
-      "dateModified": "2026-11-12",
+      "dateModified": "2026-11-24",
       "publisher": { "@type": "Organization", "name": "FastNet", "url": "https://fastnet-site.vercel.app/" }
     },
     {
       "@type": "FAQPage",
       "mainEntity": [
-        { "@type": "Question", "name": "Is PairVPN coming back to the App Store?", "acceptedAnswer": { "@type": "Answer", "text": "Unknown. As of November 6, 2026 the developer has posted no announcement, the Android build has not been updated since September 2023, and the official Mac download page is offline." } },
+        { "@type": "Question", "name": "Is PairVPN coming back to the App Store?", "acceptedAnswer": { "@type": "Answer", "text": "Unknown. As of November 24, 2026 the developer has posted no announcement, the Android build has not been updated since September 2023, and the official Mac download page is offline." } },
         { "@type": "Question", "name": "Can I sideload PairVPN instead?", "acceptedAnswer": { "@type": "Answer", "text": "It is possible for a tinkerer, but it needs an IPA you trust, a signing workflow, re-signing every 7 days on a free developer account, and the Mac client still has to come from somewhere now that the official download is gone." } },
         { "@type": "Question", "name": "Do I need Personal Hotspot turned on to use FastNet?", "acceptedAnswer": { "@type": "Answer", "text": "No. Over USB, FastNet Connect reaches ProxyDeck through the cable itself; over nearby Wi-Fi it uses a direct peer-to-peer link. Personal Hotspot stays off." } },
-        { "@type": "Question", "name": "Is FastNet a complete replacement for PairVPN?", "acceptedAnswer": { "@type": "Answer", "text": "No. FastNet covers the iPhone-to-Mac internet-sharing use case only. It does not replace PairVPN's remote home or office network access, or its Windows and Android clients." } },
+        { "@type": "Question", "name": "Is FastNet a complete replacement for PairVPN?", "acceptedAnswer": { "@type": "Answer", "text": "No. FastNet covers getting a Mac or a Windows PC online through an iPhone. It does not replace PairVPN's remote home or office network access, or its Android client." } },
         { "@type": "Question", "name": "Is the Mac side free?", "acceptedAnswer": { "@type": "Answer", "text": "It is free to try. FastNet Connect runs without a license for the first 2 hours of connected time; after that it needs a $29 one-time license. The iPhone app ProxyDeck is free." } }
       ]
     }
@@ -141,7 +141,7 @@ footer { padding: 30px 0; border-top: 1px solid var(--border); color: var(--mute
 <main id="main">
   <header class="hero">
     <div class="container">
-      <p class="eyebrow">PairVPN status &middot; checked November 6, 2026</p>
+      <p class="eyebrow">PairVPN status &middot; checked November 24, 2026</p>
       <h1>PairVPN is gone from the App Store.<br><span>Here's the Mac + iPhone alternative.</span></h1>
       <p class="lede"><strong>Can't install PairVPN on your iPhone anymore?</strong> The iOS listing was pulled in October 2026 and the developer has been silent since 2023. FastNet Connect + ProxyDeck does the one job most Mac users ran PairVPN for: getting the Mac online through the iPhone's cellular connection, over USB or nearby peer-to-peer Wi-Fi, with no Personal Hotspot involved.</p>
       <div class="actions">
@@ -163,7 +163,7 @@ footer { padding: 30px 0; border-top: 1px solid var(--border); color: var(--mute
   <section class="content" id="status" aria-labelledby="status-title">
     <div class="container">
       <h2 id="status-title">What happened to PairVPN.</h2>
-      <p class="intro">Everything below was checked on November 6, 2026. This section will be updated if the app returns.</p>
+      <p class="intro">Everything below was checked on November 24, 2026. This section will be updated if the app returns.</p>
       <ul class="facts">
         <li><span class="k">iOS App Store</span><span><strong>Listing removed.</strong> The <a href="https://apps.apple.com/us/app/pairvpn/id1347012179" rel="nofollow">App Store page</a> returns 404 and Apple's lookup API shows no result in the US or German storefronts. Users on r/PairVPN began posting <a href="https://www.reddit.com/r/PairVPN/comments/1xaxxfd/cant_find_app/" rel="nofollow">&ldquo;Can't find app&rdquo;</a> on October 20, 2026 and <a href="https://www.reddit.com/r/PairVPN/comments/1xpkl2l/removed_from_app_store/" rel="nofollow">&ldquo;Removed from App Store&rdquo;</a> on November 6.</span></li>
         <li><span class="k">Mac</span><span><strong>Official download offline.</strong> pairvpn.com/download returns 404. The Mac client was only ever distributed from the developer's site.</span></li>
@@ -193,7 +193,7 @@ footer { padding: 30px 0; border-top: 1px solid var(--border); color: var(--mute
         </article>
         <article class="card">
           <h3>What you lose</h3>
-          <p>Remote access to a home or office network, Windows and Android clients, and consoles or TVs connecting through the Mac. FastNet does one thing: this Mac, online through this iPhone. Used PairVPN on a Windows PC? <a href="/?utm_source=pairvpn-alternative&amp;utm_campaign=windows#windows">Get an email if FastNet for Windows ships</a>.</p>
+          <p>Remote access to a home or office network, the Android client, and consoles or TVs connecting through the Mac. FastNet does one thing: this computer, online through this iPhone. Used PairVPN on a Windows PC? FastNet Connect for Windows is out: see <a href="/blog/pairvpn-windows-alternative.html">PairVPN on a Windows PC with an iPhone</a>.</p>
         </article>
       </div>
     </div>
@@ -213,7 +213,7 @@ footer { padding: 30px 0; border-top: 1px solid var(--border); color: var(--mute
             <li><strong>Requirements:</strong> Apple Silicon Mac, macOS 13+, iPhone with iOS 16+, and ProxyDeck kept in the foreground.</li>
             <li><strong>Price:</strong> free for the first 2 hours of connected time, then a $29 one-time Mac license. The iPhone app is free.</li>
           </ul>
-          <p>Not an Android, Windows, or remote home-network solution. The iPhone app is a foreground proxy and network utility, not an iOS system-wide VPN.</p>
+          <p>Not an Android or remote home-network solution. For a Windows PC, use <a href="/windows">FastNet Connect for Windows</a>. The iPhone app is a foreground proxy and network utility, not an iOS system-wide VPN.</p>
         </article>
         <article class="card">
           <p class="label">Status: unavailable on iOS since October 2026</p>
@@ -226,7 +226,7 @@ footer { padding: 30px 0; border-top: 1px solid var(--border); color: var(--mute
           <p>If you still have it installed on both devices and it works, keep using it. This page is for people who can no longer install it.</p>
         </article>
       </div>
-      <p class="fine source-note">Written by the FastNet developer, not an independent review. PairVPN facts checked against its website, the App Store, and Google Play on November 6, 2026. We have not benchmarked FastNet against PairVPN.</p>
+      <p class="fine source-note">Written by the FastNet developer, not an independent review. PairVPN facts checked against its website, the App Store, and Google Play on November 24, 2026. We have not benchmarked FastNet against PairVPN.</p>
     </div>
   </section>
 
@@ -255,9 +255,9 @@ footer { padding: 30px 0; border-top: 1px solid var(--border); color: var(--mute
   <section class="content" aria-labelledby="faq-title">
     <div class="container">
       <h2 id="faq-title">Before you switch.</h2>
-      <details><summary>Is PairVPN coming back to the App Store?</summary><p>We don't know. As of November 6, 2026 the developer has posted no announcement, the Android build hasn't been updated since September 2023, and the official Mac download page is offline. The <a href="#status">status section</a> above will be updated if the listing returns.</p></details>
+      <details><summary>Is PairVPN coming back to the App Store?</summary><p>We don't know. As of November 24, 2026 the developer has posted no announcement, the Android build hasn't been updated since September 2023, and the official Mac download page is offline. The <a href="#status">status section</a> above will be updated if the listing returns.</p></details>
       <details><summary>Can I just sideload PairVPN instead?</summary><p>Some r/PairVPN users suggest it. You need an IPA you trust, a signing workflow such as AltStore or Sideloadly, re-signing every 7 days on a free developer account, and the Mac client still has to come from somewhere now that the official download is gone. It is doable for a tinkerer. It is not a setup most people will keep maintaining.</p></details>
-      <details><summary>Is this a complete replacement for PairVPN?</summary><p>No. FastNet is an alternative for the specific iPhone-to-Mac internet-sharing use case. It does not replace PairVPN's broader platform support or remote home/office network access.</p></details>
+      <details><summary>Is this a complete replacement for PairVPN?</summary><p>No. FastNet is an alternative for one job: a Mac or a <a href="/blog/pairvpn-windows-alternative.html">Windows PC</a> online through an iPhone. It does not replace PairVPN's Android support or remote home/office network access.</p></details>
       <details><summary>Do I need Personal Hotspot turned on?</summary><p>No. Over USB, FastNet Connect reaches ProxyDeck through the cable itself. Over nearby Wi-Fi it uses a direct peer-to-peer link between the two devices. Personal Hotspot stays off. Unsure whether your setup fits? <a href="mailto:pjiang726@gmail.com">Ask us</a> before buying.</p></details>
       <details><summary>Can I use another iPhone app while connected?</summary><p>Mac Bridge stops when ProxyDeck leaves the foreground. Do not choose this setup if uninterrupted background operation on your iPhone is essential.</p></details>
       <details><summary>Does it guarantee unlimited data or bypass every hotspot restriction?</summary><p>No. FastNet does not change your mobile plan or guarantee how a carrier accounts for traffic. Review your plan's terms and allowances. Cellular congestion, signal strength, and device limits can still affect performance.</p></details>

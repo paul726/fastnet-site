@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PairVPN for Windows + iPhone: A Maintained Alternative (2026)</title>
+<meta name="description" content="PairVPN's iPhone app is gone from the App Store, so its Windows + iPhone setup can't be installed. FastNet Connect for Windows does the same job the same way.">
+<link rel="canonical" href="https://fastnet-site.vercel.app/blog/pairvpn-windows-alternative.html">
+
+<link rel="icon" type="image/svg+xml" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="%233b82f6"/><path d="M14 50 L50 14 L34 50 L30 36 Z" fill="white"/></svg>'>
+
+<meta property="og:title" content="PairVPN for Windows + iPhone: A Maintained Alternative (2026)">
+<meta property="og:description" content="PairVPN's iPhone app is gone from the App Store, so its Windows + iPhone setup can't be installed. FastNet Connect for Windows does the same job the same way.">
+<meta property="og:url" content="https://fastnet-site.vercel.app/blog/pairvpn-windows-alternative.html">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://fastnet-site.vercel.app/og.png">
+<meta name="twitter:card" content="summary_large_image">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "PairVPN on a Windows PC With an iPhone: What Still Works, and the Alternative",
+  "description": "PairVPN's iPhone app is gone from the App Store, so its Windows + iPhone setup can't be installed. FastNet Connect for Windows does the same job the same way.",
+  "author": {
+    "@type": "Person",
+    "name": "Paul Jiang"
+  },
+  "datePublished": "2026-11-24",
+  "dateModified": "2026-11-24",
+  "image": "https://fastnet-site.vercel.app/og.png",
+  "mainEntityOfPage": "https://fastnet-site.vercel.app/blog/pairvpn-windows-alternative.html",
+  "publisher": {
+    "@type": "Organization",
+    "name": "FastNet",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://fastnet-site.vercel.app/og.png"
+    }
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Can I still download PairVPN for Windows?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The download page on pairvpn.com returned “not found” when we checked on November 24, 2026. Even with the Windows client installed, the iPhone app it connects to can no longer be installed from the App Store."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is FastNet a full replacement for PairVPN on Windows?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For getting a Windows PC online through an iPhone, yes. It does not replace PairVPN's remote access to a home or office network, and it does not work with an Android phone."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I still need Personal Hotspot turned on?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "On Windows, the PC and the iPhone have to be on the same Wi-Fi network. Away from home that is the iPhone's Personal Hotspot network, the same as with PairVPN. At home, both devices on the same Wi-Fi router works too."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I have to pair every time?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. You scan the code once. After that, clicking Connect on the PC with ProxyDeck open on the iPhone is enough."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "I use a Mac as well. Is that a separate purchase?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. One FastNet license covers both the Mac app and the Windows app."
+      }
+    }
+  ]
+}
+</script>
+
+<style>
+:root {
+  --bg: #0a0a0a; --surface: #141414; --border: #222;
+  --text: #e8e8e8; --text2: #888; --text3: #cfcfcf; --accent: #3b82f6; --green: #22c55e;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', sans-serif; background: var(--bg); color: var(--text); line-height: 1.65; -webkit-font-smoothing: antialiased; }
+.container { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+
+nav { padding: 20px 0; border-bottom: 1px solid var(--border); }
+nav .container { display: flex; justify-content: space-between; align-items: center; }
+.logo { font-size: 18px; font-weight: 700; letter-spacing: -0.5px; text-decoration: none; color: var(--text); }
+.logo span { color: var(--accent); }
+nav .links a { color: var(--text2); text-decoration: none; font-size: 14px; margin-left: 20px; }
+nav .links a:hover { color: var(--text); }
+
+article { padding: 56px 0 40px; }
+article .meta { color: var(--text2); font-size: 13px; margin-bottom: 18px; }
+article h1 { font-size: clamp(30px, 5vw, 42px); font-weight: 800; letter-spacing: -1px; line-height: 1.18; margin-bottom: 22px; }
+article h2 { font-size: 25px; font-weight: 700; letter-spacing: -0.5px; line-height: 1.3; margin: 44px 0 14px; }
+article h3 { font-size: 19px; font-weight: 600; margin: 28px 0 10px; }
+article p { color: var(--text3); font-size: 17px; margin-bottom: 16px; }
+article ul, article ol { color: var(--text3); font-size: 17px; margin: 0 0 16px 22px; }
+article li { margin-bottom: 8px; }
+article strong { color: var(--text); }
+article a { color: var(--accent); text-decoration: none; }
+article a:hover { text-decoration: underline; }
+article code { background: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: 1px 7px; font-size: 14px; }
+.lede { font-size: 19px; color: var(--text); }
+.table-wrap { overflow-x: auto; margin: 18px 0; }
+table { width: 100%; border-collapse: collapse; font-size: 15px; }
+th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--border); color: var(--text3); vertical-align: top; }
+th { color: var(--text); font-weight: 600; }
+.cta { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 24px 26px; margin: 36px 0; }
+.cta h3 { margin-top: 0; color: var(--text); }
+.cta .btn { display: inline-block; background: var(--accent); color: #fff; text-decoration: none; border-radius: 10px; padding: 12px 20px; font-weight: 700; margin-top: 10px; }
+.cta .btn:hover { opacity: .92; text-decoration: none; }
+.note { color: var(--text2); font-size: 14px; }
+footer { border-top: 1px solid var(--border); padding: 40px 0; color: var(--text2); font-size: 14px; text-align: center; }
+footer a { color: var(--text2); text-decoration: none; margin: 0 12px; }
+footer a:hover { color: var(--text); }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="container">
+    <a href="/" class="logo">Fast<span>Net</span></a>
+    <div class="links">
+      <a href="/">Home</a>
+      <a href="/blog/">Blog</a>
+    </div>
+  </div>
+</nav>
+
+<article>
+  <div class="container">
+    <div class="meta">November 24, 2026 &middot; 4 min read</div>
+    <h1>PairVPN on a Windows PC With an iPhone: What Still Works, and the Alternative</h1>
+    <p class="lede">If you ran PairVPN's client on a Windows PC and its server on an iPhone, half of that setup can no longer be installed: the iPhone app was removed from the App Store in October 2026. FastNet Connect for Windows does the same job in the same shape. The PC joins the iPhone's hotspot network, you pair the two once with a code, and the PC's traffic goes out through an app on the phone.</p>
+
+    <h2>Where PairVPN stands for Windows users</h2>
+    <p>Checked on November 24, 2026:</p>
+    <ul>
+      <li><strong>iPhone app:</strong> removed. The App Store page returns &ldquo;not found&rdquo; and Apple's lookup shows no result. Without it, an iPhone cannot be the server.</li>
+      <li><strong>Windows client:</strong> the download page on pairvpn.com returns &ldquo;not found&rdquo;.</li>
+      <li><strong>Android app:</strong> still on Google Play as version 1.9.16, last updated on September 15, 2023.</li>
+      <li><strong>Developer:</strong> the website is still up and carries no announcement about any of this.</li>
+    </ul>
+    <p>If PairVPN is still installed on both your iPhone and your PC and it connects, keep using it. This page is for the day you get a new phone, a new PC, or an iOS update that breaks it. More detail is in <a href="/blog/pairvpn-not-working.html">PairVPN not working or missing from the App Store</a>.</p>
+
+    <h2>PairVPN and FastNet side by side</h2>
+    <div class="table-wrap"><table>
+      <tr><th></th><th>PairVPN</th><th>FastNet Connect + ProxyDeck</th></tr>
+      <tr><td><strong>Link between PC and iPhone</strong></td><td>Personal Hotspot or USB tethering, switched on first</td><td>The PC joins the iPhone's Wi-Fi network, normally Personal Hotspot</td></tr>
+      <tr><td><strong>App on the iPhone</strong></td><td>PairVPN in server mode</td><td>ProxyDeck (free on the App Store)</td></tr>
+      <tr><td><strong>App on the PC</strong></td><td>PairVPN in client mode</td><td>FastNet Connect</td></tr>
+      <tr><td><strong>Pairing</strong></td><td>A 6-digit code typed on the phone</td><td>A code on the PC's screen, scanned with the phone's camera once and remembered</td></tr>
+      <tr><td><strong>iPhone while connected</strong></td><td>Screen on, PairVPN active</td><td>Screen on, ProxyDeck in the foreground</td></tr>
+      <tr><td><strong>What goes through the phone</strong></td><td>The whole PC</td><td>The whole PC</td></tr>
+      <tr><td><strong>Remote access to a home network</strong></td><td>Yes</td><td>No</td></tr>
+      <tr><td><strong>Can be installed on an iPhone today</strong></td><td>No</td><td>Yes</td></tr>
+    </table></div>
+    <p>The rule about the iPhone's screen is the same for both because it comes from iOS, which stops ordinary apps soon after they leave the screen. PairVPN's own hotspot guide told iPhone users to keep the app active and the screen on.</p>
+
+    <h2>Switching takes four steps</h2>
+    <ol>
+      <li>Install <a href="/windows">FastNet Connect for Windows</a> (Windows 10 or 11, x64 or ARM64) and ProxyDeck on the iPhone.</li>
+      <li>Turn on Personal Hotspot on the iPhone and join that Wi-Fi network from the PC, exactly as you did before starting PairVPN.</li>
+      <li>Click <strong>Connect</strong> in FastNet Connect. A pairing code appears on the PC's screen.</li>
+      <li>In ProxyDeck, open the <strong>Mac Bridge</strong> tab and tap <strong>Scan pairing code</strong>. The tab is named for the Mac but is the one for Windows too.</li>
+    </ol>
+    <p>When the PC shows <strong>Connected through your iPhone</strong>, everything on it uses the phone's cellular connection. Where PairVPN had you check that the tunnel said &ldquo;local&rdquo;, FastNet Connect has a <strong>Diagnose</strong> button that tests each part of the connection and names the one that fails.</p>
+
+    <h2>What you give up</h2>
+    <ul>
+      <li><strong>Remote access.</strong> PairVPN could also connect you to a home or office network from far away. FastNet does one thing: this PC, online through the iPhone next to it.</li>
+      <li><strong>An Android phone as the server.</strong> ProxyDeck is an iPhone app.</li>
+      <li><strong>A USB link.</strong> On Windows, FastNet Connect pairs over Wi-Fi. The Mac version also works over a cable.</li>
+      <li><strong>A familiar installer.</strong> FastNet is signed with our own certificate, so Windows shows an unknown-publisher warning during setup. The <a href="/windows">download page</a> shows each warning and how to verify the file.</li>
+    </ul>
+
+    <h2>Does it use the hotspot allowance?</h2>
+    <p>PairVPN's guide said its traffic showed up as normal phone usage and told users to check their carrier account to confirm. The same advice applies here. In our own test on T-Mobile, the iPhone's Personal Hotspot counter under <strong>Settings &rsaquo; Cellular</strong> stayed at zero while a computer was online through FastNet. We have not checked every carrier, and how a carrier accounts for traffic is the carrier's decision. The first 2 hours of connected time are free so that you can look at your own counter and your own carrier account before paying.</p>
+
+    <div class="cta">
+      <h3>Try it before you need it</h3>
+      <p>FastNet Connect for Windows runs free for the first 2 hours of connected time, with no card or email. After that it is $29 once, with no subscription, and the license covers the Mac app too.</p>
+      <a class="btn" href="/windows">Download and setup for Windows &rarr;</a>
+    </div>
+
+    <p class="note">Written by the FastNet developer. FastNet is not affiliated with or endorsed by PairVPN, which is named here only to identify the product being discussed. PairVPN facts were checked against its website, the App Store and Google Play on November 24, 2026.</p>
+    <h2>FAQ</h2>
+    <h3>Can I still download PairVPN for Windows?</h3>
+    <p>The download page on pairvpn.com returned &ldquo;not found&rdquo; when we checked on November 24, 2026. Even with the Windows client installed, the iPhone app it connects to can no longer be installed from the App Store.</p>
+    <h3>Is FastNet a full replacement for PairVPN on Windows?</h3>
+    <p>For getting a Windows PC online through an iPhone, yes. It does not replace PairVPN's remote access to a home or office network, and it does not work with an Android phone.</p>
+    <h3>Do I still need Personal Hotspot turned on?</h3>
+    <p>On Windows, the PC and the iPhone have to be on the same Wi-Fi network. Away from home that is the iPhone's Personal Hotspot network, the same as with PairVPN. At home, both devices on the same Wi-Fi router works too.</p>
+    <h3>Do I have to pair every time?</h3>
+    <p>No. You scan the code once. After that, clicking Connect on the PC with ProxyDeck open on the iPhone is enough.</p>
+    <h3>I use a Mac as well. Is that a separate purchase?</h3>
+    <p>No. One FastNet license covers both the Mac app and the Windows app.</p>
+    <h2>The short version</h2>
+    <p>PairVPN's Windows client needs its iPhone app, and that app can no longer be installed. <a href="/windows">FastNet Connect for Windows</a> with ProxyDeck keeps the same routine: hotspot on, pair once, keep the phone app on screen. It does not do remote access and it needs an iPhone.</p>
+    <p class="note">Related: <a href="/pairvpn-alternative">PairVPN alternative for Mac + iPhone</a> &middot; <a href="/blog/pairvpn-not-working.html">PairVPN not working or missing?</a> &middot; <a href="/blog/use-iphone-data-on-windows-pc.html">Three ways to use iPhone data on a Windows PC</a>.</p>
+  </div>
+</article>
+
+<footer>
+  <div class="container">
+    <a href="/">Home</a>
+    <a href="/blog/">Blog</a>
+    <a href="mailto:pjiang726@gmail.com">Contact</a>
+  </div>
+</footer>
+
+<script src="/ref.js"></script>
+</body>
+</html>

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>iPhone Hotspot Keeps Disconnecting? 10 Fixes (Mac and Windows)</title>
+<meta name="description" content="An iPhone hotspot that drops every few minutes is usually switching itself off to save battery. Ten fixes in order, for Mac and Windows laptops.">
+<link rel="canonical" href="https://fastnet-site.vercel.app/blog/iphone-hotspot-keeps-disconnecting.html">
+
+<link rel="icon" type="image/svg+xml" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="%233b82f6"/><path d="M14 50 L50 14 L34 50 L30 36 Z" fill="white"/></svg>'>
+
+<meta property="og:title" content="iPhone Hotspot Keeps Disconnecting? 10 Fixes (Mac and Windows)">
+<meta property="og:description" content="An iPhone hotspot that drops every few minutes is usually switching itself off to save battery. Ten fixes in order, for Mac and Windows laptops.">
+<meta property="og:url" content="https://fastnet-site.vercel.app/blog/iphone-hotspot-keeps-disconnecting.html">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://fastnet-site.vercel.app/og.png">
+<meta name="twitter:card" content="summary_large_image">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "iPhone Hotspot Keeps Disconnecting From Your Laptop? 10 Fixes for Mac and Windows",
+  "description": "An iPhone hotspot that drops every few minutes is usually switching itself off to save battery. Ten fixes in order, for Mac and Windows laptops.",
+  "author": {
+    "@type": "Person",
+    "name": "Paul Jiang"
+  },
+  "datePublished": "2026-11-24",
+  "dateModified": "2026-11-24",
+  "image": "https://fastnet-site.vercel.app/og.png",
+  "mainEntityOfPage": "https://fastnet-site.vercel.app/blog/iphone-hotspot-keeps-disconnecting.html",
+  "publisher": {
+    "@type": "Organization",
+    "name": "FastNet",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://fastnet-site.vercel.app/og.png"
+    }
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Why does my iPhone hotspot turn off by itself?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "To save battery. The iPhone stops advertising the hotspot shortly after the last device disconnects, so a laptop that sleeps or idles can lose it. Keeping the Personal Hotspot screen open while you connect, and keeping the laptop awake, prevents most drops."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does the iPhone hotspot have a time limit?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. There is no fixed limit on how long a hotspot session can last. It ends when nothing has been connected for a short while, or when the phone runs low on battery."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why can't my Windows laptop see my iPhone hotspot?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Open Settings, then Personal Hotspot on the iPhone and leave that screen showing, turn on Maximize Compatibility, and try again. If it still does not appear, rename the iPhone so the name has no apostrophe."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is a USB cable more stable than the Wi-Fi hotspot?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. A cable does not go idle and is not affected by other Wi-Fi networks. It uses the same hotspot allowance as Wi-Fi."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Maximize Compatibility make the hotspot slower?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It can. It moves the hotspot to the 2.4 GHz band, which carries less data than 5 GHz but reaches further and works with more devices. Turn it off again if every device you use connects without it."
+      }
+    }
+  ]
+}
+</script>
+
+<style>
+:root {
+  --bg: #0a0a0a; --surface: #141414; --border: #222;
+  --text: #e8e8e8; --text2: #888; --text3: #cfcfcf; --accent: #3b82f6; --green: #22c55e;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', sans-serif; background: var(--bg); color: var(--text); line-height: 1.65; -webkit-font-smoothing: antialiased; }
+.container { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+
+nav { padding: 20px 0; border-bottom: 1px solid var(--border); }
+nav .container { display: flex; justify-content: space-between; align-items: center; }
+.logo { font-size: 18px; font-weight: 700; letter-spacing: -0.5px; text-decoration: none; color: var(--text); }
+.logo span { color: var(--accent); }
+nav .links a { color: var(--text2); text-decoration: none; font-size: 14px; margin-left: 20px; }
+nav .links a:hover { color: var(--text); }
+
+article { padding: 56px 0 40px; }
+article .meta { color: var(--text2); font-size: 13px; margin-bottom: 18px; }
+article h1 { font-size: clamp(30px, 5vw, 42px); font-weight: 800; letter-spacing: -1px; line-height: 1.18; margin-bottom: 22px; }
+article h2 { font-size: 25px; font-weight: 700; letter-spacing: -0.5px; line-height: 1.3; margin: 44px 0 14px; }
+article h3 { font-size: 19px; font-weight: 600; margin: 28px 0 10px; }
+article p { color: var(--text3); font-size: 17px; margin-bottom: 16px; }
+article ul, article ol { color: var(--text3); font-size: 17px; margin: 0 0 16px 22px; }
+article li { margin-bottom: 8px; }
+article strong { color: var(--text); }
+article a { color: var(--accent); text-decoration: none; }
+article a:hover { text-decoration: underline; }
+article code { background: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: 1px 7px; font-size: 14px; }
+.lede { font-size: 19px; color: var(--text); }
+.table-wrap { overflow-x: auto; margin: 18px 0; }
+table { width: 100%; border-collapse: collapse; font-size: 15px; }
+th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--border); color: var(--text3); vertical-align: top; }
+th { color: var(--text); font-weight: 600; }
+.cta { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 24px 26px; margin: 36px 0; }
+.cta h3 { margin-top: 0; color: var(--text); }
+.cta .btn { display: inline-block; background: var(--accent); color: #fff; text-decoration: none; border-radius: 10px; padding: 12px 20px; font-weight: 700; margin-top: 10px; }
+.cta .btn:hover { opacity: .92; text-decoration: none; }
+.note { color: var(--text2); font-size: 14px; }
+footer { border-top: 1px solid var(--border); padding: 40px 0; color: var(--text2); font-size: 14px; text-align: center; }
+footer a { color: var(--text2); text-decoration: none; margin: 0 12px; }
+footer a:hover { color: var(--text); }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="container">
+    <a href="/" class="logo">Fast<span>Net</span></a>
+    <div class="links">
+      <a href="/">Home</a>
+      <a href="/blog/">Blog</a>
+    </div>
+  </div>
+</nav>
+
+<article>
+  <div class="container">
+    <div class="meta">November 24, 2026 &middot; 5 min read</div>
+    <h1>iPhone Hotspot Keeps Disconnecting From Your Laptop? 10 Fixes for Mac and Windows</h1>
+    <p class="lede">An iPhone hotspot that drops every few minutes is usually not broken. iOS switches the hotspot off quickly to save battery, and laptops are quick to give up on a network that goes quiet. Work through these in order. The first four fix most cases.</p>
+
+    <h2>Why it happens</h2>
+    <p>The iPhone stops advertising its hotspot shortly after the last device leaves, roughly a minute and a half later. So the usual sequence is: the laptop sleeps or its Wi-Fi idles, the phone sees nothing connected and turns the hotspot's Wi-Fi off, the laptop wakes and cannot find the network. Most of the fixes below break that sequence somewhere.</p>
+
+    <h2>Start with these four</h2>
+    <h3>1. Open the Personal Hotspot screen and leave it open while you connect</h3>
+    <p>On the iPhone go to <strong>Settings &rsaquo; Personal Hotspot</strong>. While that screen is showing, the phone stays discoverable. Join from the laptop, wait for the green indicator at the top of the iPhone's screen, and only then leave Settings.</p>
+    <h3>2. Turn on Maximize Compatibility</h3>
+    <p>This switch is on the same screen on iPhone 12 and later. It moves the hotspot from 5 GHz to 2.4 GHz. That band is slower, but it reaches further and works with older Wi-Fi cards that lose a 5 GHz hotspot. If the laptop is more than a few meters from the phone, or cannot see the hotspot at all, this is the likely fix.</p>
+    <h3>3. Turn off Low Power Mode on the iPhone</h3>
+    <p>Low Power Mode cuts back background activity to stretch the battery, and the hotspot tends to shut down sooner with it on. Switch it off under <strong>Settings &rsaquo; Battery</strong> and plug the phone in. A hotspot drains a battery quickly anyway.</p>
+    <h3>4. Keep the laptop awake</h3>
+    <p>Each time the laptop sleeps, the phone's idle timer starts. On a Mac, check <strong>System Settings &rsaquo; Lock Screen</strong> and <strong>Battery</strong>. On Windows, check <strong>Settings &rsaquo; System &rsaquo; Power</strong>. For long downloads, set the display to turn off without putting the computer to sleep.</p>
+
+    <h2>If it still drops</h2>
+    <h3>5. Forget the network and join again</h3>
+    <p>A saved entry with an old password or old settings causes join-and-drop loops. On a Mac: <strong>System Settings &rsaquo; Wi-Fi</strong>, open the details for the iPhone's network, then <strong>Forget This Network</strong>. On Windows: <strong>Settings &rsaquo; Network &amp; internet &rsaquo; Wi-Fi &rsaquo; Manage known networks</strong>, then <strong>Forget</strong>.</p>
+    <h3>6. Rename the iPhone without an apostrophe</h3>
+    <p>The hotspot's network name is the phone's name, and the default (&ldquo;Sam&rsquo;s iPhone&rdquo;) contains a curly apostrophe that some Windows Wi-Fi drivers handle badly. Change it under <strong>Settings &rsaquo; General &rsaquo; About &rsaquo; Name</strong> to something plain like <code>SamiPhone</code>, then forget the old network on the laptop and join the new name.</p>
+    <h3>7. Windows: stop the Wi-Fi adapter from powering down</h3>
+    <p>Open <strong>Device Manager &rsaquo; Network adapters</strong>, open your Wi-Fi adapter's properties, and on the <strong>Power Management</strong> tab clear <em>Allow the computer to turn off this device to save power</em>. Not every adapter has this tab. While you are there, updating the Wi-Fi driver from the laptop maker's site fixes many unexplained drops.</p>
+    <h3>8. Mac: let it rejoin by itself</h3>
+    <p>Under <strong>System Settings &rsaquo; Wi-Fi</strong>, set <strong>Ask to join hotspots</strong> the way you prefer. If the Mac and the iPhone use the same Apple Account, Instant Hotspot can bring the connection back without the password, as long as Bluetooth and Wi-Fi are on for both.</p>
+    <h3>9. Use a USB cable</h3>
+    <p>A cable has no idle timer and no radio interference, and it charges the phone. On a Mac it works as soon as you plug in and tap Trust. On Windows it needs Apple's driver; see <a href="/blog/iphone-usb-tethering-not-working-windows.html">iPhone USB tethering not working on Windows</a> if no network appears. A cable uses the same hotspot allowance as Wi-Fi (<a href="/blog/does-usb-tethering-use-hotspot-data.html">here is why</a>).</p>
+    <h3>10. Update, then reset network settings</h3>
+    <p>Install any waiting iOS update, and check <strong>Settings &rsaquo; General &rsaquo; About</strong> for a carrier settings prompt. As a last resort use <strong>Settings &rsaquo; General &rsaquo; Transfer or Reset iPhone &rsaquo; Reset &rsaquo; Reset Network Settings</strong>. This clears every saved Wi-Fi network and password on the phone, so keep it for when nothing else has worked.</p>
+
+    <h2>Connected, but painfully slow? That is a different problem</h2>
+    <p>If the Wi-Fi icon stays connected and pages just stop loading, the hotspot is probably not dropping. You have likely used up your plan's hotspot allowance, and the carrier has slowed tethered devices down. The test takes a minute: run a speed test on the phone itself, then on the laptop through the hotspot. Phone fast and laptop near 0.5 Mbps means throttling, and none of the ten fixes above will change it. See <a href="/blog/iphone-hotspot-throttle-fix.html">why an iPhone hotspot drops to 0.5 Mbps and what to do</a>.</p>
+
+    <h2>Where FastNet fits</h2>
+    <p>FastNet is our app, and it is built for the allowance problem, not for Wi-Fi drops. It puts a <a href="/">Mac</a> or a <a href="/windows">Windows PC</a> online through an app on the iPhone, so the computer's traffic is carried like the phone's own. On a Mac it connects over USB or a direct Wi-Fi link with Personal Hotspot switched off, so there is no hotspot to time out. It has a condition of its own: the ProxyDeck app has to stay open on the iPhone's screen while you are connected.</p>
+
+    <div class="cta">
+      <h3>Hotspot allowance used up?</h3>
+      <p>FastNet Connect runs free for the first 2 hours of connected time, with no card or email, so you can check it on your own plan. After that it is $29 once.</p>
+      <a class="btn" href="/">See how it works &rarr;</a>
+    </div>
+    <h2>FAQ</h2>
+    <h3>Why does my iPhone hotspot turn off by itself?</h3>
+    <p>To save battery. The iPhone stops advertising the hotspot shortly after the last device disconnects, so a laptop that sleeps or idles can lose it. Keeping the Personal Hotspot screen open while you connect, and keeping the laptop awake, prevents most drops.</p>
+    <h3>Does the iPhone hotspot have a time limit?</h3>
+    <p>No. There is no fixed limit on how long a hotspot session can last. It ends when nothing has been connected for a short while, or when the phone runs low on battery.</p>
+    <h3>Why can't my Windows laptop see my iPhone hotspot?</h3>
+    <p>Open Settings, then Personal Hotspot on the iPhone and leave that screen showing, turn on Maximize Compatibility, and try again. If it still does not appear, rename the iPhone so the name has no apostrophe.</p>
+    <h3>Is a USB cable more stable than the Wi-Fi hotspot?</h3>
+    <p>Yes. A cable does not go idle and is not affected by other Wi-Fi networks. It uses the same hotspot allowance as Wi-Fi.</p>
+    <h3>Does Maximize Compatibility make the hotspot slower?</h3>
+    <p>It can. It moves the hotspot to the 2.4 GHz band, which carries less data than 5 GHz but reaches further and works with more devices. Turn it off again if every device you use connects without it.</p>
+    <h2>The short version</h2>
+    <p>Most drops come from the iPhone switching an idle hotspot off. Keep the hotspot screen open while you connect, turn on Maximize Compatibility, turn off Low Power Mode, and keep the laptop awake. If the connection holds but crawls, you are being throttled, and that needs a <a href="/blog/iphone-hotspot-throttle-fix.html">different fix</a>.</p>
+    <p class="note">Related: <a href="/blog/iphone-usb-tethering-not-working-windows.html">iPhone USB tethering not working on Windows</a> &middot; <a href="/blog/does-usb-tethering-use-hotspot-data.html">Does USB tethering use hotspot data?</a> &middot; <a href="/blog/iphone-hotspot-throttle-fix.html">Why your iPhone hotspot drops to 0.5 Mbps</a>.</p>
+  </div>
+</article>
+
+<footer>
+  <div class="container">
+    <a href="/">Home</a>
+    <a href="/blog/">Blog</a>
+    <a href="mailto:pjiang726@gmail.com">Contact</a>
+  </div>
+</footer>
+
+<script src="/ref.js"></script>
+</body>
+</html>
