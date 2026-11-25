@@ -368,13 +368,13 @@ footer a:hover { color: var(--text); }
 
     <h3 id="fix-fastnet">Fix 5: A native one-click app for the same approach</h3>
 
-    <p>This is the gap FastNet fills — the same proxy architecture as the iproxy recipe, packaged as ProxyDeck on iPhone and FastNet Connect on Mac. In ProxyDeck, you start the optional Mac Bridge and keep the app in the foreground; FastNet Connect handles USB or nearby peer-to-peer Wi-Fi transport and the Mac's system routing.</p>
+    <p>This is the gap FastNet fills — the same proxy architecture as the iproxy recipe, packaged as ProxyDeck on iPhone and FastNet Connect on a Mac or a Windows PC. In ProxyDeck, you start Mac Bridge and keep the app in the foreground; FastNet Connect handles the link to the phone (USB or nearby peer-to-peer Wi-Fi on a Mac, the iPhone's Wi-Fi network on Windows) and the computer's system routing.</p>
 
     <p>To the carrier, traffic exits the phone with the same TTL, the same TCP fingerprint, and the same HTTPS SNI distribution as if you opened Safari on the phone and browsed the same sites yourself. There is no TTL trickery to detect because it is not a trick — the traffic literally originates from the phone's network stack.</p>
 
     <div class="cta-box">
       <h3>FastNet — the one-click version of the iproxy recipe</h3>
-      <p>ProxyDeck is free on the App Store. FastNet Connect for Mac is $29 one-time with a 30-day no-questions refund. Works on Verizon, AT&amp;T, T-Mobile, and most MVNOs.</p>
+      <p>ProxyDeck is free on the App Store. FastNet Connect for Mac and Windows is $29 one-time with a 30-day no-questions refund. Works on Verizon, AT&amp;T, T-Mobile, and most MVNOs.</p>
       <a href="/?utm_source=blog&utm_medium=cta&utm_campaign=throttle_fix_guide" class="cta-button">See FastNet on the homepage</a>
       <p class="cta-subtle">Honest disclosure: I built FastNet. If iproxy works for you, save the $29.</p>
     </div>
@@ -424,10 +424,10 @@ footer a:hover { color: var(--text); }
     <p>If your hotspot is slow from day one of the billing cycle, you are likely in a congested cell. Hotspot users are deprioritized on most networks below regular phone users, so during peak hours you may get slower speeds even within your hotspot allowance. There is no software fix for cell congestion — the proxy approach makes your Mac traffic look like phone traffic, which is in the higher-priority queue, so it can help here too.</p>
 
     <h3>Does this work on iPad or Apple TV?</h3>
-    <p>The proxy approach as implemented in FastNet works on macOS only today. iPad and Apple TV do not have a system SOCKS proxy setting in the same way and need a different approach. If there is demand we may add support — feel free to email and let us know.</p>
+    <p>FastNet runs on macOS and Windows. iPad and Apple TV do not have a system SOCKS proxy setting in the same way and need a different approach. If there is demand we may add support — feel free to email and let us know.</p>
 
     <h3>Does this work on Windows or Linux?</h3>
-    <p>FastNet is Mac-only today. The same architecture would work on Windows and Linux because libimobiledevice is cross-platform — it is on the roadmap based on demand.</p>
+    <p>Windows, yes: <a href="/windows">FastNet Connect for Windows</a> runs on Windows 10 and 11 and pairs with the same iPhone app over the iPhone's Wi-Fi network. One license covers Mac and Windows. Linux is not supported.</p>
 
     <h3>Will Apple stop this from working in a future iOS update?</h3>
     <p>Platform behavior can change. ProxyDeck uses public iOS networking APIs and its Mac Bridge is explicitly foreground-only. USB transport relies on established device communication tooling, while the wireless path uses nearby peer-to-peer networking. Future iOS or macOS changes may still require an app update.</p>

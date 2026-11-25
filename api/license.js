@@ -56,9 +56,10 @@ a{color:var(--accent);text-decoration:none}
 </div>
 
 <div class="label">1 · Download the app</div>
-<p style="color:#cfcfcf;margin:0 0 12px">Open this page on your Mac before downloading. <strong>FastNet.pkg</strong> is a macOS installer and cannot be installed on iPhone.</p>
-<a class="dl" href="/download">⤓&nbsp; Download FastNet Connect for Mac</a>
-<p class="tip" style="margin-top:12px">On a Windows PC? The same key works there: <a href="/windows">get FastNet Connect for Windows</a>, then click <strong>Enter license key</strong> in the app and paste the key below. If you bought from inside the Windows app, it is already installed, so go straight to pasting the key.</p>
+<p style="color:#cfcfcf;margin:0 0 12px">Open this page on the computer you want to connect. FastNet Connect installs on a Mac or a Windows PC, not on an iPhone, and this key works on both.</p>
+<a class="dl" href="/download">⤓&nbsp; Download for Mac</a>
+<a class="dl" href="/windows" style="margin-left:8px">⤓&nbsp; Download for Windows</a>
+<p class="tip" style="margin-top:12px">Mac: Apple Silicon, macOS 13 or later. Windows: 10 or 11, and the Windows page shows each warning Windows displays for the installer. Bought from inside the app? It is already installed, so go straight to step 3.</p>
 
 <div class="label" style="margin-top:32px">2 · Your license key</div>
 <div class="key" id="key">${esc(license)}</div>
@@ -66,12 +67,13 @@ a{color:var(--accent);text-decoration:none}
 
 <div class="label" style="margin-top:32px">3 · Activate</div>
 <ol>
-  <li>Open the downloaded <strong>FastNet.pkg</strong> and follow the installer (one admin password).</li>
-  <li>Launch <strong>FastNet Connect</strong> (paper-plane icon in the menu bar). With this page open on that Mac, click <strong>Activate in FastNet Connect</strong> at the top. Or do it by hand: click <strong>Enter license key</strong> if you are still in the free trial, paste the key, and click <strong>Activate</strong>.</li>
+  <li><strong>On a Mac:</strong> open the downloaded <strong>FastNet.pkg</strong> and follow the installer (one admin password), then launch <strong>FastNet Connect</strong> (paper-plane icon in the menu bar).</li>
+  <li><strong>On a Windows PC:</strong> run the installer, then start <strong>FastNet Connect</strong> from the Start menu.</li>
+  <li>With this page open on that computer, click <strong>Activate in FastNet Connect</strong> at the top. Or do it by hand: click <strong>Enter license key</strong> in the app and paste the key.</li>
 </ol>
 
 <div class="label" style="margin-top:32px">4 · Install the iPhone app</div>
-<p style="color:#cfcfcf;margin:0 0 12px">Install <strong>ProxyDeck</strong> from the App Store on your iPhone. Open Mac Bridge, tap <strong>Start Mac Bridge</strong>, and keep ProxyDeck in the foreground while FastNet Connect is connected over USB or nearby peer-to-peer Wi-Fi.</p>
+<p style="color:#cfcfcf;margin:0 0 12px">Install <strong>ProxyDeck</strong> from the App Store on your iPhone, and keep it in the foreground while you are connected. <strong>Mac:</strong> open Mac Bridge, tap <strong>Start Mac Bridge</strong>, then connect from FastNet Connect over USB or nearby peer-to-peer Wi-Fi. <strong>Windows:</strong> join the iPhone's Wi-Fi network from the PC, click <strong>Connect</strong> in FastNet Connect, and scan the code it shows from ProxyDeck's Mac Bridge tab.</p>
 <a class="dl" href="https://apps.apple.com/app/id6777330755">⤓&nbsp; Get ProxyDeck on the App Store</a>
 <p class="tip" style="margin-top:10px">Tip: open this App Store link on your iPhone. Trouble? <a href="mailto:pjiang726@gmail.com">pjiang726@gmail.com</a></p>
 

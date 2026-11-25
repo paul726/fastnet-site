@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ProxyDeck and FastNet Connect — Setup &amp; Support</title>
-<meta name="description" content="Set up ProxyDeck on iPhone and the optional FastNet Connect companion on Mac over USB or nearby peer-to-peer Wi-Fi.">
+<meta name="description" content="Set up ProxyDeck on iPhone with FastNet Connect on a Mac or a Windows PC.">
 <link rel="canonical" href="https://fastnet-site.vercel.app/proxydeck">
 <link rel="icon" type="image/svg+xml" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="%233b82f6"/><path d="M14 50 L50 14 L34 50 L30 36 Z" fill="white"/></svg>'>
 <style>
@@ -35,25 +35,34 @@ a:focus-visible { outline:3px solid #93c5fd; outline-offset:4px; }
 <div class="container">
   <a class="back" href="/">← FastNet</a>
   <h1>ProxyDeck</h1>
-  <div class="tag">The free iPhone app used with FastNet Connect for Mac.</div>
+  <div class="tag">The free iPhone app used with FastNet Connect for Mac and Windows.</div>
 
-  <p>Looking for FastNet on the App Store? The iPhone app is called <strong>ProxyDeck &mdash; Network Lab</strong>. FastNet Connect is the separate <strong>$29 one-time Mac app</strong>; Mac Bridge requires both.</p>
+  <p>Looking for FastNet on the App Store? The iPhone app is called <strong>ProxyDeck &mdash; Network Lab</strong>. FastNet Connect is the separate <strong>$29 one-time app for Mac and Windows</strong>; connecting a computer requires both.</p>
   <a class="install-btn" href="https://apps.apple.com/app/id6777330755">Install ProxyDeck for iPhone &mdash; Free</a>
 
-  <p><strong>Network Lab</strong> works entirely on your iPhone and requires no Mac, account, or companion app. It checks DNS, HTTPS, TCP, and the built-in local SOCKS5 path.</p>
+  <p><strong>Network Lab</strong> works entirely on your iPhone and requires no computer, account, or companion app. It checks DNS, HTTPS, TCP, and the built-in local SOCKS5 path.</p>
 
-  <p><strong>Mac Bridge</strong> is optional. It works with <strong>FastNet Connect</strong> on your Mac over USB or nearby peer-to-peer Wi-Fi and only while ProxyDeck remains in the foreground.</p>
+  <p><strong>Mac Bridge</strong> is optional. It works with <strong>FastNet Connect</strong> on a Mac (over USB or nearby peer-to-peer Wi-Fi) or on a Windows PC (over the iPhone's Wi-Fi network), and only while ProxyDeck remains in the foreground. The mode is called Mac Bridge in the app, and it is the one for Windows PCs too.</p>
 
-  <h2>Mac Bridge setup</h2>
+  <h2>Setup on a Mac</h2>
   <div class="card">
-    <p><strong>On an iPhone right now?</strong> Install ProxyDeck above first. Then open <a href="/#mac-setup">fastnet-site.vercel.app/#mac-setup</a> on your Mac for the Mac download and license instructions. <code>FastNet.pkg</code> is a macOS installer and cannot be installed on iPhone.</p>
+    <p><strong>On an iPhone right now?</strong> Install ProxyDeck above first. Then open <a href="/#mac-setup">fastnet-site.vercel.app/#mac-setup</a> on your computer for the downloads and license instructions. FastNet Connect installs on a Mac or a Windows PC, not on an iPhone.</p>
   </div>
   <ol>
     <li><a href="https://apps.apple.com/app/id6777330755">Install ProxyDeck from the App Store</a> on your iPhone.</li>
     <li>On an Apple Silicon Mac with macOS 13+, <a href="/#mac-setup">follow the FastNet Connect setup guide</a>, open <strong>FastNet.pkg</strong>, and complete the installer.</li>
-    <li>Launch FastNet Connect on your Mac and activate it with your existing license key, or <a href="/buy">purchase a Mac license for $29 one-time</a>. The iPhone app is free; the Mac license is separate.</li>
+    <li>Launch FastNet Connect on your Mac and activate it with your existing license key, or <a href="/buy">purchase a license for $29 one-time</a>. The iPhone app is free; the license is separate and covers Mac and Windows.</li>
     <li>Open ProxyDeck on the iPhone, select <strong>Mac Bridge</strong>, and tap <strong>Start Mac Bridge</strong>.</li>
     <li>Keep ProxyDeck in the foreground, then connect from the Mac over USB or nearby peer-to-peer Wi-Fi.</li>
+  </ol>
+
+  <h2>Setup on a Windows PC</h2>
+  <ol>
+    <li><a href="https://apps.apple.com/app/id6777330755">Install ProxyDeck from the App Store</a> on your iPhone.</li>
+    <li>On a PC with Windows 10 or 11, <a href="/windows">download FastNet Connect for Windows</a> and run the installer. The Windows page shows each warning Windows displays and what to click.</li>
+    <li>Turn on Personal Hotspot on the iPhone and join that Wi-Fi network from the PC. If both are already on the same home Wi-Fi, that works as well.</li>
+    <li>Click <strong>Connect</strong> in FastNet Connect. Then open ProxyDeck, select <strong>Mac Bridge</strong>, tap <strong>Scan pairing code</strong>, and point the iPhone at the code on the PC. The pairing is remembered.</li>
+    <li>Keep ProxyDeck in the foreground while the PC is connected. The same $29 license works here: <a href="/buy">purchase one</a> or use the one you already have.</li>
   </ol>
 
   <h2>Privacy</h2>
