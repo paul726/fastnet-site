@@ -41,10 +41,19 @@ a.dl{display:inline-block;background:var(--accent);color:#fff;text-decoration:no
 a.dl:hover{opacity:.92}
 ol{color:#cfcfcf;margin:18px 0 0 20px}li{margin-bottom:8px}
 .tip{color:var(--text2);font-size:13px;margin-top:28px}
+.oneclick{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:18px 20px}
+.oneclick p{color:#cfcfcf;font-size:14px;margin:4px 0 14px}
 a{color:var(--accent);text-decoration:none}
 </style></head><body><div class="container">
 <h1>✓ You're all set</h1>
 <div class="sub">Thanks for buying FastNet${email ? ', ' + esc(email) : ''}.</div>
+
+<div class="oneclick" id="oneclick" hidden>
+<strong>FastNet Connect already on this Mac?</strong>
+<p>Activate it from here. Your browser asks whether to open FastNet Connect: allow it.</p>
+<a class="dl" href="fastnet://activate?key=${encodeURIComponent(license)}">Activate in FastNet Connect</a>
+<p class="tip" style="margin-top:12px">Nothing happened? Install the latest version in step 1, then click the button again, or paste the key by hand (steps 2 and 3).</p>
+</div>
 
 <div class="label">1 · Download the app</div>
 <p style="color:#cfcfcf;margin:0 0 12px">Open this page on your Mac before downloading. <strong>FastNet.pkg</strong> is a macOS installer and cannot be installed on iPhone.</p>
@@ -58,7 +67,7 @@ a{color:var(--accent);text-decoration:none}
 <div class="label" style="margin-top:32px">3 · Activate</div>
 <ol>
   <li>Open the downloaded <strong>FastNet.pkg</strong> and follow the installer (one admin password).</li>
-  <li>Launch <strong>FastNet Connect</strong> (paper-plane icon in the menu bar), click <strong>Enter license key</strong> if you are still in the free trial, paste the key, and click <strong>Activate</strong>.</li>
+  <li>Launch <strong>FastNet Connect</strong> (paper-plane icon in the menu bar). With this page open on that Mac, click <strong>Activate in FastNet Connect</strong> at the top. Or do it by hand: click <strong>Enter license key</strong> if you are still in the free trial, paste the key, and click <strong>Activate</strong>.</li>
 </ol>
 
 <div class="label" style="margin-top:32px">4 · Install the iPhone app</div>
@@ -67,7 +76,15 @@ a{color:var(--accent);text-decoration:none}
 <p class="tip" style="margin-top:10px">Tip: open this App Store link on your iPhone. Trouble? <a href="mailto:pjiang726@gmail.com">pjiang726@gmail.com</a></p>
 
 <div class="tip">Keep this key — you can re-open this page anytime to copy it again. Questions? <a href="mailto:pjiang726@gmail.com">pjiang726@gmail.com</a></div>
-</div></body></html>`;
+</div>
+<script>
+// The activation link opens FastNet Connect for Mac, so offer it on Macs only
+// (an iPad also reports itself as a Mac, but has a touch screen).
+if (/Mac/.test(navigator.platform) && !(navigator.maxTouchPoints > 1)) {
+  document.getElementById('oneclick').hidden = false;
+}
+</script>
+</body></html>`;
 }
 
 // A Checkout Session stays "paid" after a refund, so the refund has to be read
