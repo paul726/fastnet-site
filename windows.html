@@ -136,7 +136,7 @@ code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .
       </div>
       <p class="fine">Windows 10 or 11. Free for the first 2 hours of connected time, then $29 once. On an ARM PC (Snapdragon), use the <a href="/downloads/FastNetConnect-Setup-arm64.exe" data-download="windows-arm64">ARM64 installer</a>.</p>
       <p class="fine">Installer blocked or won't start? Use the <a href="/downloads/FastNetConnect-x64-portable.zip" data-download="windows-x64-portable">no-install version</a> (<a href="/downloads/FastNetConnect-arm64-portable.zip" data-download="windows-arm64-portable">ARM64</a>): unzip it and run FastNetConnect.exe, with no setup to unpack.</p>
-      <p class="notice"><strong>Windows will warn you about this download.</strong> FastNet is made by one independent developer and is signed with our own certificate, not one bought from a certificate company, so Windows shows it as an unknown publisher. The steps below show each warning and what to click.</p>
+      <p class="notice"><strong>Signed and trusted.</strong> FastNet is signed with a certificate that chains to Microsoft's trusted root, so Windows shows the verified publisher (ZHENG JIANG) and no longer blocks it. A brand-new release can still get a one-time "not commonly downloaded" note from SmartScreen until enough people have installed it; the steps below cover that.</p>
     </div>
   </header>
 
@@ -154,8 +154,8 @@ code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .
 
   <section class="content" id="install" aria-labelledby="install-title">
     <div class="container">
-      <h2 id="install-title">Install: three warnings, three clicks.</h2>
-      <p class="intro">Each of these appears because Windows does not recognize the publisher. None of them means something was found in the file. If you would rather check the file first, the signature and checksums are listed under the steps.</p>
+      <h2 id="install-title">Install in about a minute.</h2>
+      <p class="intro">FastNet is signed, so Windows trusts the publisher and installs it normally. On a brand-new release you may still see a one-time SmartScreen note until it has been downloaded enough; here is what to click, and how to check the file first if you like.</p>
       <p class="notice">Stuck on a warning you can't get past, or Windows won't let it run at all? Email <a href="mailto:pjiang726@gmail.com">pjiang726@gmail.com</a> and I'll help you get it working.</p>
       <ol class="steps">
         <li><div>
@@ -168,11 +168,11 @@ code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .
           </div>
         </div></li>
         <li><div>
-          <h3>"Windows protected your PC"</h3>
-          <p>This is Microsoft Defender SmartScreen. The button to continue is hidden until you click <strong>More info</strong>.</p>
+          <h3>SmartScreen may flag a brand-new release</h3>
+          <p>Until a release has been downloaded by enough people, Microsoft Defender SmartScreen can show this once. The button to continue is behind <strong>More info</strong>. It now names the verified publisher, so you can see it really is from FastNet.</p>
           <div class="dialog" role="img" aria-label="SmartScreen dialog: choose More info, then Run anyway">
             <div class="bar">Windows protected your PC</div>
-            <div class="body">Microsoft Defender SmartScreen prevented an unrecognized app from starting.<small>Publisher: Unknown publisher</small>
+            <div class="body">Microsoft Defender SmartScreen hasn't seen this app often yet.<small>Publisher: ZHENG JIANG (FastNet)</small>
               <span class="click">More info</span><span class="then">then</span><span class="click">Run anyway</span></div>
           </div>
         </div></li>
@@ -181,7 +181,7 @@ code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .
           <p>Windows asks once for the installer, and again each time you start FastNet Connect, because the app creates its network adapter when it starts.</p>
           <div class="dialog" role="img" aria-label="User Account Control prompt: choose Yes">
             <div class="bar">User Account Control</div>
-            <div class="body"><b>Do you want to allow this app from an unknown publisher to make changes to your device?</b><small>FastNet Connect</small>
+            <div class="body"><b>Do you want to allow this app to make changes to your device?</b><small>Verified publisher: ZHENG JIANG (FastNet)</small>
               <span class="click">Yes</span></div>
           </div>
         </div></li>
@@ -196,14 +196,12 @@ code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .
   <section class="content" id="verify" aria-labelledby="verify-title">
     <div class="container">
       <h2 id="verify-title">Check the file before you run it.</h2>
-      <p class="intro">Optional, and takes a minute. Every release is signed with the same FastNet certificate, so you can confirm the installer is the one published here and was not changed on the way.</p>
+      <p class="intro">Optional, and takes a minute. Every release is signed, and Windows checks that signature against Microsoft's trusted root, so you can confirm who published it and match the checksum below.</p>
       <div class="comparison">
         <article class="card">
           <p class="label">Signature</p>
           <h3>In File Explorer</h3>
-          <p>Right-click the installer, choose <strong>Properties</strong>, then <strong>Digital Signatures</strong>, select <strong>FastNet</strong> and click <strong>Details</strong>, then <strong>View Certificate</strong>. Under Details, the <strong>Thumbprint</strong> must be:</p>
-          <p style="margin-top:14px"><code>7995 04DA 1FFB D2BD 1548 70B3 786B B25A 1154 C279</code></p>
-          <p>Windows adds that the certificate is not trusted. That is expected: it is our own certificate, and the thumbprint is what identifies it.</p>
+          <p>Right-click the installer, choose <strong>Properties</strong>, then <strong>Digital Signatures</strong>. The signer is <strong>ZHENG JIANG</strong>, the developer of FastNet. Click <strong>Details</strong>: Windows confirms the signature is valid, because the certificate chains to the Microsoft Identity Verification Root.</p>
         </article>
         <article class="card">
           <p class="label">Checksum</p>
@@ -215,10 +213,10 @@ code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .
       <div class="table-wrap">
         <table class="sums" id="checksums">
           <tr><th>Version</th><td>0.1.6</td></tr>
-          <tr><th>x64 SHA-256</th><td><code>8fce51183ba04217a4b7aa6dc0c5867b0ff4364a20b866642a7b6432e9c7a6d6</code></td></tr>
-          <tr><th>ARM64 SHA-256</th><td><code>0fb39c32e2171ec69864a8062cc91ae93ba8099d6e6bacece78b41fba6b1f07e</code></td></tr>
-          <tr><th>x64 no-install SHA-256</th><td><code>10cf04f844ce92275aafaf5f916a2fb418a7e67c27b3453a9d998392a3200edf</code></td></tr>
-          <tr><th>ARM64 no-install SHA-256</th><td><code>399046b4f16e31697929a83c60a0d23bd50bc9e8a653abcc667cc0f6eb7fe885</code></td></tr>
+          <tr><th>x64 SHA-256</th><td><code>51301b176ce5a76ff33476d8b8ab256ba6e2c67a0275720d44c148cc06f8dc61</code></td></tr>
+          <tr><th>ARM64 SHA-256</th><td><code>804cc2775ee5e469dd7b357a676b76662f3c6635844732b8bc2b3572de307e6c</code></td></tr>
+          <tr><th>x64 no-install SHA-256</th><td><code>d5f81aa66d796ff9593ceba9a444f29a79e518dedee627aa97144e66bc5811a6</code></td></tr>
+          <tr><th>ARM64 no-install SHA-256</th><td><code>29fbac6d8ddd5de3e4427842e36e30e6e44d25bd990592e7bdf6c3f87b266cea</code></td></tr>
         </table>
       </div>
     </div>
@@ -240,10 +238,10 @@ code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .
   <section class="content" id="faq" aria-labelledby="faq-title">
     <div class="container">
       <h2 id="faq-title">Questions.</h2>
-      <details><summary>Why does Windows say "unknown publisher"?</summary><p>Windows shows a publisher name only for apps signed with a certificate bought from a certificate company, which costs a few hundred dollars a year. FastNet is signed with a certificate we created ourselves. The signature still proves that every release comes from the same source and was not modified; Windows just cannot attach a verified name to it. The thumbprint above lets you check it yourself.</p></details>
+      <details><summary>Is FastNet signed? Who is the publisher?</summary><p>Yes. Every release is signed through Microsoft's Trusted Signing service, with a certificate issued to <strong>ZHENG JIANG</strong>, the developer of FastNet, that chains to Microsoft's trusted root. Windows shows that verified name, trusts the signature, and Smart App Control allows it. Right-click the download, choose Properties then Digital Signatures, to see it for yourself.</p></details>
       <details><summary>What does the installer change on my PC?</summary><p>It copies the app into Program Files, adds a Start menu shortcut, and registers <code>fastnet:</code> links so the Activate button on the license page can open the app. When you click Connect, the app adds one inbound firewall rule for itself and creates a network adapter named FastNet using Wintun, the open-source driver from the WireGuard project. The adapter is removed when you close the app. Uninstalling from Windows Settings removes the app, the link registration and the firewall rule.</p></details>
-      <details><summary>My antivirus stopped it. What now?</summary><p>Some security software blocks any new network driver from an unknown publisher. If FastNet says it could not create its network adapter, allow FastNet Connect in your security software and start it again. A Windows restart that is still pending from an update can cause the same message.</p></details>
-      <details><summary>The installer won't start, or says "Unable to execute file in the temporary directory"</summary><p>That message comes from security software or a workplace policy blocking the installer as it unpacks itself, not from anything wrong with the file. Three things to try, in order: right-click the downloaded <strong>FastNetConnect-Setup-x64.exe</strong>, choose <strong>Properties</strong>, tick <strong>Unblock</strong> at the bottom and click <strong>OK</strong>; right-click it and choose <strong>Run as administrator</strong>; or pause your antivirus's real-time protection for a minute, run the installer, then turn it back on. If none of those help, use the <a href="/downloads/FastNetConnect-x64-portable.zip" data-download="windows-x64-portable">no-install version</a> (<a href="/downloads/FastNetConnect-arm64-portable.zip" data-download="windows-arm64-portable">ARM64</a>): it has no installer at all, so there is nothing to unpack. Unzip it and run <strong>FastNetConnect.exe</strong> from the folder. If Windows still refuses it, for instance Smart App Control, which has no "run anyway" button, email <a href="mailto:pjiang726@gmail.com">pjiang726@gmail.com</a> and I'll sort it out with you.</p></details>
+      <details><summary>My antivirus stopped it. What now?</summary><p>Some security software blocks any app that creates a new network adapter. If FastNet says it could not create its network adapter, allow FastNet Connect in your security software and start it again. A Windows restart that is still pending from an update can cause the same message.</p></details>
+      <details><summary>The installer won't start, or says "Unable to execute file in the temporary directory"</summary><p>That is security software or a workplace policy blocking the installer as it unpacks, not a problem with the file (it is signed and trusted). Try, in order: right-click <strong>FastNetConnect-Setup-x64.exe</strong>, choose <strong>Properties</strong>, tick <strong>Unblock</strong> and click <strong>OK</strong>; right-click and choose <strong>Run as administrator</strong>; or pause your antivirus's real-time protection for a minute, run it, then turn it back on. Still stuck? Use the <a href="/downloads/FastNetConnect-x64-portable.zip" data-download="windows-x64-portable">no-install version</a> (<a href="/downloads/FastNetConnect-arm64-portable.zip" data-download="windows-arm64-portable">ARM64</a>) — unzip and run <strong>FastNetConnect.exe</strong>, nothing to unpack — or email <a href="mailto:pjiang726@gmail.com">pjiang726@gmail.com</a> and I'll sort it out with you.</p></details>
       <details><summary>Does the whole PC go through the iPhone?</summary><p>Yes. While it says Connected, all apps on the PC use the iPhone's connection, not only the browser. When you disconnect or close the app, the PC is back on its own network.</p></details>
       <details><summary>Is the license the same as on the Mac?</summary><p>Yes. One FastNet license ($29, one-time) unlocks both the Mac and the Windows app. On the page you get after buying, click <strong>Activate in FastNet Connect</strong>, or copy the key and paste it under <strong>Enter license key</strong> in the app.</p></details>
       <details><summary>It says Connected but nothing loads. What now?</summary><p>Click <strong>Diagnose</strong> at the bottom of the FastNet Connect window. It checks each part of the connection in turn, from this PC to the iPhone to an ordinary web request, and says which one fails and what to do. <strong>Copy report</strong> puts the details on the clipboard if you want to send them to support.</p></details>
