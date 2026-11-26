@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://fastnet-site.vercel.app/sitemap.xml
+Sitemap: https://getfastnet.com/sitemap.xml

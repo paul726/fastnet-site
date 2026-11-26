@@ -3,6 +3,17 @@
   "cleanUrls": true,
   "redirects": [
     {
+      "source": "/((?!downloads/|api/|google42140ebb80eb6777).*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "fastnet-site.vercel.app"
+        }
+      ],
+      "destination": "https://getfastnet.com/$1",
+      "permanent": true
+    },
+    {
       "source": "/buy",
       "has": [
         {
