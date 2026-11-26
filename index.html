@@ -226,7 +226,7 @@ footer { border-top: 1px solid var(--border); padding: 36px 0 44px; color: var(-
   <div class="container">
     <a href="/" class="logo" aria-label="FastNet home"><svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" fill="#3b82f6"/><path d="M14 50 L50 14 L34 50 L30 36 Z" fill="#fff"/></svg><span class="wordmark">Fast<span>Net</span></span></a>
     <div class="nav-links">
-      <a href="#setup" class="keep">Setup</a>
+      <a href="#setup" class="keep">Download</a>
       <a href="#pricing">Pricing</a>
       <a href="#faq">FAQ</a>
       <a href="/blog/">Guides</a>
@@ -244,9 +244,10 @@ footer { border-top: 1px solid var(--border); padding: 36px 0 44px; color: var(-
         <h1>iPhone fast.<br><span>Laptop hotspot slow?</span></h1>
         <p class="lede">Put your Mac or Windows PC online through your iPhone's regular phone data instead of the capped hotspot allowance. Any carrier. No jailbreak.</p>
         <div class="actions" id="apps">
-          <a class="button" href="#setup">Try it free for 2 hours</a>
-          <a class="button secondary" href="/buy">Buy license &mdash; $29</a>
+          <a class="button" id="hero-dl" href="/download" data-download="mac">Download for Mac &mdash; free</a>
+          <a class="button secondary" href="/buy">Buy &middot; $29</a>
         </div>
+        <p class="fine" id="hero-dl-other">Free for your first 2 hours, no card or email. On Windows? <a href="/windows" data-download="windows">Download for Windows</a>.</p>
         <p class="fine">Two apps work together: <strong>FastNet Connect</strong> on your Mac or Windows PC (free for your first 2 hours connected, then $29 one-time with a 30-day refund; one license covers both) and <strong>ProxyDeck</strong> on your iPhone (<a href="https://apps.apple.com/app/id6777330755">free on the App Store</a>). No card or email for the trial. Mac: Apple Silicon, macOS 13+. PC: Windows 10 or 11. iPhone: iOS 16+.</p>
       </div>
       <div class="shot">
@@ -323,12 +324,12 @@ footer { border-top: 1px solid var(--border); padding: 36px 0 44px; color: var(-
             <div class="platform">
               <h4>Mac</h4>
               <p>Apple Silicon, macOS 13 or later. Download and open <strong>FastNet.pkg</strong>.</p>
-              <a class="button secondary" href="/download">Download for Mac</a>
+              <a class="button" href="/download" data-download="mac">Download for Mac</a>
             </div>
             <div class="platform">
               <h4>Windows PC</h4>
               <p>Windows 10 or 11, x64 or ARM64. The Windows page has the installer and each step.</p>
-              <a class="button secondary" href="/windows">Download for Windows</a>
+              <a class="button" href="/windows" data-download="windows">Download for Windows</a>
             </div>
           </div>
           <p class="fine">No card or email needed for the trial.</p>
@@ -478,6 +479,17 @@ footer { border-top: 1px solid var(--border); padding: 36px 0 44px; color: var(-
 (function () {
   const ref = window.fnRef || '';
 
+})();
+// Lead the hero's download with the visitor's own platform.
+(function () {
+  try {
+    var isWin = /Win/.test(navigator.platform) || (/Windows/.test(navigator.userAgent) && !/Mac/.test(navigator.platform));
+    if (!isWin) return;
+    var b = document.getElementById('hero-dl');
+    if (b) { b.textContent = 'Download for Windows — free'; b.setAttribute('href', '/windows'); b.setAttribute('data-download', 'windows'); }
+    var o = document.getElementById('hero-dl-other');
+    if (o) { o.innerHTML = 'Free for your first 2 hours, no card or email. On Mac? <a href="/download" data-download="mac">Download for Mac</a>.'; }
+  } catch (e) {}
 })();
 </script>
 
