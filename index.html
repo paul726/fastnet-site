@@ -256,8 +256,8 @@ footer { border-top: 1px solid var(--border); padding: 36px 0 44px; color: var(-
           <img class="shot-phone" src="hero-phone.jpg" width="590" height="1294" alt="ProxyDeck on an iPhone with Mac Bridge running: 35 active connections and 38.5 MB of traffic.">
         </figure>
         <figure class="shot-mac-wrap">
-          <figcaption>On your computer (shown: Mac)</figcaption>
-          <img class="shot-mac" src="hero-mac.jpg" width="512" height="330" alt="The FastNet Connect panel in the Mac menu bar, switched on, showing the iPhone connected over USB.">
+          <figcaption id="shot-cap">On your computer (shown: Mac)</figcaption>
+          <img class="shot-mac" id="shot-computer" src="hero-mac.jpg" width="512" height="330" alt="The FastNet Connect panel in the Mac menu bar, switched on, showing the iPhone connected over USB.">
         </figure>
       </div>
     </div>
@@ -321,12 +321,12 @@ footer { border-top: 1px solid var(--border); padding: 36px 0 44px; color: var(-
           <h3>Install FastNet Connect on your Mac or PC</h3>
           <p>It runs without a license for your first 2 hours of connected time, so you can check it on your carrier before paying. After that, a <a href="/buy">$29 one-time license</a> keeps it running, and the same license works on both Mac and Windows. Already purchased? Click Activate on the page you got after buying, or paste your license key in the app.</p>
           <div class="platforms">
-            <div class="platform">
+            <div class="platform" data-platform="mac">
               <h4>Mac</h4>
               <p>Apple Silicon, macOS 13 or later. Download and open <strong>FastNet.pkg</strong>.</p>
               <a class="button" href="/download" data-download="mac">Download for Mac</a>
             </div>
-            <div class="platform">
+            <div class="platform" data-platform="windows">
               <h4>Windows PC</h4>
               <p>Windows 10 or 11, x64 or ARM64. The Windows page has the installer and each step.</p>
               <a class="button" href="/windows" data-download="windows">Download for Windows</a>
@@ -338,8 +338,8 @@ footer { border-top: 1px solid var(--border); padding: 36px 0 44px; color: var(-
       <li>
         <div>
           <h3>Connect</h3>
-          <p><strong>On a Mac:</strong> open ProxyDeck, select <strong>Mac Bridge</strong>, and tap <strong>Start Mac Bridge</strong>. Then connect from FastNet Connect over USB or nearby peer-to-peer Wi-Fi. Personal Hotspot stays off.</p>
-          <p><strong>On a Windows PC:</strong> join the iPhone's Wi-Fi network (its Personal Hotspot) from the PC, click <strong>Connect</strong> in FastNet Connect, and scan the code it shows from ProxyDeck's <strong>Mac Bridge</strong> tab. <a href="/windows#connect">Windows steps in detail</a>.</p>
+          <p data-platform="mac"><strong>On a Mac:</strong> open ProxyDeck, select <strong>Mac Bridge</strong>, and tap <strong>Start Mac Bridge</strong>. Then connect from FastNet Connect over USB or nearby peer-to-peer Wi-Fi. Personal Hotspot stays off.</p>
+          <p data-platform="windows"><strong>On a Windows PC:</strong> join the iPhone's Wi-Fi network (its Personal Hotspot) from the PC, click <strong>Connect</strong> in FastNet Connect, and scan the code it shows from ProxyDeck's <strong>Mac Bridge</strong> tab. <a href="/windows#connect">Windows steps in detail</a>.</p>
           <p>Either way, keep ProxyDeck in the foreground while you are connected.</p>
         </div>
       </li>
@@ -480,15 +480,31 @@ footer { border-top: 1px solid var(--border); padding: 36px 0 44px; color: var(-
   const ref = window.fnRef || '';
 
 })();
-// Lead the hero's download with the visitor's own platform.
+// Lead the page with the visitor's own platform (a client-side layer; the
+// default/crawled view is the Mac one).
 (function () {
   try {
     var isWin = /Win/.test(navigator.platform) || (/Windows/.test(navigator.userAgent) && !/Mac/.test(navigator.platform));
     if (!isWin) return;
+    document.documentElement.setAttribute('data-os', 'windows');
     var b = document.getElementById('hero-dl');
     if (b) { b.textContent = 'Download for Windows — free'; b.setAttribute('href', '/windows'); b.setAttribute('data-download', 'windows'); }
     var o = document.getElementById('hero-dl-other');
     if (o) { o.innerHTML = 'Free for your first 2 hours, no card or email. On Mac? <a href="/download" data-download="mac">Download for Mac</a>.'; }
+    var cap = document.getElementById('shot-cap');
+    if (cap) cap.textContent = 'On your computer (shown: Windows)';
+    var shot = document.getElementById('shot-computer');
+    if (shot) {
+      shot.setAttribute('src', '/hero-win.jpg');
+      shot.setAttribute('width', '640');
+      shot.setAttribute('height', '940');
+      shot.setAttribute('alt', 'The FastNet Connect window on Windows, connected through an iPhone.');
+    }
+    // In each Mac/Windows pair, move the Windows one in front.
+    document.querySelectorAll('[data-platform="windows"]').forEach(function (w) {
+      var p = w.parentElement, m = p && p.querySelector('[data-platform="mac"]');
+      if (m) p.insertBefore(w, m);
+    });
   } catch (e) {}
 })();
 </script>
