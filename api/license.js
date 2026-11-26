@@ -12,8 +12,14 @@ const crypto = require('crypto');
 const b64url = (buf) =>
   buf.toString('base64').replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
 
+// Every key carries an expiry so a dated license can be issued later without
+// shipping a new app build. For now it is set far in the future (2100-01-01),
+// i.e. effectively unlimited; the clients treat a past exp as expired and a
+// missing exp (older keys) as never expiring.
+const LICENSE_EXP = 4102444800; // 2100-01-01T00:00:00Z, unix seconds
+
 function mintLicense(email, order, iat) {
-  const payload = Buffer.from(JSON.stringify({ email, order, iat, product: 'fastnet-mac' }));
+  const payload = Buffer.from(JSON.stringify({ email, order, iat, product: 'fastnet-mac', exp: LICENSE_EXP }));
   const priv = crypto.createPrivateKey(process.env.LICENSE_SIGNING_KEY);
   const sig = crypto.sign(null, payload, priv); // Ed25519
   return b64url(payload) + '.' + b64url(sig);
