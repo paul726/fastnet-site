@@ -30,15 +30,34 @@
   // Stripe accepts letters, digits, dashes and underscores, up to 200 chars.
   incoming = incoming.replace(/[^a-zA-Z0-9_-]/g, '_').slice(0, 200);
 
-  var ref = incoming;
+  // Visitors who arrive with no tags and no referrer (typed URL, email link,
+  // messaging apps) used to leave client_reference_id empty, so their sales
+  // showed no source at all. They are now "direct", and every source carries
+  // the first page the visitor landed on, e.g. "linkedin__home", "direct__windows".
+  var source = incoming;
   try {
     if (incoming) localStorage.setItem('fn_ref', incoming);
-    else ref = localStorage.getItem('fn_ref') || '';
+    else source = localStorage.getItem('fn_ref') || '';
   } catch (e) {}
+  if (!source) source = 'direct';
+
+  var landing = '';
+  try {
+    landing = localStorage.getItem('fn_land') || '';
+    if (!landing) {
+      landing = location.pathname === '/' ? 'home'
+        : location.pathname.replace(/^\//, '').replace(/\/$/, '').replace(/\.html$/, '')
+            .replace(/^blog\//, 'blog-').replace(/[^a-zA-Z0-9_-]/g, '_').slice(0, 40) || 'home';
+      localStorage.setItem('fn_land', landing);
+    }
+  } catch (e) {}
+
+  var ref = source + (landing ? '__' + landing : '');
   if (partner) ref = 'aff_' + partner;
+  ref = ref.slice(0, 200);
+  window.fnSource = source;
   window.fnRef = ref;
 
-  if (!ref) return;
   var links = document.querySelectorAll('a[href]');
   for (var i = 0; i < links.length; i++) {
     var a = links[i];

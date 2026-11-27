@@ -487,7 +487,33 @@ footer { border-top: 1px solid var(--border); padding: 36px 0 44px; color: var(-
 // default/crawled view is the Mac one).
 (function () {
   try {
-    var isWin = /Win/.test(navigator.platform) || (/Windows/.test(navigator.userAgent) && !/Mac/.test(navigator.platform));
+    var force = new URLSearchParams(location.search).get('os');
+    var isIOS = force === 'ios' || (force !== 'windows' && force !== 'mac' && (/iPhone|iPad|iPod/.test(navigator.platform) || /iPhone|iPad/.test(navigator.userAgent) || (/Mac/.test(navigator.platform) && navigator.maxTouchPoints > 1)));
+    if (isIOS) {
+      // Someone reading this on the iPhone itself cannot install the computer
+      // app from here. Give them the half they can do now, and a way to get
+      // the page onto their computer for the other half.
+      document.documentElement.setAttribute('data-os', 'ios');
+      var dl = document.getElementById('hero-dl');
+      if (dl) { dl.textContent = 'Get the free iPhone app'; dl.setAttribute('href', 'https://apps.apple.com/app/id6777330755'); dl.setAttribute('data-download', 'ios-appstore'); }
+      var buy = document.querySelector('#apps .button.secondary');
+      var src = encodeURIComponent((window.fnSource || 'direct') + '-handoff');
+      var handoff = location.origin + '/?utm_source=' + src;
+      if (buy) {
+        buy.textContent = 'Send this page to my computer';
+        buy.setAttribute('href', 'mailto:?subject=' + encodeURIComponent('FastNet for my computer') + '&body=' + encodeURIComponent('Open this on the Mac or Windows PC: ' + handoff));
+        buy.addEventListener('click', function (ev) {
+          if (navigator.share) {
+            ev.preventDefault();
+            navigator.share({ title: 'FastNet', text: 'Open this on the Mac or Windows PC', url: handoff }).catch(function () {});
+          }
+        });
+      }
+      var other = document.getElementById('hero-dl-other');
+      if (other) { other.innerHTML = "You're on the iPhone, so start here: install the free app above. The second half, <strong>FastNet Connect</strong>, goes on your Mac or Windows PC; open <strong>getfastnet.com</strong> there when you're back at it. Free for your first 2 hours, nothing to buy until it works for you."; }
+      return;
+    }
+    var isWin = force === 'windows' || (force !== 'mac' && (/Win/.test(navigator.platform) || (/Windows/.test(navigator.userAgent) && !/Mac/.test(navigator.platform))));
     if (!isWin) return;
     document.documentElement.setAttribute('data-os', 'windows');
     var b = document.getElementById('hero-dl');
